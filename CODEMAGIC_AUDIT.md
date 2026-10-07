@@ -21,7 +21,7 @@
 
 - Android `applicationId` is `com.souqhamad.app`.
 - Release signing is configured through `android/keystore.properties` locally.
-- Codemagic signing is configured through Android Code Signing Identity reference `souq_hamad_upload_keystore`.
+- Codemagic signing is configured through app-level secure environment variables: `CM_KEYSTORE`, `CM_KEYSTORE_PASSWORD`, `CM_KEY_ALIAS`, and `CM_KEY_PASSWORD`.
 - Build output is AAB for Google Play.
 
 ## iOS
@@ -50,6 +50,6 @@
 
 ## Status
 
-READY for Codemagic repository detection and Android cloud build after uploading the Android keystore identity.
+READY for Codemagic repository detection and Android cloud build after adding the app-level Android signing environment variables.
 
 BLOCKED for signed iOS IPA until Apple Developer / App Store Connect signing is configured inside Codemagic.

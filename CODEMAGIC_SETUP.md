@@ -23,29 +23,33 @@ Do not rename the app ID, bundle ID, or deep link scheme unless the website OAut
    - `android-release` for Google Play AAB.
    - `ios-release` for App Store/TestFlight IPA.
 
-## Android signing
+## Android signing for personal accounts
 
-In Codemagic, open Team settings, then `codemagic.yaml settings`, then `Code signing identities`, then `Android keystores`.
+Use the app-level `Environment variables` tab in Codemagic. Add these variables as secure values:
 
-Upload the local keystore file:
+```text
+CM_KEYSTORE
+CM_KEYSTORE_PASSWORD
+CM_KEY_ALIAS
+CM_KEY_PASSWORD
+```
+
+`CM_KEYSTORE` must be the base64 value of the local keystore file:
 
 ```text
 C:\Users\maher\Desktop\app\mobile-app\android\upload-keystore.jks
 ```
 
-Use this reference name exactly:
+Generate it locally with PowerShell:
 
-```text
-souq_hamad_upload_keystore
+```powershell
+[Convert]::ToBase64String([IO.File]::ReadAllBytes("C:\Users\maher\Desktop\app\mobile-app\android\upload-keystore.jks")) | Set-Clipboard
 ```
 
-Codemagic will then expose these variables during the build:
+Get the remaining values from the local file:
 
 ```text
-CM_KEYSTORE_PATH
-CM_KEYSTORE_PASSWORD
-CM_KEY_ALIAS
-CM_KEY_PASSWORD
+C:\Users\maher\Desktop\app\mobile-app\android\keystore.properties
 ```
 
 Do not upload `android/keystore.properties` to GitHub.

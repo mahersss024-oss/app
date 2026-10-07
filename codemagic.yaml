@@ -8,8 +8,6 @@ workflows:
       java: 17
       vars:
         SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
-      android_signing:
-        - souq_hamad_upload_keystore
     triggering:
       events:
         - push
@@ -30,13 +28,15 @@ workflows:
           pnpm exec cap sync android
       - name: Configure Android signing
         script: |
-          if [ -z "$CM_KEYSTORE_PATH" ] || [ -z "$CM_KEYSTORE_PASSWORD" ] || [ -z "$CM_KEY_ALIAS" ] || [ -z "$CM_KEY_PASSWORD" ]; then
-            echo "Android signing variables are missing. Add Android keystore reference souq_hamad_upload_keystore in Codemagic."
+          if [ -z "$CM_KEYSTORE" ] || [ -z "$CM_KEYSTORE_PASSWORD" ] || [ -z "$CM_KEY_ALIAS" ] || [ -z "$CM_KEY_PASSWORD" ]; then
+            echo "Android signing variables are missing. Add CM_KEYSTORE, CM_KEYSTORE_PASSWORD, CM_KEY_ALIAS, and CM_KEY_PASSWORD in the app Environment variables."
             exit 1
           fi
 
+          echo "$CM_KEYSTORE" | base64 --decode > android/upload-keystore.jks
+
           cat > android/keystore.properties <<EOF
-          storeFile=$CM_KEYSTORE_PATH
+          storeFile=upload-keystore.jks
           storePassword=$CM_KEYSTORE_PASSWORD
           keyAlias=$CM_KEY_ALIAS
           keyPassword=$CM_KEY_PASSWORD
