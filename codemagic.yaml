@@ -19,7 +19,7 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          corepack enable
+          npm install -g pnpm@9
           pnpm install --frozen-lockfile
       - name: Verify Capacitor Android project
         script: |
@@ -71,7 +71,7 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          corepack enable
+          npm install -g pnpm@9
           pnpm install --frozen-lockfile
       - name: Verify Capacitor iOS project
         script: |
