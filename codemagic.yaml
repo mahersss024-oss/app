@@ -63,6 +63,55 @@ workflows:
       - android/app/build/outputs/**/mapping.txt
       - android/app/build/reports/**/*.html
 
+  android-release-manual-secrets:
+    name: Android Release AAB Manual Secrets
+    max_build_duration: 60
+    environment:
+      groups:
+        - android_signing
+      node: latest
+      java: 17
+      vars:
+        SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
+    scripts:
+      - name: Check Android signing variables
+        script: |
+          missing=0
+          for name in CM_KEYSTORE CM_KEYSTORE_PASSWORD CM_KEY_ALIAS CM_KEY_PASSWORD; do
+            if [ -n "$(printenv "$name")" ]; then
+              echo "$name is set"
+            else
+              echo "$name is missing"
+              missing=1
+            fi
+          done
+          exit "$missing"
+      - name: Install dependencies
+        script: |
+          npx pnpm@9 install --frozen-lockfile
+      - name: Sync Capacitor Android project
+        script: |
+          npx pnpm@9 exec cap sync android
+      - name: Configure Android signing
+        script: |
+          echo "$CM_KEYSTORE" | base64 --decode > android/upload-keystore.jks
+          cat > android/keystore.properties <<EOF
+          storeFile=upload-keystore.jks
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          keyPassword=$CM_KEY_PASSWORD
+          EOF
+      - name: Build signed Android App Bundle
+        script: |
+          cd android
+          chmod +x ./gradlew
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.apk
+      - android/app/build/outputs/**/mapping.txt
+      - android/app/build/reports/**/*.html
+
   ios-release:
     name: iOS Release IPA
     max_build_duration: 120
