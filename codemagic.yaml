@@ -7,6 +7,8 @@ workflows:
       java: 17
       groups:
         - android_signing
+        - Android_signing
+        - android-signing
       vars:
         SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
     triggering:

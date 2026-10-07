@@ -54,6 +54,14 @@ C:\Users\maher\Desktop\app\mobile-app\android\keystore.properties
 
 Do not upload `android/keystore.properties` to GitHub.
 
+All four variables must be in a variable group named exactly:
+
+```text
+android_signing
+```
+
+After adding them, click the page save/apply button if Codemagic shows one, then refresh the `codemagic.yaml` tab before starting a new build.
+
 ## iOS signing
 
 For the `ios-release` workflow, Codemagic needs App Store signing files for:
