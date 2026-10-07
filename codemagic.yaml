@@ -1,0 +1,49 @@
+workflows:
+  android-internal-testing:
+    name: Android Internal Testing
+    max_build_duration: 60
+    instance_type: linux_x2
+    environment:
+      node: latest
+      java: 17
+      groups:
+        - souq_hamad_android_signing
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+    scripts:
+      - name: Install dependencies
+        script: |
+          corepack enable
+          pnpm install --frozen-lockfile
+      - name: Sync Capacitor Android project
+        script: |
+          pnpm exec capacitor sync android
+      - name: Configure Android signing
+        script: |
+          if [ -z "$CM_KEYSTORE_PATH" ] || [ -z "$CM_KEYSTORE_PASSWORD" ] || [ -z "$CM_KEY_ALIAS" ] || [ -z "$CM_KEY_PASSWORD" ]; then
+            echo "Android signing variables are missing."
+            echo "Add the souq_hamad_android_signing variable group in Codemagic."
+            exit 1
+          fi
+
+          cat > android/keystore.properties <<EOF
+          storeFile=$CM_KEYSTORE_PATH
+          storePassword=$CM_KEYSTORE_PASSWORD
+          keyAlias=$CM_KEY_ALIAS
+          keyPassword=$CM_KEY_PASSWORD
+          EOF
+      - name: Build signed Android App Bundle
+        script: |
+          cd android
+          chmod +x ./gradlew
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.apk
+      - android/app/build/outputs/**/mapping.txt
+      - android/app/build/reports/**/*.html
