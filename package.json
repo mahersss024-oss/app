@@ -1,0 +1,30 @@
+{
+  "name": "souq-hamad-mobile-app",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Native iOS and Android wrapper for the Souq Hamad web app.",
+  "type": "module",
+  "scripts": {
+    "cap": "capacitor",
+    "sync": "capacitor sync",
+    "copy": "capacitor copy",
+    "open:android": "capacitor open android",
+    "open:ios": "capacitor open ios",
+    "doctor": "capacitor doctor"
+  },
+  "dependencies": {
+    "@capacitor/android": "8.5.2",
+    "@capacitor/app": "8.1.0",
+    "@capacitor/browser": "8.0.2",
+    "@capacitor/core": "8.5.2",
+    "@capacitor/haptics": "8.0.2",
+    "@capacitor/ios": "8.5.2",
+    "@capacitor/share": "8.0.2",
+    "@capacitor/splash-screen": "8.0.2",
+    "@capacitor/status-bar": "8.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "8.5.2",
+    "typescript": "^5.9.2"
+  }
+}
