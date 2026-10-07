@@ -86,6 +86,28 @@ CERTIFICATE_PRIVATE_KEY
 
 Do not put `.p8`, `.p12`, `.mobileprovision`, Apple passwords, or API keys in GitHub.
 
+The workflow expects an App Store Connect integration named:
+
+```text
+codemagic
+```
+
+In Codemagic, add it under Developer Portal / App Store Connect integrations using:
+
+```text
+Issuer ID
+Key ID
+.p8 private key file
+```
+
+Then configure iOS code signing identities for bundle ID:
+
+```text
+com.souqhamad.app
+```
+
+Use App Store distribution signing for TestFlight/App Store builds.
+
 ## Build outputs
 
 Android AAB:

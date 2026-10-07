@@ -29,7 +29,8 @@
 - Xcode project exists at `ios/App/App.xcodeproj`.
 - Bundle identifier resolves to `com.souqhamad.app`.
 - No local IPA build should be attempted on Windows.
-- Codemagic `ios-release` is configured for a macOS build machine and App Store distribution signing.
+- Codemagic `ios-release` is configured for a macOS build machine, App Store Connect integration `codemagic`, and App Store distribution signing.
+- `ITSAppUsesNonExemptEncryption` is set to `false` because the native wrapper does not add custom encryption.
 
 ## Deep links and OAuth
 
