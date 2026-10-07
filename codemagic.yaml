@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
     environment:
       node: latest
-      java: 17
+      java: 21
       groups:
         - android_signing
         - Android_signing
@@ -70,7 +70,7 @@ workflows:
       groups:
         - android_signing
       node: latest
-      java: 17
+      java: 21
       vars:
         SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
     scripts:
