@@ -6,6 +6,8 @@ workflows:
     environment:
       node: latest
       java: 17
+      groups:
+        - android_signing
       vars:
         SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
     triggering:
