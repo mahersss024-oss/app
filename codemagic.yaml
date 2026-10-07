@@ -1,13 +1,15 @@
 workflows:
-  android-internal-testing:
-    name: Android Internal Testing
+  android-release:
+    name: Android Release AAB
     max_build_duration: 60
     instance_type: linux_x2
     environment:
       node: latest
       java: 17
-      groups:
-        - souq_hamad_android_signing
+      vars:
+        SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
+      android_signing:
+        - souq_hamad_upload_keystore
     triggering:
       events:
         - push
@@ -20,14 +22,16 @@ workflows:
         script: |
           corepack enable
           pnpm install --frozen-lockfile
+      - name: Verify Capacitor Android project
+        script: |
+          pnpm exec cap ls android
       - name: Sync Capacitor Android project
         script: |
-          pnpm exec capacitor sync android
+          pnpm exec cap sync android
       - name: Configure Android signing
         script: |
           if [ -z "$CM_KEYSTORE_PATH" ] || [ -z "$CM_KEYSTORE_PASSWORD" ] || [ -z "$CM_KEY_ALIAS" ] || [ -z "$CM_KEY_PASSWORD" ]; then
-            echo "Android signing variables are missing."
-            echo "Add the souq_hamad_android_signing variable group in Codemagic."
+            echo "Android signing variables are missing. Add Android keystore reference souq_hamad_upload_keystore in Codemagic."
             exit 1
           fi
 
@@ -47,3 +51,50 @@ workflows:
       - android/app/build/outputs/**/*.apk
       - android/app/build/outputs/**/mapping.txt
       - android/app/build/reports/**/*.html
+
+  ios-release:
+    name: iOS Release IPA
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+    environment:
+      node: latest
+      xcode: latest
+      vars:
+        SOUQ_HAMAD_APP_URL: "https://souqhamad.com"
+        XCODE_PROJECT: "ios/App/App.xcodeproj"
+        XCODE_SCHEME: "App"
+        BUNDLE_ID: "com.souqhamad.app"
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.souqhamad.app
+    scripts:
+      - name: Install dependencies
+        script: |
+          corepack enable
+          pnpm install --frozen-lockfile
+      - name: Verify Capacitor iOS project
+        script: |
+          pnpm exec cap doctor ios
+      - name: Sync Capacitor iOS project
+        script: |
+          pnpm exec cap sync ios
+      - name: Install CocoaPods dependencies if needed
+        script: |
+          if [ -f ios/App/Podfile ]; then
+            cd ios/App
+            pod install
+          else
+            echo "No Podfile found; using the checked-in Xcode project."
+          fi
+      - name: Set up iOS code signing settings
+        script: |
+          xcode-project use-profiles
+      - name: Build signed IPA
+        script: |
+          xcode-project build-ipa \
+            --project "$XCODE_PROJECT" \
+            --scheme "$XCODE_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - build/ios/xcarchive/*.xcarchive
+      - /tmp/xcodebuild_logs/*.log

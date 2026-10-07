@@ -13,6 +13,11 @@ android/*.jks
 android/*.keystore
 android/app/*.jks
 android/app/*.keystore
+*.p8
+*.p12
+*.mobileprovision
+*service-account*.json
+*google-play*.json
 
 ios/App/Pods/
 ios/App/build/
