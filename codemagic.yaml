@@ -19,14 +19,13 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          npm install -g pnpm@9
-          pnpm install --frozen-lockfile
+          npx pnpm@9 install --frozen-lockfile
       - name: Verify Capacitor Android project
         script: |
-          pnpm exec cap ls android
+          npx pnpm@9 exec cap ls android
       - name: Sync Capacitor Android project
         script: |
-          pnpm exec cap sync android
+          npx pnpm@9 exec cap sync android
       - name: Configure Android signing
         script: |
           if [ -z "$CM_KEYSTORE" ] || [ -z "$CM_KEYSTORE_PASSWORD" ] || [ -z "$CM_KEY_ALIAS" ] || [ -z "$CM_KEY_PASSWORD" ]; then
@@ -71,14 +70,13 @@ workflows:
     scripts:
       - name: Install dependencies
         script: |
-          npm install -g pnpm@9
-          pnpm install --frozen-lockfile
+          npx pnpm@9 install --frozen-lockfile
       - name: Verify Capacitor iOS project
         script: |
-          pnpm exec cap doctor ios
+          npx pnpm@9 exec cap doctor ios
       - name: Sync Capacitor iOS project
         script: |
-          pnpm exec cap sync ios
+          npx pnpm@9 exec cap sync ios
       - name: Install CocoaPods dependencies if needed
         script: |
           if [ -f ios/App/Podfile ]; then
