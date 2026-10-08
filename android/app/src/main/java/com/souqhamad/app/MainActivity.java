@@ -101,6 +101,10 @@ public class MainActivity extends BridgeActivity {
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
+        if (webChromeClient != null && webChromeClient.handlePermissionResult(requestCode, grantResults)) {
+            return;
+        }
+
         if (requestCode == REQUEST_POST_NOTIFICATIONS) {
             injectNativePushStatus();
             scheduleNativePushRegistration();

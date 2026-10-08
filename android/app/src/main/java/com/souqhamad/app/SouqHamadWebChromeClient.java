@@ -2,8 +2,8 @@ package com.souqhamad.app;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.Manifest;
 import android.content.ActivityNotFoundException;
-import android.content.ComponentName;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
@@ -14,6 +14,8 @@ import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 
 import com.getcapacitor.Bridge;
@@ -30,6 +32,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     private static final int REQUEST_PICK_IMAGES = 4101;
     private static final int REQUEST_CAPTURE_IMAGE = 4102;
     private static final int REQUEST_PICK_FILES = 4103;
+    static final int REQUEST_CAMERA_PERMISSION = 4104;
 
     private final Activity activity;
     private ValueCallback<Uri[]> filePathCallback;
@@ -93,6 +96,23 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
         return true;
     }
 
+    public boolean handlePermissionResult(int requestCode, int[] grantResults) {
+        if (requestCode != REQUEST_CAMERA_PERMISSION) {
+            return false;
+        }
+
+        if (
+            grantResults.length > 0 &&
+            grantResults[0] == PackageManager.PERMISSION_GRANTED
+        ) {
+            openCamera();
+        } else {
+            finishFileSelection(null);
+        }
+
+        return true;
+    }
+
     private void openImageLibrary() {
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
@@ -102,6 +122,18 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private void openCamera() {
+        if (
+            ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) !=
+                PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                activity,
+                new String[] { Manifest.permission.CAMERA },
+                REQUEST_CAMERA_PERMISSION
+            );
+            return;
+        }
+
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
         if (intent.resolveActivity(activity.getPackageManager()) == null) {
@@ -133,7 +165,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     private void launchIntent(Intent intent, int requestCode) {
         try {
             activity.startActivityForResult(intent, requestCode);
-        } catch (ActivityNotFoundException exception) {
+        } catch (ActivityNotFoundException | SecurityException exception) {
             finishFileSelection(null);
         }
     }
@@ -173,16 +205,6 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
                 uri,
                 Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
             );
-        }
-
-        if (!activities.isEmpty()) {
-            ResolveInfo first = activities.get(0);
-
-            if (first.activityInfo != null) {
-                intent.setComponent(
-                    new ComponentName(first.activityInfo.packageName, first.activityInfo.name)
-                );
-            }
         }
     }
 
