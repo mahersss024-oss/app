@@ -17,6 +17,7 @@ import com.getcapacitor.BridgeActivity;
 public class MainActivity extends BridgeActivity {
     private static final String APP_ORIGIN = "https://souqhamad.com";
     private static final int APP_BACKGROUND = Color.rgb(8, 17, 29);
+    private SouqHamadWebChromeClient webChromeClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +35,8 @@ public class MainActivity extends BridgeActivity {
 
         if (getBridge() != null && getBridge().getWebView() != null) {
             WebView webView = getBridge().getWebView();
+            webChromeClient = new SouqHamadWebChromeClient(getBridge(), this);
+            webView.setWebChromeClient(webChromeClient);
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
             webView.setBackgroundColor(APP_BACKGROUND);
             webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -49,6 +52,15 @@ public class MainActivity extends BridgeActivity {
             settings.setMediaPlaybackRequiresUserGesture(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (webChromeClient != null && webChromeClient.handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
