@@ -13,6 +13,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
@@ -20,6 +21,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.getcapacitor.BridgeActivity;
+
+import org.json.JSONObject;
 
 public class MainActivity extends BridgeActivity {
     private static final String APP_ORIGIN = "https://souqhamad.com";
@@ -65,6 +68,8 @@ public class MainActivity extends BridgeActivity {
 
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
+        scheduleNativePushStatusInjection();
+        handlePushNavigationIntent(getIntent());
     }
 
     @Override
@@ -81,13 +86,25 @@ public class MainActivity extends BridgeActivity {
         super.onNewIntent(intent);
         setIntent(intent);
         handleMobileAuthIntent(intent);
+        handlePushNavigationIntent(intent);
     }
 
     @Override
     public void onResume() {
         super.onResume();
         handleMobileAuthIntent(getIntent());
+        injectNativePushStatus();
         scheduleNativePushRegistration();
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == REQUEST_POST_NOTIFICATIONS) {
+            injectNativePushStatus();
+            scheduleNativePushRegistration();
+        }
     }
 
     private void handleMobileAuthIntent(Intent intent) {
@@ -113,6 +130,50 @@ public class MainActivity extends BridgeActivity {
         scheduleNativePushRegistration();
     }
 
+    private void handlePushNavigationIntent(Intent intent) {
+        if (intent == null || getBridge() == null || getBridge().getWebView() == null) {
+            return;
+        }
+
+        String url = intent.getStringExtra("url");
+
+        if (url == null || url.trim().isEmpty()) {
+            return;
+        }
+
+        String targetUrl = toTrustedAppUrl(url.trim());
+
+        if (targetUrl == null) {
+            return;
+        }
+
+        getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
+        intent.removeExtra("url");
+    }
+
+    private String toTrustedAppUrl(String value) {
+        if (value.startsWith("/") && !value.startsWith("//") && !value.contains("\\")) {
+            return APP_ORIGIN + value;
+        }
+
+        try {
+            Uri uri = Uri.parse(value);
+            String host = uri.getHost();
+
+            if (!"https".equals(uri.getScheme())) {
+                return null;
+            }
+
+            if (!"souqhamad.com".equals(host) && !"www.souqhamad.com".equals(host)) {
+                return null;
+            }
+
+            return uri.toString();
+        } catch (Exception ignored) {
+            return null;
+        }
+    }
+
     private void requestNotificationPermissionIfNeeded() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
             return;
@@ -127,6 +188,33 @@ public class MainActivity extends BridgeActivity {
             new String[] { Manifest.permission.POST_NOTIFICATIONS },
             REQUEST_POST_NOTIFICATIONS
         );
+    }
+
+    private void scheduleNativePushStatusInjection() {
+        new Handler(Looper.getMainLooper()).postDelayed(this::injectNativePushStatus, 500);
+        new Handler(Looper.getMainLooper()).postDelayed(this::injectNativePushStatus, 2500);
+    }
+
+    private void injectNativePushStatus() {
+        if (getBridge() == null || getBridge().getWebView() == null) {
+            return;
+        }
+
+        boolean notificationsEnabled = NotificationManagerCompat.from(this).areNotificationsEnabled();
+        String permission = notificationsEnabled ? "granted" : "denied";
+        String statusJson = "{"
+            + "\"supported\":true,"
+            + "\"platform\":\"android\","
+            + "\"permission\":" + JSONObject.quote(permission) + ","
+            + "\"active\":" + notificationsEnabled
+            + "}";
+        String script = "(() => {"
+            + "const status = " + statusJson + ";"
+            + "window.SouqHamadNativePush = status;"
+            + "window.dispatchEvent(new CustomEvent('smartstore:native-push-status', { detail: status }));"
+            + "})();";
+
+        getBridge().getWebView().post(() -> getBridge().getWebView().evaluateJavascript(script, null));
     }
 
     private void scheduleNativePushRegistration() {

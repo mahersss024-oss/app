@@ -3,8 +3,12 @@ package com.souqhamad.app;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
@@ -19,6 +23,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
@@ -99,6 +104,11 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     private void openCamera() {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
 
+        if (intent.resolveActivity(activity.getPackageManager()) == null) {
+            finishFileSelection(null);
+            return;
+        }
+
         try {
             cameraImageUri = createCameraImageUri();
         } catch (IOException exception) {
@@ -108,6 +118,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
 
         intent.putExtra(MediaStore.EXTRA_OUTPUT, cameraImageUri);
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        grantUriToCameraApps(intent, cameraImageUri);
         launchIntent(intent, REQUEST_CAPTURE_IMAGE);
     }
 
@@ -134,9 +145,45 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
 
     private Uri createCameraImageUri() throws IOException {
         String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.US).format(new Date());
-        File image = File.createTempFile("souq_hamad_" + timestamp + "_", ".jpg", activity.getCacheDir());
+        File directory = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        if (directory == null) {
+            directory = activity.getCacheDir();
+        }
+
+        File image = File.createTempFile("souq_hamad_" + timestamp + "_", ".jpg", directory);
 
         return FileProvider.getUriForFile(activity, activity.getPackageName() + ".fileprovider", image);
+    }
+
+    private void grantUriToCameraApps(Intent intent, Uri uri) {
+        PackageManager packageManager = activity.getPackageManager();
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(
+            intent,
+            PackageManager.MATCH_DEFAULT_ONLY
+        );
+
+        for (ResolveInfo resolveInfo : activities) {
+            if (resolveInfo.activityInfo == null || resolveInfo.activityInfo.packageName == null) {
+                continue;
+            }
+
+            activity.grantUriPermission(
+                resolveInfo.activityInfo.packageName,
+                uri,
+                Intent.FLAG_GRANT_READ_URI_PERMISSION | Intent.FLAG_GRANT_WRITE_URI_PERMISSION
+            );
+        }
+
+        if (!activities.isEmpty()) {
+            ResolveInfo first = activities.get(0);
+
+            if (first.activityInfo != null) {
+                intent.setComponent(
+                    new ComponentName(first.activityInfo.packageName, first.activityInfo.name)
+                );
+            }
+        }
     }
 
     private Uri[] parseResultUris(int resultCode, Intent data) {
