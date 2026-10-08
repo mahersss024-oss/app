@@ -1,13 +1,20 @@
 package com.souqhamad.app;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -17,12 +24,15 @@ import com.getcapacitor.BridgeActivity;
 public class MainActivity extends BridgeActivity {
     private static final String APP_ORIGIN = "https://souqhamad.com";
     private static final int APP_BACKGROUND = Color.rgb(8, 17, 29);
+    private static final int REQUEST_POST_NOTIFICATIONS = 5101;
     private SouqHamadWebChromeClient webChromeClient;
+    private NativePushRegistrar nativePushRegistrar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         registerPlugin(OAuthNavigationPlugin.class);
         super.onCreate(savedInstanceState);
+        nativePushRegistrar = new NativePushRegistrar(this);
 
         View rootView = findViewById(android.R.id.content);
         if (rootView != null) {
@@ -52,6 +62,9 @@ public class MainActivity extends BridgeActivity {
             settings.setMediaPlaybackRequiresUserGesture(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         }
+
+        requestNotificationPermissionIfNeeded();
+        scheduleNativePushRegistration();
     }
 
     @Override
@@ -74,6 +87,7 @@ public class MainActivity extends BridgeActivity {
     public void onResume() {
         super.onResume();
         handleMobileAuthIntent(getIntent());
+        scheduleNativePushRegistration();
     }
 
     private void handleMobileAuthIntent(Intent intent) {
@@ -96,5 +110,33 @@ public class MainActivity extends BridgeActivity {
         String exchangeUrl = APP_ORIGIN + "/api/auth/mobile/exchange?ticket=" + Uri.encode(ticket);
         getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(exchangeUrl));
         setIntent(new Intent());
+        scheduleNativePushRegistration();
+    }
+
+    private void requestNotificationPermissionIfNeeded() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) {
+            return;
+        }
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) == PackageManager.PERMISSION_GRANTED) {
+            return;
+        }
+
+        ActivityCompat.requestPermissions(
+            this,
+            new String[] { Manifest.permission.POST_NOTIFICATIONS },
+            REQUEST_POST_NOTIFICATIONS
+        );
+    }
+
+    private void scheduleNativePushRegistration() {
+        if (nativePushRegistrar == null) {
+            return;
+        }
+
+        new Handler(Looper.getMainLooper()).postDelayed(
+            () -> nativePushRegistrar.registerCurrentDevice(),
+            2500
+        );
     }
 }
