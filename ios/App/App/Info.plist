@@ -35,6 +35,12 @@
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>يحتاج سوق حمد إلى الكاميرا لالتقاط صور الإعلانات.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>يحتاج سوق حمد إلى مكتبة الصور لاختيار صور الإعلانات.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>يحتاج سوق حمد إلى حفظ الصور عند استخدام ميزات الصور داخل التطبيق.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
