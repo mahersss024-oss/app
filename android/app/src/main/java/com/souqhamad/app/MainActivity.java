@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.WebSettings;
+import android.webkit.WebView;
 
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -32,14 +33,20 @@ public class MainActivity extends BridgeActivity {
         }
 
         if (getBridge() != null && getBridge().getWebView() != null) {
-            getBridge().getWebView().setLayerType(View.LAYER_TYPE_HARDWARE, null);
-            getBridge().getWebView().setBackgroundColor(APP_BACKGROUND);
+            WebView webView = getBridge().getWebView();
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+            webView.setBackgroundColor(APP_BACKGROUND);
+            webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+            webView.setScrollbarFadingEnabled(true);
 
-            WebSettings settings = getBridge().getWebView().getSettings();
+            WebSettings settings = webView.getSettings();
             settings.setDomStorageEnabled(true);
+            settings.setDatabaseEnabled(true);
             settings.setCacheMode(WebSettings.LOAD_DEFAULT);
             settings.setLoadsImagesAutomatically(true);
+            settings.setBlockNetworkImage(false);
             settings.setOffscreenPreRaster(true);
+            settings.setMediaPlaybackRequiresUserGesture(false);
             settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
         }
     }
