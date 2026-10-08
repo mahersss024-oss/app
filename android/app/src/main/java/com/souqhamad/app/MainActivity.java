@@ -1,6 +1,7 @@
 package com.souqhamad.app;
 
 import android.Manifest;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -9,7 +10,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.provider.Settings;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
@@ -50,6 +53,7 @@ public class MainActivity extends BridgeActivity {
             WebView webView = getBridge().getWebView();
             webChromeClient = new SouqHamadWebChromeClient(getBridge(), this);
             webView.setWebChromeClient(webChromeClient);
+            webView.addJavascriptInterface(new NativeBridge(), "SmartStoreNative");
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
             webView.setBackgroundColor(APP_BACKGROUND);
             webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
@@ -221,6 +225,26 @@ public class MainActivity extends BridgeActivity {
         getBridge().getWebView().post(() -> getBridge().getWebView().evaluateJavascript(script, null));
     }
 
+    private void openNotificationSettings() {
+        Intent intent;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
+                .putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+        } else {
+            intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(Uri.parse("package:" + getPackageName()));
+        }
+
+        try {
+            startActivity(intent);
+        } catch (ActivityNotFoundException exception) {
+            Intent fallback = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                .setData(Uri.parse("package:" + getPackageName()));
+            startActivity(fallback);
+        }
+    }
+
     private void scheduleNativePushRegistration() {
         if (nativePushRegistrar == null) {
             return;
@@ -230,5 +254,20 @@ public class MainActivity extends BridgeActivity {
             () -> nativePushRegistrar.registerCurrentDevice(),
             2500
         );
+    }
+
+    private class NativeBridge {
+        @JavascriptInterface
+        public void postMessage(String payload) {
+            try {
+                JSONObject message = new JSONObject(payload);
+
+                if ("open-notification-settings".equals(message.optString("type"))) {
+                    runOnUiThread(MainActivity.this::openNotificationSettings);
+                }
+            } catch (Exception ignored) {
+                // Ignore malformed bridge messages from the WebView.
+            }
+        }
     }
 }
