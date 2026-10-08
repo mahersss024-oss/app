@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "982036396462",
+    "project_id": "souqhamad",
+    "storage_bucket": "souqhamad.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:982036396462:android:f8745ccff902d4596bf03f",
+        "android_client_info": {
+          "package_name": "com.souqhamad.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy6UicOrxFC140hlTpwR52ZqLZ7IemHTM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
