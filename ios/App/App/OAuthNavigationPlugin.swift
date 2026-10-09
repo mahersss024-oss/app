@@ -13,6 +13,11 @@ public class OAuthNavigationPlugin: CAPPlugin, CAPBridgedPlugin {
             return nil
         }
 
+        if let scheme = url.scheme?.lowercased(), ["mailto", "tel", "sms"].contains(scheme) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            return true
+        }
+
         if url.host == "accounts.google.com" || url.host == "oauth2.googleapis.com" || url.host == "appleid.apple.com" {
             UIApplication.shared.open(url, options: [:], completionHandler: nil)
             return true

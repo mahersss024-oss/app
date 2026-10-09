@@ -1,5 +1,6 @@
 package com.souqhamad.app;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 
@@ -15,6 +16,22 @@ public class OAuthNavigationPlugin extends Plugin {
         }
 
         String host = url.getHost();
+        String scheme = url.getScheme();
+
+        if (
+            "mailto".equalsIgnoreCase(scheme) ||
+            "tel".equalsIgnoreCase(scheme) ||
+            "sms".equalsIgnoreCase(scheme)
+        ) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, url);
+
+            try {
+                getActivity().startActivity(intent);
+            } catch (ActivityNotFoundException ignored) {
+            }
+
+            return true;
+        }
 
         if (
             "accounts.google.com".equals(host) ||
