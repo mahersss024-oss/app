@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 
 import com.getcapacitor.Bridge;
@@ -20,25 +21,41 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
 
     @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-        super.onReceivedError(view, request, error);
-
         if (
             request != null &&
             request.isForMainFrame() &&
             isTrustedAppUrl(request.getUrl().toString())
         ) {
             showOfflinePage(view);
+            return;
         }
+
+        super.onReceivedError(view, request, error);
     }
 
     @SuppressWarnings("deprecation")
     @Override
     public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
-        super.onReceivedError(view, errorCode, description, failingUrl);
-
         if (isTrustedAppUrl(failingUrl)) {
             showOfflinePage(view);
+            return;
         }
+
+        super.onReceivedError(view, errorCode, description, failingUrl);
+    }
+
+    @Override
+    public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+        if (
+            request != null &&
+            request.isForMainFrame() &&
+            isTrustedAppUrl(request.getUrl().toString())
+        ) {
+            showOfflinePage(view);
+            return;
+        }
+
+        super.onReceivedHttpError(view, request, errorResponse);
     }
 
     @Override
@@ -73,6 +90,7 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
         }
 
         showingOfflinePage = true;
+        view.stopLoading();
 
         String html = "<!doctype html><html lang=\"ar\" dir=\"rtl\"><head>"
             + "<meta charset=\"utf-8\">"
