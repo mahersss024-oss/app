@@ -13,6 +13,7 @@ const config: CapacitorConfig = {
     cleartext: false,
     androidScheme: 'https',
     iosScheme: 'https',
+    errorPath: 'offline.html',
     allowNavigation: ['souqhamad.com', 'www.souqhamad.com'],
   },
   plugins: {
