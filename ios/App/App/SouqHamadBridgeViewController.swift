@@ -25,6 +25,7 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
         view.backgroundColor = UIColor(red: 0.03, green: 0.07, blue: 0.11, alpha: 1.0)
         webView?.backgroundColor = UIColor(red: 0.03, green: 0.07, blue: 0.11, alpha: 1.0)
         webView?.isOpaque = false
+        NativePushRegistrar.shared.configure(webView: webView)
 
         let source = """
         window.SmartStoreNative = window.SmartStoreNative || {
@@ -57,6 +58,7 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         requestNotificationPermissionIfNeeded()
+        NativePushRegistrar.shared.registerCurrentDevice()
         scheduleNativePushStatusInjection()
     }
 
@@ -87,6 +89,12 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             guard settings.authorizationStatus == .notDetermined else {
                 DispatchQueue.main.async {
+                    if settings.authorizationStatus == .authorized ||
+                        settings.authorizationStatus == .provisional ||
+                        settings.authorizationStatus == .ephemeral {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                    NativePushRegistrar.shared.registerCurrentDevice()
                     self.scheduleNativePushStatusInjection()
                 }
                 return
@@ -95,6 +103,7 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
             UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { _, _ in
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
+                    NativePushRegistrar.shared.registerCurrentDevice()
                     self.scheduleNativePushStatusInjection()
                 }
             }
