@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.ValueCallback;
@@ -114,11 +115,34 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private void openImageLibrary() {
+        Intent intent = createImagePickerIntent();
+        launchIntent(intent, REQUEST_PICK_IMAGES);
+    }
+
+    private Intent createImagePickerIntent() {
+        boolean allowsMultiple = allowsMultipleFiles();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            Intent intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
+            intent.setType("image/*");
+
+            if (allowsMultiple) {
+                intent.putExtra(
+                    MediaStore.EXTRA_PICK_IMAGES_MAX,
+                    MediaStore.getPickImagesMaxLimit()
+                );
+                intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            }
+
+            return intent;
+        }
+
         Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
         intent.setType("image/*");
-        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, allowsMultipleFiles());
-        launchIntent(intent, REQUEST_PICK_IMAGES);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, allowsMultiple);
+
+        return intent;
     }
 
     private void openCamera() {
