@@ -52,6 +52,7 @@ public class MainActivity extends BridgeActivity {
         if (getBridge() != null && getBridge().getWebView() != null) {
             WebView webView = getBridge().getWebView();
             webChromeClient = new SouqHamadWebChromeClient(getBridge(), this);
+            webView.setWebViewClient(new SouqHamadWebViewClient(getBridge(), APP_ORIGIN));
             webView.setWebChromeClient(webChromeClient);
             webView.addJavascriptInterface(new NativeBridge(), "SmartStoreNative");
             webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);

@@ -41,6 +41,8 @@
 	<string>يحتاج سوق حمد إلى مكتبة الصور لاختيار صور الإعلانات.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>يحتاج سوق حمد إلى حفظ الصور عند استخدام ميزات الصور داخل التطبيق.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>يحتاج سوق حمد إلى موقعك عند الضغط على موقعي لعرض الإعلانات الأقرب لك.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

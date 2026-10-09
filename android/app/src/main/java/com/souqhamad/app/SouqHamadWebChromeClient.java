@@ -12,6 +12,7 @@ import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.webkit.ValueCallback;
+import android.webkit.GeolocationPermissions;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
@@ -34,10 +35,13 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     private static final int REQUEST_CAPTURE_IMAGE = 4102;
     private static final int REQUEST_PICK_FILES = 4103;
     static final int REQUEST_CAMERA_PERMISSION = 4104;
+    private static final int REQUEST_LOCATION_PERMISSION = 4105;
 
     private final Activity activity;
     private ValueCallback<Uri[]> filePathCallback;
     private WebChromeClient.FileChooserParams fileChooserParams;
+    private GeolocationPermissions.Callback geolocationCallback;
+    private String geolocationOrigin;
     private Uri cameraImageUri;
 
     public SouqHamadWebChromeClient(Bridge bridge, Activity activity) {
@@ -74,6 +78,35 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
         return true;
     }
 
+    @Override
+    public void onGeolocationPermissionsShowPrompt(
+        String origin,
+        GeolocationPermissions.Callback callback
+    ) {
+        if (hasLocationPermission()) {
+            callback.invoke(origin, true, false);
+            return;
+        }
+
+        geolocationOrigin = origin;
+        geolocationCallback = callback;
+
+        ActivityCompat.requestPermissions(
+            activity,
+            new String[] {
+                Manifest.permission.ACCESS_FINE_LOCATION,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            },
+            REQUEST_LOCATION_PERMISSION
+        );
+    }
+
+    @Override
+    public void onGeolocationPermissionsHidePrompt() {
+        geolocationCallback = null;
+        geolocationOrigin = null;
+    }
+
     public boolean handleActivityResult(int requestCode, int resultCode, Intent data) {
         if (
             requestCode != REQUEST_PICK_IMAGES &&
@@ -98,6 +131,22 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     public boolean handlePermissionResult(int requestCode, int[] grantResults) {
+        if (requestCode == REQUEST_LOCATION_PERMISSION) {
+            boolean granted = false;
+
+            for (int result : grantResults) {
+                granted = granted || result == PackageManager.PERMISSION_GRANTED;
+            }
+
+            if (geolocationCallback != null && geolocationOrigin != null) {
+                geolocationCallback.invoke(geolocationOrigin, granted, false);
+            }
+
+            geolocationCallback = null;
+            geolocationOrigin = null;
+            return true;
+        }
+
         if (requestCode != REQUEST_CAMERA_PERMISSION) {
             return false;
         }
@@ -112,6 +161,17 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
         }
 
         return true;
+    }
+
+    private boolean hasLocationPermission() {
+        return ContextCompat.checkSelfPermission(
+            activity,
+            Manifest.permission.ACCESS_FINE_LOCATION
+        ) == PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(
+                activity,
+                Manifest.permission.ACCESS_COARSE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void openImageLibrary() {
