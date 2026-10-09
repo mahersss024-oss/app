@@ -179,11 +179,11 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private void openFilePicker() {
-        Intent intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
         intent.addCategory(Intent.CATEGORY_OPENABLE);
-        intent.setType("*/*");
+        intent.setType("image/*");
         intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, allowsMultipleFiles());
-        launchIntent(intent, REQUEST_PICK_FILES);
+        launchIntent(Intent.createChooser(intent, "اختيار صورة"), REQUEST_PICK_FILES);
     }
 
     private void launchIntent(Intent intent, int requestCode) {
