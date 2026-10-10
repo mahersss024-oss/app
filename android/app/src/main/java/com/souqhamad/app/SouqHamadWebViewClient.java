@@ -1,6 +1,8 @@
 package com.souqhamad.app;
 
 import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
 import android.net.Uri;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -11,21 +13,34 @@ import com.getcapacitor.Bridge;
 import com.getcapacitor.BridgeWebViewClient;
 
 public class SouqHamadWebViewClient extends BridgeWebViewClient {
+    private final MainActivity activity;
     private final String appOrigin;
     private boolean showingOfflinePage = false;
 
-    public SouqHamadWebViewClient(Bridge bridge, String appOrigin) {
+    public SouqHamadWebViewClient(Bridge bridge, MainActivity activity, String appOrigin) {
         super(bridge);
+        this.activity = activity;
         this.appOrigin = appOrigin;
     }
 
     @Override
+    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+        if (request == null || request.getUrl() == null) {
+            return false;
+        }
+
+        return handleNavigation(request.getUrl().toString());
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        return handleNavigation(url);
+    }
+
+    @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-        if (
-            request != null &&
-            request.isForMainFrame() &&
-            isTrustedAppUrl(request.getUrl().toString())
-        ) {
+        if (request != null && request.isForMainFrame() && isTrustedAppUrl(request.getUrl().toString())) {
             showOfflinePage(view);
             return;
         }
@@ -46,11 +61,7 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
 
     @Override
     public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
-        if (
-            request != null &&
-            request.isForMainFrame() &&
-            isTrustedAppUrl(request.getUrl().toString())
-        ) {
+        if (request != null && request.isForMainFrame() && isTrustedAppUrl(request.getUrl().toString())) {
             showOfflinePage(view);
             return;
         }
@@ -67,19 +78,84 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
         }
     }
 
-    private boolean isTrustedAppUrl(String value) {
+    static String toTrustedAppUrl(String value, String appOrigin) {
         if (value == null || value.trim().isEmpty()) {
-            return false;
+            return null;
+        }
+
+        if (value.startsWith("/") && !value.startsWith("//") && !value.contains("\\")) {
+            return appOrigin + value;
         }
 
         try {
             Uri uri = Uri.parse(value);
             String host = uri.getHost();
 
-            return "https".equals(uri.getScheme()) &&
-                ("souqhamad.com".equals(host) || "www.souqhamad.com".equals(host));
+            if (!"https".equals(uri.getScheme())) {
+                return null;
+            }
+
+            if (!"souqhamad.com".equals(host) && !"www.souqhamad.com".equals(host)) {
+                return null;
+            }
+
+            return uri.toString();
         } catch (Exception ignored) {
+            return null;
+        }
+    }
+
+    private boolean handleNavigation(String url) {
+        if (url == null || url.trim().isEmpty()) {
             return false;
+        }
+
+        if (activity.handleMobileAuthUrl(url)) {
+            return true;
+        }
+
+        Uri uri = Uri.parse(url);
+        String scheme = uri.getScheme() == null ? "" : uri.getScheme().toLowerCase();
+
+        if ("mailto".equals(scheme) || "tel".equals(scheme) || "sms".equals(scheme)) {
+            openExternal(url);
+            return true;
+        }
+
+        if (isOAuthProviderUrl(uri)) {
+            openExternal(url);
+            return true;
+        }
+
+        if (isTrustedAppUrl(url)) {
+            return false;
+        }
+
+        if ("http".equals(scheme) || "https".equals(scheme)) {
+            openExternal(url);
+            return true;
+        }
+
+        return false;
+    }
+
+    private boolean isOAuthProviderUrl(Uri uri) {
+        String host = uri.getHost();
+
+        return "accounts.google.com".equals(host) ||
+            "oauth2.googleapis.com".equals(host) ||
+            "appleid.apple.com".equals(host);
+    }
+
+    private boolean isTrustedAppUrl(String value) {
+        return toTrustedAppUrl(value, appOrigin) != null;
+    }
+
+    private void openExternal(String url) {
+        try {
+            activity.startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+        } catch (ActivityNotFoundException ignored) {
+            // If no browser is available, leave the WebView untouched.
         }
     }
 

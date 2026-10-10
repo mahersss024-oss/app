@@ -63,10 +63,7 @@ public class NativePushRegistrar {
                 connection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
                 connection.setRequestProperty("Accept", "application/json");
                 connection.setRequestProperty("Cookie", cookie);
-                connection.setRequestProperty(
-                    "User-Agent",
-                    "SouqHamadCapacitor Android/" + BuildConfig.VERSION_NAME
-                );
+                connection.setRequestProperty("User-Agent", "SouqHamadCapacitor Android/" + BuildConfig.VERSION_NAME);
                 connection.setFixedLengthStreamingMode(body.length);
 
                 try (OutputStream outputStream = connection.getOutputStream()) {
@@ -75,7 +72,7 @@ public class NativePushRegistrar {
 
                 connection.getResponseCode();
             } catch (Exception ignored) {
-                // Native push registration should never block the WebView experience.
+                // Push registration must not block the app experience.
             } finally {
                 if (connection != null) {
                     connection.disconnect();

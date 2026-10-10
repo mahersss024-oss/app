@@ -24,6 +24,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        if
+            userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+            let url = userActivity.webpageURL,
+            handleTrustedAppUrl(url) {
+            return
+        }
+
         SceneDelegateProxy.shared.scene(scene, continue: userActivity)
     }
 
@@ -42,14 +49,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let error = components.queryItems?.first(where: { $0.name == "error" })?.value,
            var fallbackComponents = URLComponents(string: appOrigin) {
             fallbackComponents.queryItems = [URLQueryItem(name: "auth_error", value: error)]
-
-            if
-                let fallbackUrl = fallbackComponents.url,
-                let bridgeViewController = window?.rootViewController as? CAPBridgeViewController
-            {
-                bridgeViewController.webView?.load(URLRequest(url: fallbackUrl))
-            }
-
+            load(fallbackComponents.url)
             return true
         }
 
@@ -65,15 +65,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         exchangeComponents.queryItems = queryItems
+        load(exchangeComponents.url)
+        return true
+    }
 
-        guard
-            let exchangeUrl = exchangeComponents.url,
-            let bridgeViewController = window?.rootViewController as? CAPBridgeViewController
-        else {
-            return true
+    private func handleTrustedAppUrl(_ url: URL) -> Bool {
+        guard url.scheme == "https", url.host == "souqhamad.com" || url.host == "www.souqhamad.com" else {
+            return false
         }
 
-        bridgeViewController.webView?.load(URLRequest(url: exchangeUrl))
+        load(url)
         return true
+    }
+
+    private func load(_ url: URL?) {
+        guard
+            let url,
+            let bridgeViewController = window?.rootViewController as? CAPBridgeViewController
+        else {
+            return
+        }
+
+        bridgeViewController.webView?.load(URLRequest(url: url))
     }
 }

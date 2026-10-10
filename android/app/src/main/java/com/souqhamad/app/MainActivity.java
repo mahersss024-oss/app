@@ -16,8 +16,8 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.ActivityCompat;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.content.ContextCompat;
 
 import com.getcapacitor.BridgeActivity;
@@ -25,54 +25,24 @@ import com.getcapacitor.BridgeActivity;
 import org.json.JSONObject;
 
 public class MainActivity extends BridgeActivity {
-    private static final String APP_ORIGIN = "https://souqhamad.com";
+    static final String APP_ORIGIN = "https://souqhamad.com";
     private static final String MOBILE_AUTH_SCHEME = "smartstore";
     private static final String MOBILE_AUTH_HOST = "auth";
     private static final int APP_BACKGROUND = Color.rgb(8, 17, 29);
     private static final int REQUEST_POST_NOTIFICATIONS = 5101;
-    private SouqHamadWebChromeClient webChromeClient;
+
     private NativePushRegistrar nativePushRegistrar;
+    private SouqHamadWebChromeClient webChromeClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         nativePushRegistrar = new NativePushRegistrar(this);
-
-        if (getBridge() != null && getBridge().getWebView() != null) {
-            WebView webView = getBridge().getWebView();
-            webChromeClient = new SouqHamadWebChromeClient(getBridge(), this);
-            webView.setWebViewClient(new SouqHamadWebViewClient(getBridge(), APP_ORIGIN));
-            webView.setWebChromeClient(webChromeClient);
-            webView.addJavascriptInterface(new NativeBridge(), "SmartStoreNative");
-            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
-            webView.setBackgroundColor(APP_BACKGROUND);
-            webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
-            webView.setScrollbarFadingEnabled(true);
-
-            WebSettings settings = webView.getSettings();
-            settings.setDomStorageEnabled(true);
-            settings.setDatabaseEnabled(true);
-            settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-            settings.setLoadsImagesAutomatically(true);
-            settings.setBlockNetworkImage(false);
-            settings.setOffscreenPreRaster(true);
-            settings.setMediaPlaybackRequiresUserGesture(false);
-            settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
-        }
-
+        configureWebView();
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
         scheduleNativePushStatusInjection();
         handleTrustedNavigationIntent(getIntent());
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (webChromeClient != null && webChromeClient.handleActivityResult(requestCode, resultCode, data)) {
-            return;
-        }
-
-        super.onActivityResult(requestCode, resultCode, data);
     }
 
     @Override
@@ -90,6 +60,15 @@ public class MainActivity extends BridgeActivity {
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (webChromeClient != null && webChromeClient.handleActivityResult(requestCode, resultCode, data)) {
+            return;
+        }
+
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
@@ -103,44 +82,11 @@ public class MainActivity extends BridgeActivity {
         }
     }
 
-    private void handleTrustedNavigationIntent(Intent intent) {
-        if (intent == null || getBridge() == null || getBridge().getWebView() == null) {
-            return;
-        }
-
-        String url = getTrustedNavigationUrl(intent);
-
-        if (url == null || url.trim().isEmpty()) {
-            return;
-        }
-
-        String trimmedUrl = url.trim();
-
-        if (handleMobileAuthUrl(trimmedUrl)) {
-            intent.removeExtra("url");
-            intent.setData(null);
-            return;
-        }
-
-        String targetUrl = toTrustedAppUrl(trimmedUrl);
-
-        if (targetUrl == null) {
-            return;
-        }
-
-        getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
-        intent.removeExtra("url");
-        intent.setData(null);
-    }
-
-    private boolean handleMobileAuthUrl(String value) {
+    boolean handleMobileAuthUrl(String value) {
         try {
             Uri uri = Uri.parse(value);
 
-            if (
-                !MOBILE_AUTH_SCHEME.equals(uri.getScheme()) ||
-                !MOBILE_AUTH_HOST.equals(uri.getHost())
-            ) {
+            if (!MOBILE_AUTH_SCHEME.equals(uri.getScheme()) || !MOBILE_AUTH_HOST.equals(uri.getHost())) {
                 return false;
             }
 
@@ -161,44 +107,72 @@ public class MainActivity extends BridgeActivity {
                 return true;
             }
 
-            final String finalTargetUrl = targetUrl;
-            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(finalTargetUrl));
+            loadTrustedUrl(targetUrl);
             return true;
         } catch (Exception ignored) {
             return true;
         }
     }
 
-    private String getTrustedNavigationUrl(Intent intent) {
-        Uri data = intent.getData();
-
-        if (data != null) {
-            return data.toString();
+    void loadTrustedUrl(String url) {
+        if (getBridge() == null || getBridge().getWebView() == null) {
+            return;
         }
 
-        return intent.getStringExtra("url");
+        getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(url));
     }
 
-    private String toTrustedAppUrl(String value) {
-        if (value.startsWith("/") && !value.startsWith("//") && !value.contains("\\")) {
-            return APP_ORIGIN + value;
+    private void configureWebView() {
+        if (getBridge() == null || getBridge().getWebView() == null) {
+            return;
         }
 
-        try {
-            Uri uri = Uri.parse(value);
-            String host = uri.getHost();
+        WebView webView = getBridge().getWebView();
+        webChromeClient = new SouqHamadWebChromeClient(getBridge(), this);
+        webView.setWebViewClient(new SouqHamadWebViewClient(getBridge(), this, APP_ORIGIN));
+        webView.setWebChromeClient(webChromeClient);
+        webView.addJavascriptInterface(new NativeBridge(), "SmartStoreNative");
+        webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        webView.setBackgroundColor(APP_BACKGROUND);
+        webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        webView.setScrollbarFadingEnabled(true);
 
-            if (!"https".equals(uri.getScheme())) {
-                return null;
-            }
+        WebSettings settings = webView.getSettings();
+        settings.setDomStorageEnabled(true);
+        settings.setDatabaseEnabled(true);
+        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+        settings.setLoadsImagesAutomatically(true);
+        settings.setBlockNetworkImage(false);
+        settings.setOffscreenPreRaster(true);
+        settings.setMediaPlaybackRequiresUserGesture(false);
+        settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+    }
 
-            if (!"souqhamad.com".equals(host) && !"www.souqhamad.com".equals(host)) {
-                return null;
-            }
+    private void handleTrustedNavigationIntent(Intent intent) {
+        if (intent == null) {
+            return;
+        }
 
-            return uri.toString();
-        } catch (Exception ignored) {
-            return null;
+        String url = intent.getData() != null ? intent.getData().toString() : intent.getStringExtra("url");
+
+        if (url == null || url.trim().isEmpty()) {
+            return;
+        }
+
+        String trimmedUrl = url.trim();
+
+        if (handleMobileAuthUrl(trimmedUrl)) {
+            intent.removeExtra("url");
+            intent.setData(null);
+            return;
+        }
+
+        String targetUrl = SouqHamadWebViewClient.toTrustedAppUrl(trimmedUrl, APP_ORIGIN);
+
+        if (targetUrl != null) {
+            loadTrustedUrl(targetUrl);
+            intent.removeExtra("url");
+            intent.setData(null);
         }
     }
 
@@ -211,11 +185,15 @@ public class MainActivity extends BridgeActivity {
             return;
         }
 
-        ActivityCompat.requestPermissions(
-            this,
-            new String[] { Manifest.permission.POST_NOTIFICATIONS },
-            REQUEST_POST_NOTIFICATIONS
-        );
+        ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.POST_NOTIFICATIONS }, REQUEST_POST_NOTIFICATIONS);
+    }
+
+    private void scheduleNativePushRegistration() {
+        if (nativePushRegistrar == null) {
+            return;
+        }
+
+        new Handler(Looper.getMainLooper()).postDelayed(() -> nativePushRegistrar.registerCurrentDevice(), 2500);
     }
 
     private void scheduleNativePushStatusInjection() {
@@ -249,31 +227,16 @@ public class MainActivity extends BridgeActivity {
         Intent intent;
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS)
-                .putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
+            intent = new Intent(Settings.ACTION_APP_NOTIFICATION_SETTINGS).putExtra(Settings.EXTRA_APP_PACKAGE, getPackageName());
         } else {
-            intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                .setData(Uri.parse("package:" + getPackageName()));
+            intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.parse("package:" + getPackageName()));
         }
 
         try {
             startActivity(intent);
         } catch (ActivityNotFoundException exception) {
-            Intent fallback = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
-                .setData(Uri.parse("package:" + getPackageName()));
-            startActivity(fallback);
+            startActivity(new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS).setData(Uri.parse("package:" + getPackageName())));
         }
-    }
-
-    private void scheduleNativePushRegistration() {
-        if (nativePushRegistrar == null) {
-            return;
-        }
-
-        new Handler(Looper.getMainLooper()).postDelayed(
-            () -> nativePushRegistrar.registerCurrentDevice(),
-            2500
-        );
     }
 
     private class NativeBridge {
@@ -286,7 +249,7 @@ public class MainActivity extends BridgeActivity {
                     runOnUiThread(MainActivity.this::openNotificationSettings);
                 }
             } catch (Exception ignored) {
-                // Ignore malformed bridge messages from the WebView.
+                // Ignore malformed bridge messages.
             }
         }
     }

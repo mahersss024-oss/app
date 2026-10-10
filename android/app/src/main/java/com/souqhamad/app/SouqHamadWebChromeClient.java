@@ -1,8 +1,8 @@
 package com.souqhamad.app;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
-import android.Manifest;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -11,8 +11,8 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.webkit.ValueCallback;
 import android.webkit.GeolocationPermissions;
+import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 
@@ -34,7 +34,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     private static final int REQUEST_PICK_IMAGES = 4101;
     private static final int REQUEST_CAPTURE_IMAGE = 4102;
     private static final int REQUEST_PICK_FILES = 4103;
-    static final int REQUEST_CAMERA_PERMISSION = 4104;
+    private static final int REQUEST_CAMERA_PERMISSION = 4104;
     private static final int REQUEST_LOCATION_PERMISSION = 4105;
 
     private final Activity activity;
@@ -50,28 +50,21 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     @Override
-    public boolean onShowFileChooser(
-        WebView webView,
-        ValueCallback<Uri[]> callback,
-        WebChromeClient.FileChooserParams params
-    ) {
+    public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> callback, WebChromeClient.FileChooserParams params) {
         clearPendingCallback();
         filePathCallback = callback;
         fileChooserParams = params;
 
         new AlertDialog.Builder(activity)
-            .setItems(
-                new CharSequence[] { "مكتبة الصور", "التقاط صورة", "اختيار ملفات" },
-                (dialog, which) -> {
-                    if (which == 0) {
-                        openImageLibrary();
-                    } else if (which == 1) {
-                        openCamera();
-                    } else {
-                        openFilePicker();
-                    }
+            .setItems(new CharSequence[] { "مكتبة الصور", "التقاط صورة", "اختيار ملفات" }, (dialog, which) -> {
+                if (which == 0) {
+                    openImageLibrary();
+                } else if (which == 1) {
+                    openCamera();
+                } else {
+                    openFilePicker();
                 }
-            )
+            })
             .setOnCancelListener(dialog -> finishFileSelection(null))
             .show();
 
@@ -79,10 +72,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     @Override
-    public void onGeolocationPermissionsShowPrompt(
-        String origin,
-        GeolocationPermissions.Callback callback
-    ) {
+    public void onGeolocationPermissionsShowPrompt(String origin, GeolocationPermissions.Callback callback) {
         if (hasLocationPermission()) {
             callback.invoke(origin, true, false);
             return;
@@ -90,13 +80,9 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
 
         geolocationOrigin = origin;
         geolocationCallback = callback;
-
         ActivityCompat.requestPermissions(
             activity,
-            new String[] {
-                Manifest.permission.ACCESS_FINE_LOCATION,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            },
+            new String[] { Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION },
             REQUEST_LOCATION_PERMISSION
         );
     }
@@ -108,11 +94,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     public boolean handleActivityResult(int requestCode, int resultCode, Intent data) {
-        if (
-            requestCode != REQUEST_PICK_IMAGES &&
-            requestCode != REQUEST_CAPTURE_IMAGE &&
-            requestCode != REQUEST_PICK_FILES
-        ) {
+        if (requestCode != REQUEST_PICK_IMAGES && requestCode != REQUEST_CAPTURE_IMAGE && requestCode != REQUEST_PICK_FILES) {
             return false;
         }
 
@@ -151,10 +133,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
             return false;
         }
 
-        if (
-            grantResults.length > 0 &&
-            grantResults[0] == PackageManager.PERMISSION_GRANTED
-        ) {
+        if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             openCamera();
         } else {
             finishFileSelection(null);
@@ -164,19 +143,12 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private boolean hasLocationPermission() {
-        return ContextCompat.checkSelfPermission(
-            activity,
-            Manifest.permission.ACCESS_FINE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED ||
-            ContextCompat.checkSelfPermission(
-                activity,
-                Manifest.permission.ACCESS_COARSE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED;
+        return ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+            ContextCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED;
     }
 
     private void openImageLibrary() {
-        Intent intent = createImagePickerIntent();
-        launchIntent(intent, REQUEST_PICK_IMAGES);
+        launchIntent(createImagePickerIntent(), REQUEST_PICK_IMAGES);
     }
 
     private Intent createImagePickerIntent() {
@@ -187,10 +159,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
             intent.setType("image/*");
 
             if (allowsMultiple) {
-                intent.putExtra(
-                    MediaStore.EXTRA_PICK_IMAGES_MAX,
-                    MediaStore.getPickImagesMaxLimit()
-                );
+                intent.putExtra(MediaStore.EXTRA_PICK_IMAGES_MAX, MediaStore.getPickImagesMaxLimit());
                 intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             }
 
@@ -206,15 +175,8 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private void openCamera() {
-        if (
-            ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) !=
-                PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                activity,
-                new String[] { Manifest.permission.CAMERA },
-                REQUEST_CAMERA_PERMISSION
-            );
+        if (ContextCompat.checkSelfPermission(activity, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(activity, new String[] { Manifest.permission.CAMERA }, REQUEST_CAMERA_PERMISSION);
             return;
         }
 
@@ -255,8 +217,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
     }
 
     private boolean allowsMultipleFiles() {
-        return fileChooserParams != null &&
-            fileChooserParams.getMode() == WebChromeClient.FileChooserParams.MODE_OPEN_MULTIPLE;
+        return fileChooserParams != null && fileChooserParams.getMode() == WebChromeClient.FileChooserParams.MODE_OPEN_MULTIPLE;
     }
 
     private Uri createCameraImageUri() throws IOException {
@@ -274,10 +235,7 @@ public class SouqHamadWebChromeClient extends BridgeWebChromeClient {
 
     private void grantUriToCameraApps(Intent intent, Uri uri) {
         PackageManager packageManager = activity.getPackageManager();
-        List<ResolveInfo> activities = packageManager.queryIntentActivities(
-            intent,
-            PackageManager.MATCH_DEFAULT_ONLY
-        );
+        List<ResolveInfo> activities = packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
 
         for (ResolveInfo resolveInfo : activities) {
             if (resolveInfo.activityInfo == null || resolveInfo.activityInfo.packageName == null) {

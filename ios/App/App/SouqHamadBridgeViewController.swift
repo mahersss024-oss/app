@@ -135,12 +135,11 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
                 permission = "default"
             }
 
-            let active = permission == "granted"
             let status: [String: Any] = [
                 "supported": true,
                 "platform": "ios",
                 "permission": permission,
-                "active": active,
+                "active": permission == "granted",
             ]
 
             guard
