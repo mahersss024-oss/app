@@ -74,6 +74,7 @@ public class MainActivity extends BridgeActivity {
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
         scheduleNativePushStatusInjection();
+        handleMobileAuthIntent(getIntent());
         handlePushNavigationIntent(getIntent());
     }
 
