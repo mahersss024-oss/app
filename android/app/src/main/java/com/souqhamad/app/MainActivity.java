@@ -16,13 +16,9 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.getcapacitor.BridgeActivity;
 
@@ -37,19 +33,8 @@ public class MainActivity extends BridgeActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        registerPlugin(OAuthNavigationPlugin.class);
-        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         nativePushRegistrar = new NativePushRegistrar(this);
-
-        View rootView = findViewById(android.R.id.content);
-        if (rootView != null) {
-            ViewCompat.setOnApplyWindowInsetsListener(rootView, (v, insets) -> {
-                Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-                v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-                return insets;
-            });
-        }
 
         if (getBridge() != null && getBridge().getWebView() != null) {
             WebView webView = getBridge().getWebView();
@@ -76,7 +61,6 @@ public class MainActivity extends BridgeActivity {
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
         scheduleNativePushStatusInjection();
-        handleMobileAuthIntent(getIntent());
         handlePushNavigationIntent(getIntent());
     }
 
@@ -93,14 +77,12 @@ public class MainActivity extends BridgeActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        handleMobileAuthIntent(intent);
         handlePushNavigationIntent(intent);
     }
 
     @Override
     public void onResume() {
         super.onResume();
-        handleMobileAuthIntent(getIntent());
         injectNativePushStatus();
         scheduleNativePushRegistration();
     }
@@ -117,37 +99,6 @@ public class MainActivity extends BridgeActivity {
             injectNativePushStatus();
             scheduleNativePushRegistration();
         }
-    }
-
-    private void handleMobileAuthIntent(Intent intent) {
-        if (intent == null || intent.getData() == null || getBridge() == null || getBridge().getWebView() == null) {
-            return;
-        }
-
-        Uri uri = intent.getData();
-
-        if (!"smartstore".equals(uri.getScheme()) || !"auth".equals(uri.getHost())) {
-            return;
-        }
-
-        String ticket = uri.getQueryParameter("ticket");
-        String error = uri.getQueryParameter("error");
-
-        if (error != null && !error.isEmpty()) {
-            String fallbackUrl = APP_ORIGIN + "/?auth_error=" + Uri.encode(error);
-            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(fallbackUrl));
-            setIntent(new Intent());
-            return;
-        }
-
-        if (ticket == null || ticket.isEmpty()) {
-            return;
-        }
-
-        String exchangeUrl = APP_ORIGIN + "/api/auth/mobile/exchange?ticket=" + Uri.encode(ticket);
-        getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(exchangeUrl));
-        setIntent(new Intent());
-        scheduleNativePushRegistration();
     }
 
     private void handlePushNavigationIntent(Intent intent) {
