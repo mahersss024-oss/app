@@ -20,6 +20,33 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
     }
 
     @Override
+    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+        if (request != null && request.isForMainFrame()) {
+            String mobileAuthUrl = withMobileAuthClient(request.getUrl());
+
+            if (mobileAuthUrl != null) {
+                view.loadUrl(mobileAuthUrl);
+                return true;
+            }
+        }
+
+        return super.shouldOverrideUrlLoading(view, request);
+    }
+
+    @SuppressWarnings("deprecation")
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, String url) {
+        String mobileAuthUrl = withMobileAuthClient(url == null ? null : Uri.parse(url));
+
+        if (mobileAuthUrl != null) {
+            view.loadUrl(mobileAuthUrl);
+            return true;
+        }
+
+        return super.shouldOverrideUrlLoading(view, url);
+    }
+
+    @Override
     public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
         if (
             request != null &&
@@ -81,6 +108,32 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
         } catch (Exception ignored) {
             return false;
         }
+    }
+
+    private String withMobileAuthClient(Uri uri) {
+        if (uri == null || !"https".equals(uri.getScheme())) {
+            return null;
+        }
+
+        String host = uri.getHost();
+        String path = uri.getPath();
+
+        if (!"souqhamad.com".equals(host) && !"www.souqhamad.com".equals(host)) {
+            return null;
+        }
+
+        if (
+            !"/api/auth/google/start".equals(path) &&
+            !"/api/auth/apple/start".equals(path)
+        ) {
+            return null;
+        }
+
+        if ("mobile".equals(uri.getQueryParameter("client"))) {
+            return null;
+        }
+
+        return uri.buildUpon().appendQueryParameter("client", "mobile").build().toString();
     }
 
     @SuppressLint("SetJavaScriptEnabled")

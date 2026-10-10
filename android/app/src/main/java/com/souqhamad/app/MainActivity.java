@@ -16,6 +16,7 @@ import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.core.app.NotificationManagerCompat;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -37,6 +38,7 @@ public class MainActivity extends BridgeActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         registerPlugin(OAuthNavigationPlugin.class);
+        EdgeToEdge.enable(this);
         super.onCreate(savedInstanceState);
         nativePushRegistrar = new NativePushRegistrar(this);
 
