@@ -26,6 +26,8 @@ import org.json.JSONObject;
 
 public class MainActivity extends BridgeActivity {
     private static final String APP_ORIGIN = "https://souqhamad.com";
+    private static final String MOBILE_AUTH_SCHEME = "smartstore";
+    private static final String MOBILE_AUTH_HOST = "auth";
     private static final int APP_BACKGROUND = Color.rgb(8, 17, 29);
     private static final int REQUEST_POST_NOTIFICATIONS = 5101;
     private SouqHamadWebChromeClient webChromeClient;
@@ -112,7 +114,15 @@ public class MainActivity extends BridgeActivity {
             return;
         }
 
-        String targetUrl = toTrustedAppUrl(url.trim());
+        String trimmedUrl = url.trim();
+
+        if (handleMobileAuthUrl(trimmedUrl)) {
+            intent.removeExtra("url");
+            intent.setData(null);
+            return;
+        }
+
+        String targetUrl = toTrustedAppUrl(trimmedUrl);
 
         if (targetUrl == null) {
             return;
@@ -121,6 +131,36 @@ public class MainActivity extends BridgeActivity {
         getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
         intent.removeExtra("url");
         intent.setData(null);
+    }
+
+    private boolean handleMobileAuthUrl(String value) {
+        try {
+            Uri uri = Uri.parse(value);
+
+            if (
+                !MOBILE_AUTH_SCHEME.equals(uri.getScheme()) ||
+                !MOBILE_AUTH_HOST.equals(uri.getHost())
+            ) {
+                return false;
+            }
+
+            String error = uri.getQueryParameter("error");
+            String ticket = uri.getQueryParameter("ticket");
+            String targetUrl;
+
+            if (error != null && !error.trim().isEmpty()) {
+                targetUrl = APP_ORIGIN + "/?auth_error=" + Uri.encode(error);
+            } else if (ticket != null && !ticket.trim().isEmpty()) {
+                targetUrl = APP_ORIGIN + "/api/auth/mobile/exchange?ticket=" + Uri.encode(ticket);
+            } else {
+                return true;
+            }
+
+            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
+            return true;
+        } catch (Exception ignored) {
+            return true;
+        }
     }
 
     private String getTrustedNavigationUrl(Intent intent) {
