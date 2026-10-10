@@ -151,12 +151,18 @@ public class MainActivity extends BridgeActivity {
             if (error != null && !error.trim().isEmpty()) {
                 targetUrl = APP_ORIGIN + "/?auth_error=" + Uri.encode(error);
             } else if (ticket != null && !ticket.trim().isEmpty()) {
+                String next = uri.getQueryParameter("next");
                 targetUrl = APP_ORIGIN + "/api/auth/mobile/exchange?ticket=" + Uri.encode(ticket);
+
+                if (next != null && !next.trim().isEmpty()) {
+                    targetUrl += "&next=" + Uri.encode(next);
+                }
             } else {
                 return true;
             }
 
-            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
+            final String finalTargetUrl = targetUrl;
+            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(finalTargetUrl));
             return true;
         } catch (Exception ignored) {
             return true;

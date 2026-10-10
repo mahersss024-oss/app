@@ -57,7 +57,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return true
         }
 
-        exchangeComponents.queryItems = [URLQueryItem(name: "ticket", value: ticket)]
+        var queryItems = [URLQueryItem(name: "ticket", value: ticket)]
+
+        if let next = components.queryItems?.first(where: { $0.name == "next" })?.value,
+           !next.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            queryItems.append(URLQueryItem(name: "next", value: next))
+        }
+
+        exchangeComponents.queryItems = queryItems
 
         guard
             let exchangeUrl = exchangeComponents.url,
