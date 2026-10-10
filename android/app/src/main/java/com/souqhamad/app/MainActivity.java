@@ -61,7 +61,7 @@ public class MainActivity extends BridgeActivity {
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
         scheduleNativePushStatusInjection();
-        handlePushNavigationIntent(getIntent());
+        handleTrustedNavigationIntent(getIntent());
     }
 
     @Override
@@ -77,7 +77,7 @@ public class MainActivity extends BridgeActivity {
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        handlePushNavigationIntent(intent);
+        handleTrustedNavigationIntent(intent);
     }
 
     @Override
@@ -101,12 +101,12 @@ public class MainActivity extends BridgeActivity {
         }
     }
 
-    private void handlePushNavigationIntent(Intent intent) {
+    private void handleTrustedNavigationIntent(Intent intent) {
         if (intent == null || getBridge() == null || getBridge().getWebView() == null) {
             return;
         }
 
-        String url = intent.getStringExtra("url");
+        String url = getTrustedNavigationUrl(intent);
 
         if (url == null || url.trim().isEmpty()) {
             return;
@@ -120,6 +120,17 @@ public class MainActivity extends BridgeActivity {
 
         getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(targetUrl));
         intent.removeExtra("url");
+        intent.setData(null);
+    }
+
+    private String getTrustedNavigationUrl(Intent intent) {
+        Uri data = intent.getData();
+
+        if (data != null) {
+            return data.toString();
+        }
+
+        return intent.getStringExtra("url");
     }
 
     private String toTrustedAppUrl(String value) {

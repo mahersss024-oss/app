@@ -45,6 +45,20 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
 
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="souqhamad.com"
+                    android:scheme="https" />
+                <data
+                    android:host="www.souqhamad.com"
+                    android:scheme="https" />
+            </intent-filter>
+
         </activity>
 
         <provider
