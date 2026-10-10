@@ -128,6 +128,14 @@ public class MainActivity extends BridgeActivity {
         }
 
         String ticket = uri.getQueryParameter("ticket");
+        String error = uri.getQueryParameter("error");
+
+        if (error != null && !error.isEmpty()) {
+            String fallbackUrl = APP_ORIGIN + "/?auth_error=" + Uri.encode(error);
+            getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(fallbackUrl));
+            setIntent(new Intent());
+            return;
+        }
 
         if (ticket == null || ticket.isEmpty()) {
             return;

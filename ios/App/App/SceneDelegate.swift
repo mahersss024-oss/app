@@ -34,9 +34,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard
             let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
-            let ticket = components.queryItems?.first(where: { $0.name == "ticket" })?.value,
             var exchangeComponents = URLComponents(string: "\(appOrigin)/api/auth/mobile/exchange")
         else {
+            return true
+        }
+
+        if let error = components.queryItems?.first(where: { $0.name == "error" })?.value,
+           var fallbackComponents = URLComponents(string: appOrigin) {
+            fallbackComponents.queryItems = [URLQueryItem(name: "auth_error", value: error)]
+
+            if
+                let fallbackUrl = fallbackComponents.url,
+                let bridgeViewController = window?.rootViewController as? CAPBridgeViewController
+            {
+                bridgeViewController.webView?.load(URLRequest(url: fallbackUrl))
+            }
+
+            return true
+        }
+
+        guard let ticket = components.queryItems?.first(where: { $0.name == "ticket" })?.value else {
             return true
         }
 
