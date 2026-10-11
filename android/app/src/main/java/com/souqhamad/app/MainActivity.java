@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.os.SystemClock;
 import android.provider.Settings;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -34,6 +35,7 @@ public class MainActivity extends BridgeActivity {
     private NativePushRegistrar nativePushRegistrar;
     private NativeGoogleSignIn nativeGoogleSignIn;
     private SouqHamadWebChromeClient webChromeClient;
+    private long lastShareStartedAt = 0L;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -247,14 +249,49 @@ public class MainActivity extends BridgeActivity {
         }
     }
 
+    private void shareTrustedUrl(String rawUrl, String rawTitle) {
+        String trustedUrl = SouqHamadWebViewClient.toTrustedAppUrl(rawUrl, APP_ORIGIN);
+
+        if (trustedUrl == null) {
+            return;
+        }
+
+        long now = SystemClock.elapsedRealtime();
+
+        if (now - lastShareStartedAt < 900) {
+            return;
+        }
+
+        lastShareStartedAt = now;
+
+        String title = rawTitle == null || rawTitle.trim().isEmpty() ? "Souq Hamad" : rawTitle.trim();
+        Intent sendIntent = new Intent(Intent.ACTION_SEND)
+            .setType("text/plain")
+            .putExtra(Intent.EXTRA_SUBJECT, title)
+            .putExtra(Intent.EXTRA_TEXT, trustedUrl);
+        Intent chooser = Intent.createChooser(sendIntent, title);
+
+        try {
+            startActivity(chooser);
+        } catch (ActivityNotFoundException ignored) {
+            // Leave the web app state unchanged if Android cannot open a share target.
+        }
+    }
+
     private class NativeBridge {
         @JavascriptInterface
         public void postMessage(String payload) {
             try {
                 JSONObject message = new JSONObject(payload);
+                String type = message.optString("type");
 
-                if ("open-notification-settings".equals(message.optString("type"))) {
+                if ("open-notification-settings".equals(type)) {
                     runOnUiThread(MainActivity.this::openNotificationSettings);
+                } else if ("share".equals(type)) {
+                    String url = message.optString("url", "");
+                    String title = message.optString("title", "");
+
+                    runOnUiThread(() -> shareTrustedUrl(url, title));
                 }
             } catch (Exception ignored) {
                 // Ignore malformed bridge messages.
