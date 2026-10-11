@@ -12,6 +12,33 @@
 #   public *;
 #}
 
+# Keep the native WebView bridge methods callable from JavaScript.
+-keepclassmembers class com.souqhamad.app.MainActivity$NativeBridge {
+   @android.webkit.JavascriptInterface <methods>;
+}
+
+# Keep the app shell entry points and WebView clients stable under R8.
+-keep class com.souqhamad.app.MainActivity { *; }
+-keep class com.souqhamad.app.SouqHamadWebViewClient { *; }
+-keep class com.souqhamad.app.SouqHamadWebChromeClient { *; }
+-keep class com.souqhamad.app.NativeGoogleSignIn { *; }
+-keep class com.souqhamad.app.NativePushRegistrar { *; }
+
+# Capacitor plugins and runtime use generated metadata and reflection.
+-keep class com.getcapacitor.** { *; }
+-keep class com.capacitorjs.** { *; }
+-keep @com.getcapacitor.annotation.CapacitorPlugin class * { *; }
+-keep class * extends com.getcapacitor.Plugin { *; }
+-keepattributes RuntimeVisibleAnnotations,RuntimeVisibleParameterAnnotations,Signature,InnerClasses,EnclosingMethod
+
+# Keep Firebase Messaging and Google sign-in credential classes used by the native shell.
+-keep class com.google.firebase.messaging.** { *; }
+-keep class androidx.credentials.** { *; }
+-keep class com.google.android.libraries.identity.googleid.** { *; }
+
+# Preserve file-provider classes used for camera/gallery uploads.
+-keep class androidx.core.content.FileProvider { *; }
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
