@@ -9,6 +9,8 @@ ext {
     androidxFragmentVersion = '1.8.9'
     coreSplashScreenVersion = '1.2.0'
     androidxWebkitVersion = '1.14.0'
+    androidxCredentialsVersion = '1.3.0'
+    googleIdVersion = '1.1.1'
     firebaseMessagingVersion = '25.0.1'
     junitVersion = '4.13.2'
     androidxJunitVersion = '1.3.0'

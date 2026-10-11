@@ -122,6 +122,11 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
             return true;
         }
 
+        if (isGoogleStartUrl(uri)) {
+            activity.startNativeGoogleSignIn();
+            return true;
+        }
+
         if (isOAuthProviderUrl(uri)) {
             openExternal(url);
             return true;
@@ -145,6 +150,12 @@ public class SouqHamadWebViewClient extends BridgeWebViewClient {
         return "accounts.google.com".equals(host) ||
             "oauth2.googleapis.com".equals(host) ||
             "appleid.apple.com".equals(host);
+    }
+
+    private boolean isGoogleStartUrl(Uri uri) {
+        return "https".equals(uri.getScheme()) &&
+            ("souqhamad.com".equals(uri.getHost()) || "www.souqhamad.com".equals(uri.getHost())) &&
+            "/api/auth/google/start".equals(uri.getPath());
     }
 
     private boolean isTrustedAppUrl(String value) {

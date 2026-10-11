@@ -32,12 +32,14 @@ public class MainActivity extends BridgeActivity {
     private static final int REQUEST_POST_NOTIFICATIONS = 5101;
 
     private NativePushRegistrar nativePushRegistrar;
+    private NativeGoogleSignIn nativeGoogleSignIn;
     private SouqHamadWebChromeClient webChromeClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         nativePushRegistrar = new NativePushRegistrar(this);
+        nativeGoogleSignIn = new NativeGoogleSignIn(this);
         configureWebView();
         requestNotificationPermissionIfNeeded();
         scheduleNativePushRegistration();
@@ -120,6 +122,12 @@ public class MainActivity extends BridgeActivity {
         }
 
         getBridge().getWebView().post(() -> getBridge().getWebView().loadUrl(url));
+    }
+
+    void startNativeGoogleSignIn() {
+        if (nativeGoogleSignIn != null) {
+            nativeGoogleSignIn.start();
+        }
     }
 
     private void configureWebView() {
