@@ -35,6 +35,13 @@ public class MainActivity extends BridgeActivity {
     private NativePushRegistrar nativePushRegistrar;
     private NativeGoogleSignIn nativeGoogleSignIn;
     private SouqHamadWebChromeClient webChromeClient;
+    private final Handler mainHandler = new Handler(Looper.getMainLooper());
+    private final Runnable nativePushRegistrationTask = () -> {
+        if (nativePushRegistrar != null) {
+            nativePushRegistrar.registerCurrentDevice();
+        }
+    };
+    private final Runnable nativePushStatusTask = this::injectNativePushStatus;
     private long lastShareStartedAt = 0L;
 
     @Override
@@ -153,9 +160,20 @@ public class MainActivity extends BridgeActivity {
         settings.setCacheMode(WebSettings.LOAD_DEFAULT);
         settings.setLoadsImagesAutomatically(true);
         settings.setBlockNetworkImage(false);
-        settings.setOffscreenPreRaster(true);
         settings.setMediaPlaybackRequiresUserGesture(false);
         settings.setMixedContentMode(WebSettings.MIXED_CONTENT_NEVER_ALLOW);
+    }
+
+    @Override
+    public void onDestroy() {
+        mainHandler.removeCallbacks(nativePushRegistrationTask);
+        mainHandler.removeCallbacks(nativePushStatusTask);
+
+        if (nativePushRegistrar != null) {
+            nativePushRegistrar.shutdown();
+        }
+
+        super.onDestroy();
     }
 
     private void handleTrustedNavigationIntent(Intent intent) {
@@ -203,12 +221,14 @@ public class MainActivity extends BridgeActivity {
             return;
         }
 
-        new Handler(Looper.getMainLooper()).postDelayed(() -> nativePushRegistrar.registerCurrentDevice(), 2500);
+        mainHandler.removeCallbacks(nativePushRegistrationTask);
+        mainHandler.postDelayed(nativePushRegistrationTask, 2500);
     }
 
     private void scheduleNativePushStatusInjection() {
-        new Handler(Looper.getMainLooper()).postDelayed(this::injectNativePushStatus, 500);
-        new Handler(Looper.getMainLooper()).postDelayed(this::injectNativePushStatus, 2500);
+        mainHandler.removeCallbacks(nativePushStatusTask);
+        mainHandler.postDelayed(nativePushStatusTask, 500);
+        mainHandler.postDelayed(nativePushStatusTask, 2500);
     }
 
     private void injectNativePushStatus() {

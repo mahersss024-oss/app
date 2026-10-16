@@ -15,31 +15,43 @@ import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class NativePushRegistrar {
     private static final String REGISTER_URL = "https://souqhamad.com/api/mobile/push/register";
 
     private final Context context;
     private final ExecutorService executor = Executors.newSingleThreadExecutor();
+    private final AtomicBoolean registrationInFlight = new AtomicBoolean(false);
 
     public NativePushRegistrar(Context context) {
         this.context = context.getApplicationContext();
     }
 
     public void registerCurrentDevice() {
+        if (!registrationInFlight.compareAndSet(false, true)) {
+            return;
+        }
+
         FirebaseMessaging.getInstance().getToken().addOnCompleteListener(task -> {
             if (!task.isSuccessful() || task.getResult() == null || task.getResult().isEmpty()) {
+                registrationInFlight.set(false);
                 return;
             }
 
             String cookie = CookieManager.getInstance().getCookie("https://souqhamad.com");
 
             if (cookie == null || cookie.isEmpty() || !cookie.contains("smartstore_session=")) {
+                registrationInFlight.set(false);
                 return;
             }
 
             postToken(task.getResult(), cookie);
         });
+    }
+
+    public void shutdown() {
+        executor.shutdownNow();
     }
 
     private void postToken(String token, String cookie) {
@@ -74,6 +86,7 @@ public class NativePushRegistrar {
             } catch (Exception ignored) {
                 // Push registration must not block the app experience.
             } finally {
+                registrationInFlight.set(false);
                 if (connection != null) {
                     connection.disconnect();
                 }
