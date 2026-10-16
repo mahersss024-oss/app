@@ -7,6 +7,8 @@ final class NativePushRegistrar {
 
     private weak var webView: WKWebView?
     private var deviceToken: String?
+    private var registrationInFlight = false
+    private var registrationTask: URLSessionDataTask?
 
     private init() {}
 
@@ -20,6 +22,10 @@ final class NativePushRegistrar {
     }
 
     func registerCurrentDevice() {
+        guard !registrationInFlight else {
+            return
+        }
+
         guard let token = deviceToken, !token.isEmpty else {
             return
         }
@@ -30,6 +36,8 @@ final class NativePushRegistrar {
         guard cookieHeader.contains("smartstore_session="), let url = URL(string: "https://souqhamad.com/api/mobile/push/register") else {
             return
         }
+
+        registrationInFlight = true
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -45,6 +53,17 @@ final class NativePushRegistrar {
             "locale": Locale.current.identifier,
         ])
 
-        URLSession.shared.dataTask(with: request).resume()
+        let task = URLSession.shared.dataTask(with: request) { [weak self] _, _, _ in
+            self?.registrationInFlight = false
+            self?.registrationTask = nil
+        }
+        registrationTask = task
+        task.resume()
+    }
+
+    func shutdown() {
+        registrationTask?.cancel()
+        registrationTask = nil
+        registrationInFlight = false
     }
 }

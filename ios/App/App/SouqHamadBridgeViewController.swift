@@ -18,6 +18,7 @@ private final class WeakScriptMessageDelegate: NSObject, WKScriptMessageHandler 
 class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHandler {
     private let nativeMessageHandlerName = "smartstore"
     private var activeObserver: NSObjectProtocol?
+    private var statusWorkItems: [DispatchWorkItem] = []
 
     override func capacitorDidLoad() {
         super.capacitorDidLoad()
@@ -48,6 +49,8 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
     }
 
     deinit {
+        cancelNativePushStatusInjection()
+        NativePushRegistrar.shared.shutdown()
         webView?.configuration.userContentController.removeScriptMessageHandler(forName: nativeMessageHandlerName)
 
         if let activeObserver {
@@ -82,6 +85,10 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
 
         if payload?["type"] as? String == "open-notification-settings" {
             openAppSettings()
+        } else if payload?["type"] as? String == "share" {
+            let rawURL = payload?["url"] as? String ?? ""
+            let rawTitle = payload?["title"] as? String ?? ""
+            shareTrustedURL(rawURL, title: rawTitle)
         }
     }
 
@@ -111,13 +118,21 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
     }
 
     private func scheduleNativePushStatusInjection() {
+        cancelNativePushStatusInjection()
         injectNativePushStatus()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
-            self?.injectNativePushStatus()
+
+        for delay in [0.5, 2.5] {
+            let workItem = DispatchWorkItem { [weak self] in
+                self?.injectNativePushStatus()
+            }
+            statusWorkItems.append(workItem)
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: workItem)
         }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [weak self] in
-            self?.injectNativePushStatus()
-        }
+    }
+
+    private func cancelNativePushStatusInjection() {
+        statusWorkItems.forEach { $0.cancel() }
+        statusWorkItems.removeAll()
     }
 
     private func injectNativePushStatus() {
@@ -169,5 +184,30 @@ class SouqHamadBridgeViewController: CAPBridgeViewController, WKScriptMessageHan
         }
 
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+
+    private func shareTrustedURL(_ rawURL: String, title rawTitle: String) {
+        guard
+            let url = URL(string: rawURL),
+            url.scheme?.lowercased() == "https",
+            let host = url.host?.lowercased(),
+            host == "souqhamad.com" || host == "www.souqhamad.com"
+        else {
+            return
+        }
+
+        let title = rawTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+            ? "Souq Hamad"
+            : rawTitle.trimmingCharacters(in: .whitespacesAndNewlines)
+        let controller = UIActivityViewController(activityItems: [url], applicationActivities: nil)
+        controller.title = title
+
+        if let popover = controller.popoverPresentationController {
+            popover.sourceView = view
+            popover.sourceRect = CGRect(x: view.bounds.midX, y: view.bounds.midY, width: 0, height: 0)
+            popover.permittedArrowDirections = []
+        }
+
+        present(controller, animated: true)
     }
 }
