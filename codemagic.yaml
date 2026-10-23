@@ -12,10 +12,10 @@ workflows:
           source: true
       cancel_previous_builds: true
     environment:
+      groups:
+        - android_signing
       node: v22.11.0
       java: 17
-      android_signing:
-        - souq-hamad-android-release
       vars:
         APP_VARIANT: production
     scripts:
@@ -27,6 +27,28 @@ workflows:
         script: pnpm check
       - name: Generate Android project
         script: pnpm exec expo prebuild --platform android --no-install
+      - name: Prepare Android signing keystore
+        script: |
+          set -euo pipefail
+          : "${CM_KEYSTORE:?CM_KEYSTORE is missing from the android_signing group}"
+          : "${CM_KEYSTORE_PASSWORD:?CM_KEYSTORE_PASSWORD is missing from the android_signing group}"
+          : "${CM_KEY_ALIAS:?CM_KEY_ALIAS is missing from the android_signing group}"
+          : "${CM_KEY_PASSWORD:?CM_KEY_PASSWORD is missing from the android_signing group}"
+          : "${CM_ENV:?Codemagic did not provide CM_ENV}"
+          export KEYSTORE_PATH="$CM_BUILD_DIR/souq-hamad-release.keystore"
+          node <<'NODE'
+          const fs = require("node:fs");
+          const encoded = process.env.CM_KEYSTORE.replace(/\s/g, "");
+          if (!/^[A-Za-z0-9+/]*={0,2}$/.test(encoded)) {
+            throw new Error("CM_KEYSTORE is not valid base64");
+          }
+          const keystore = Buffer.from(encoded, "base64");
+          if (!keystore.length || keystore.toString("base64").replace(/=+$/, "") !== encoded.replace(/=+$/, "")) {
+            throw new Error("CM_KEYSTORE did not decode to a valid keystore file");
+          }
+          fs.writeFileSync(process.env.KEYSTORE_PATH, keystore, { mode: 0o600 });
+          NODE
+          printf 'CM_KEYSTORE_PATH=%s\n' "$KEYSTORE_PATH" >> "$CM_ENV"
       - name: Build signed Android App Bundle
         script: |
           printf 'sdk.dir=%s\n' "$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
