@@ -55,7 +55,7 @@
     "lint": "eslint .",
     "export": "expo export --platform all",
     "sync:catalog": "node scripts/sync-market-catalog.cjs",
-    "check": "pnpm typecheck && pnpm lint"
+    "check": "tsc --noEmit && eslint ."
   },
   "private": true,
   "packageManager": "pnpm@10.32.1"
