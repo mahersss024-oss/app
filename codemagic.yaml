@@ -19,16 +19,19 @@ workflows:
       vars:
         APP_VARIANT: production
     scripts:
-      - name: Verify pnpm
+      - name: Install pinned pnpm locally
         script: |
-          command -v pnpm
-          pnpm --version
+          npm install --prefix "$CM_BUILD_DIR/.tools" --no-save --no-audit --no-fund pnpm@10.32.1
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" --version
       - name: Install dependencies
-        script: pnpm install --frozen-lockfile
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" install --frozen-lockfile
       - name: Typecheck and lint
-        script: pnpm check
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" check
       - name: Generate Android project
-        script: pnpm exec expo prebuild --platform android --no-install
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" exec expo prebuild --platform android --no-install
       - name: Prepare Android signing keystore
         script: |
           set -euo pipefail
@@ -83,16 +86,19 @@ workflows:
       vars:
         APP_VARIANT: production
     scripts:
-      - name: Verify pnpm
+      - name: Install pinned pnpm locally
         script: |
-          command -v pnpm
-          pnpm --version
+          npm install --prefix "$CM_BUILD_DIR/.tools" --no-save --no-audit --no-fund pnpm@10.32.1
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" --version
       - name: Install dependencies
-        script: pnpm install --frozen-lockfile
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" install --frozen-lockfile
       - name: Typecheck and lint
-        script: pnpm check
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" check
       - name: Generate iOS project
-        script: pnpm exec expo prebuild --platform ios --no-install
+        script: |
+          "$CM_BUILD_DIR/.tools/node_modules/.bin/pnpm" exec expo prebuild --platform ios --no-install
       - name: Install CocoaPods dependencies
         script: cd ios && pod install
       - name: Apply iOS signing profiles
