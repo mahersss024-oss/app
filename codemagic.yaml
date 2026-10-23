@@ -1,0 +1,89 @@
+workflows:
+  android-release:
+    name: Souq Hamad Android Release
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+      cancel_previous_builds: true
+    environment:
+      node: v22.11.0
+      java: 17
+      android_signing:
+        - souq-hamad-android-release
+      vars:
+        APP_VARIANT: production
+    scripts:
+      - name: Install pnpm
+        script: npm install --global pnpm@10.32.1
+      - name: Install dependencies
+        script: pnpm install --frozen-lockfile
+      - name: Typecheck and lint
+        script: pnpm check
+      - name: Generate Android project
+        script: pnpm exec expo prebuild --platform android --no-install
+      - name: Build signed Android App Bundle
+        script: |
+          printf 'sdk.dir=%s\n' "$ANDROID_SDK_ROOT" > "$CM_BUILD_DIR/android/local.properties"
+          cd "$CM_BUILD_DIR/android"
+          ./gradlew bundleRelease
+    artifacts:
+      - android/app/build/outputs/**/*.aab
+      - android/app/build/outputs/**/*.mapping.txt
+      - /tmp/xcodebuild_logs/*.log
+
+  ios-release:
+    name: Souq Hamad iOS Release
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+    triggering:
+      events:
+        - push
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+      cancel_previous_builds: true
+    environment:
+      node: v22.11.0
+      xcode: latest
+      cocoapods: default
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.souqhamad.app
+      vars:
+        APP_VARIANT: production
+    scripts:
+      - name: Install pnpm
+        script: npm install --global pnpm@10.32.1
+      - name: Install dependencies
+        script: pnpm install --frozen-lockfile
+      - name: Typecheck and lint
+        script: pnpm check
+      - name: Generate iOS project
+        script: pnpm exec expo prebuild --platform ios --no-install
+      - name: Install CocoaPods dependencies
+        script: cd ios && pod install
+      - name: Apply iOS signing profiles
+        script: |
+          IOS_PROJECT="$(find "$CM_BUILD_DIR/ios" -maxdepth 2 -name '*.xcodeproj' -print -quit)"
+          test -n "$IOS_PROJECT"
+          xcode-project use-profiles --project "$IOS_PROJECT"
+      - name: Build signed iOS IPA
+        script: |
+          IOS_PROJECT="$(find "$CM_BUILD_DIR/ios" -maxdepth 2 -name '*.xcodeproj' -print -quit)"
+          IOS_WORKSPACE="$(find "$CM_BUILD_DIR/ios" -maxdepth 2 -name '*.xcworkspace' -print -quit)"
+          IOS_SCHEME_FILE="$(find "$IOS_PROJECT/xcshareddata/xcschemes" -maxdepth 1 -name '*.xcscheme' -print -quit)"
+          IOS_SCHEME="$(basename "$IOS_SCHEME_FILE" .xcscheme)"
+          test -n "$IOS_WORKSPACE"
+          test -n "$IOS_SCHEME"
+          xcode-project build-ipa --workspace "$IOS_WORKSPACE" --scheme "$IOS_SCHEME"
+    artifacts:
+      - build/ios/ipa/*.ipa
+      - /tmp/xcodebuild_logs/*.log
+      - $HOME/Library/Developer/Xcode/DerivedData/**/Build/**/*.dSYM

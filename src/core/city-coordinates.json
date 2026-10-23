@@ -1,0 +1,312 @@
+[
+  {
+    "city": "الرياض",
+    "latitude": 24.7136,
+    "longitude": 46.6753
+  },
+  {
+    "city": "الدرعية",
+    "latitude": 24.734,
+    "longitude": 46.575
+  },
+  {
+    "city": "الخرج",
+    "latitude": 24.1557,
+    "longitude": 47.312
+  },
+  {
+    "city": "الدوادمي",
+    "latitude": 24.5077,
+    "longitude": 44.3924
+  },
+  {
+    "city": "المجمعة",
+    "latitude": 25.9045,
+    "longitude": 45.3455
+  },
+  {
+    "city": "القويعية",
+    "latitude": 24.0717,
+    "longitude": 45.2808
+  },
+  {
+    "city": "وادي الدواسر",
+    "latitude": 20.4597,
+    "longitude": 44.8501
+  },
+  {
+    "city": "الزلفي",
+    "latitude": 26.2995,
+    "longitude": 44.8154
+  },
+  {
+    "city": "شقراء",
+    "latitude": 25.252,
+    "longitude": 45.252
+  },
+  {
+    "city": "عفيف",
+    "latitude": 23.9065,
+    "longitude": 42.9172
+  },
+  {
+    "city": "مكة المكرمة",
+    "latitude": 21.3891,
+    "longitude": 39.8579
+  },
+  {
+    "city": "جدة",
+    "latitude": 21.4858,
+    "longitude": 39.1925
+  },
+  {
+    "city": "الطائف",
+    "latitude": 21.4373,
+    "longitude": 40.5127
+  },
+  {
+    "city": "القنفذة",
+    "latitude": 19.1264,
+    "longitude": 41.0789
+  },
+  {
+    "city": "رابغ",
+    "latitude": 22.7986,
+    "longitude": 39.0349
+  },
+  {
+    "city": "بحرة",
+    "latitude": 21.4024,
+    "longitude": 39.4849
+  },
+  {
+    "city": "المدينة المنورة",
+    "latitude": 24.5247,
+    "longitude": 39.5692
+  },
+  {
+    "city": "ينبع",
+    "latitude": 24.0895,
+    "longitude": 38.0618
+  },
+  {
+    "city": "العلا",
+    "latitude": 26.6085,
+    "longitude": 37.9232
+  },
+  {
+    "city": "بدر",
+    "latitude": 23.7829,
+    "longitude": 38.7905
+  },
+  {
+    "city": "الدمام",
+    "latitude": 26.4207,
+    "longitude": 50.0888
+  },
+  {
+    "city": "الخبر",
+    "latitude": 26.2172,
+    "longitude": 50.1971
+  },
+  {
+    "city": "الظهران",
+    "latitude": 26.2361,
+    "longitude": 50.0393
+  },
+  {
+    "city": "الأحساء",
+    "latitude": 25.3833,
+    "longitude": 49.6
+  },
+  {
+    "city": "القطيف",
+    "latitude": 26.5652,
+    "longitude": 50.0089
+  },
+  {
+    "city": "الجبيل",
+    "latitude": 27.0046,
+    "longitude": 49.646
+  },
+  {
+    "city": "حفر الباطن",
+    "latitude": 28.4328,
+    "longitude": 45.9708
+  },
+  {
+    "city": "الخفجي",
+    "latitude": 28.4391,
+    "longitude": 48.4913
+  },
+  {
+    "city": "رأس تنورة",
+    "latitude": 26.6437,
+    "longitude": 50.1592
+  },
+  {
+    "city": "بقيق",
+    "latitude": 25.934,
+    "longitude": 49.6688
+  },
+  {
+    "city": "بريدة",
+    "latitude": 26.3592,
+    "longitude": 43.9818
+  },
+  {
+    "city": "عنيزة",
+    "latitude": 26.0913,
+    "longitude": 43.9875
+  },
+  {
+    "city": "الرس",
+    "latitude": 25.8694,
+    "longitude": 43.4973
+  },
+  {
+    "city": "البدائع",
+    "latitude": 26.1442,
+    "longitude": 43.6578
+  },
+  {
+    "city": "أبها",
+    "latitude": 18.2164,
+    "longitude": 42.5053
+  },
+  {
+    "city": "خميس مشيط",
+    "latitude": 18.3064,
+    "longitude": 42.7292
+  },
+  {
+    "city": "بيشة",
+    "latitude": 20.0087,
+    "longitude": 42.5987
+  },
+  {
+    "city": "النماص",
+    "latitude": 19.1458,
+    "longitude": 42.1207
+  },
+  {
+    "city": "أحد رفيدة",
+    "latitude": 18.55,
+    "longitude": 42.05
+  },
+  {
+    "city": "حائل",
+    "latitude": 27.5114,
+    "longitude": 41.7208
+  },
+  {
+    "city": "بقعاء",
+    "latitude": 27.8877,
+    "longitude": 42.4105
+  },
+  {
+    "city": "تبوك",
+    "latitude": 28.3838,
+    "longitude": 36.5662
+  },
+  {
+    "city": "الوجه",
+    "latitude": 26.2455,
+    "longitude": 36.4525
+  },
+  {
+    "city": "ضباء",
+    "latitude": 27.3493,
+    "longitude": 35.6977
+  },
+  {
+    "city": "تيماء",
+    "latitude": 27.6338,
+    "longitude": 38.5543
+  },
+  {
+    "city": "أملج",
+    "latitude": 25.0213,
+    "longitude": 37.2685
+  },
+  {
+    "city": "حقل",
+    "latitude": 29.2833,
+    "longitude": 34.95
+  },
+  {
+    "city": "جازان",
+    "latitude": 16.8892,
+    "longitude": 42.5611
+  },
+  {
+    "city": "صبيا",
+    "latitude": 17.1495,
+    "longitude": 42.6254
+  },
+  {
+    "city": "أبو عريش",
+    "latitude": 16.9689,
+    "longitude": 42.8325
+  },
+  {
+    "city": "صامطة",
+    "latitude": 16.596,
+    "longitude": 42.9448
+  },
+  {
+    "city": "بيش",
+    "latitude": 17.3753,
+    "longitude": 42.5247
+  },
+  {
+    "city": "الدرب",
+    "latitude": 17.7229,
+    "longitude": 42.2526
+  },
+  {
+    "city": "أحد المسارحة",
+    "latitude": 16.7059,
+    "longitude": 42.1182
+  },
+  {
+    "city": "نجران",
+    "latitude": 17.5446,
+    "longitude": 44.2289
+  },
+  {
+    "city": "شرورة",
+    "latitude": 17.4667,
+    "longitude": 47.1
+  },
+  {
+    "city": "حبونا",
+    "latitude": 17.83,
+    "longitude": 44.32
+  },
+  {
+    "city": "الباحة",
+    "latitude": 20.0129,
+    "longitude": 41.4677
+  },
+  {
+    "city": "بلجرشي",
+    "latitude": 19.8618,
+    "longitude": 41.5776
+  },
+  {
+    "city": "سكاكا",
+    "latitude": 29.9697,
+    "longitude": 40.2064
+  },
+  {
+    "city": "القريات",
+    "latitude": 31.3318,
+    "longitude": 37.3428
+  },
+  {
+    "city": "عرعر",
+    "latitude": 30.9753,
+    "longitude": 41.0381
+  }
+]

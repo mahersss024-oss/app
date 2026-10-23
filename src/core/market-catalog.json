@@ -1,0 +1,5847 @@
+{
+  "catalogDate": "2026-10-23",
+  "categories": [
+    {
+      "id": "cars",
+      "label": "السيارات",
+      "group": "سيارات ومركبات",
+      "options": [
+        {
+          "id": "toyota",
+          "label": "تويوتا"
+        },
+        {
+          "id": "hyundai",
+          "label": "هيونداي"
+        },
+        {
+          "id": "nissan",
+          "label": "نيسان"
+        },
+        {
+          "id": "ford",
+          "label": "فورد"
+        },
+        {
+          "id": "kia",
+          "label": "كيا"
+        },
+        {
+          "id": "chevrolet",
+          "label": "شفروليه"
+        },
+        {
+          "id": "lexus",
+          "label": "لكزس"
+        },
+        {
+          "id": "mercedes_benz",
+          "label": "مرسيدس بنز"
+        },
+        {
+          "id": "gmc",
+          "label": "جي إم سي"
+        },
+        {
+          "id": "honda",
+          "label": "هوندا"
+        },
+        {
+          "id": "isuzu",
+          "label": "إيسوزو"
+        },
+        {
+          "id": "bmw",
+          "label": "بي إم دبليو"
+        },
+        {
+          "id": "dodge",
+          "label": "دودج"
+        },
+        {
+          "id": "mazda",
+          "label": "مازدا"
+        },
+        {
+          "id": "changan",
+          "label": "شانجان"
+        },
+        {
+          "id": "mitsubishi",
+          "label": "ميتسوبيشي"
+        },
+        {
+          "id": "land_rover",
+          "label": "لاند روفر"
+        },
+        {
+          "id": "jetour",
+          "label": "جيتور"
+        },
+        {
+          "id": "geely",
+          "label": "جيلي"
+        },
+        {
+          "id": "jeep",
+          "label": "جيب"
+        },
+        {
+          "id": "mg",
+          "label": "إم جي"
+        },
+        {
+          "id": "suzuki",
+          "label": "سوزوكي"
+        },
+        {
+          "id": "haval",
+          "label": "هافال"
+        },
+        {
+          "id": "genesis",
+          "label": "جينيسيس"
+        },
+        {
+          "id": "audi",
+          "label": "أودي"
+        },
+        {
+          "id": "chery",
+          "label": "شيري"
+        },
+        {
+          "id": "porsche",
+          "label": "بورش"
+        },
+        {
+          "id": "chrysler",
+          "label": "كرايسلر"
+        },
+        {
+          "id": "cadillac",
+          "label": "كاديلاك"
+        },
+        {
+          "id": "gac",
+          "label": "جي إيه سي"
+        },
+        {
+          "id": "peugeot",
+          "label": "بيجو"
+        },
+        {
+          "id": "volkswagen",
+          "label": "فولكس واجن"
+        },
+        {
+          "id": "faw",
+          "label": "فاو"
+        },
+        {
+          "id": "lincoln",
+          "label": "لينكولن"
+        },
+        {
+          "id": "daihatsu",
+          "label": "دايهاتسو"
+        },
+        {
+          "id": "infiniti",
+          "label": "إنفينيتي"
+        },
+        {
+          "id": "great_wall",
+          "label": "جريت وول"
+        },
+        {
+          "id": "byd",
+          "label": "بي واي دي"
+        },
+        {
+          "id": "jac",
+          "label": "جاك"
+        },
+        {
+          "id": "fiat",
+          "label": "فيات"
+        },
+        {
+          "id": "dongfeng",
+          "label": "دونج فينج"
+        },
+        {
+          "id": "bentley",
+          "label": "بنتلي"
+        },
+        {
+          "id": "tank",
+          "label": "تانك"
+        },
+        {
+          "id": "foton",
+          "label": "فوتون"
+        },
+        {
+          "id": "rolls_royce",
+          "label": "رولز رويس"
+        },
+        {
+          "id": "jaguar",
+          "label": "جاكوار"
+        },
+        {
+          "id": "baic",
+          "label": "بايك"
+        },
+        {
+          "id": "maserati",
+          "label": "مازيراتي"
+        },
+        {
+          "id": "hummer",
+          "label": "همر"
+        },
+        {
+          "id": "jmc",
+          "label": "جيه إم سي"
+        },
+        {
+          "id": "volvo",
+          "label": "فولفو"
+        },
+        {
+          "id": "maxus",
+          "label": "ماكسوس"
+        },
+        {
+          "id": "saab",
+          "label": "ساب"
+        },
+        {
+          "id": "tata",
+          "label": "تاتا"
+        },
+        {
+          "id": "subaru",
+          "label": "سوبارو"
+        },
+        {
+          "id": "lamborghini",
+          "label": "لامبورجيني"
+        },
+        {
+          "id": "lucid",
+          "label": "لوسيد"
+        },
+        {
+          "id": "buick",
+          "label": "بويك"
+        },
+        {
+          "id": "hongqi",
+          "label": "هونشي"
+        },
+        {
+          "id": "jaecoo",
+          "label": "جايكو"
+        },
+        {
+          "id": "smart",
+          "label": "سمارت"
+        },
+        {
+          "id": "kg_mobility",
+          "label": "سانج يونج وكي جي"
+        },
+        {
+          "id": "skoda",
+          "label": "سكودا"
+        },
+        {
+          "id": "lynk_co",
+          "label": "لينك آند كو"
+        },
+        {
+          "id": "ferrari",
+          "label": "فيراري"
+        },
+        {
+          "id": "rox",
+          "label": "روكس"
+        },
+        {
+          "id": "aston_martin",
+          "label": "أستون مارتن"
+        },
+        {
+          "id": "seat",
+          "label": "سيات"
+        },
+        {
+          "id": "lifan",
+          "label": "ليفان"
+        },
+        {
+          "id": "zxauto",
+          "label": "زد إكس أوتو"
+        },
+        {
+          "id": "citroen",
+          "label": "سيتروين"
+        },
+        {
+          "id": "mercury",
+          "label": "ميركوري"
+        },
+        {
+          "id": "exeed",
+          "label": "إكسيد"
+        },
+        {
+          "id": "alfa_romeo",
+          "label": "ألفا روميو"
+        },
+        {
+          "id": "tesla",
+          "label": "تسلا"
+        },
+        {
+          "id": "soueast",
+          "label": "ساوايست"
+        },
+        {
+          "id": "mahindra",
+          "label": "ماهيندرا"
+        },
+        {
+          "id": "renault",
+          "label": "رينو"
+        },
+        {
+          "id": "mclaren",
+          "label": "ماكلارين"
+        },
+        {
+          "id": "omoda",
+          "label": "أومودا"
+        },
+        {
+          "id": "opel",
+          "label": "أوبل"
+        },
+        {
+          "id": "lotus",
+          "label": "لوتس"
+        },
+        {
+          "id": "ineos",
+          "label": "إينيوس"
+        },
+        {
+          "id": "daewoo",
+          "label": "دايو"
+        },
+        {
+          "id": "kaiyi",
+          "label": "كايي"
+        },
+        {
+          "id": "proton",
+          "label": "بروتون"
+        },
+        {
+          "id": "ram",
+          "label": "رام"
+        },
+        {
+          "id": "changan_deepal",
+          "label": "ديبال"
+        },
+        {
+          "id": "other",
+          "label": "ماركات سيارات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند",
+      "carModels": {
+        "toyota": [
+          {
+            "id": "camry",
+            "label": "كامري"
+          },
+          {
+            "id": "corolla",
+            "label": "كورولا"
+          },
+          {
+            "id": "hilux",
+            "label": "هايلكس"
+          },
+          {
+            "id": "land_cruiser",
+            "label": "لاند كروزر"
+          },
+          {
+            "id": "land_cruiser_70",
+            "label": "لاند كروزر 70"
+          },
+          {
+            "id": "prado",
+            "label": "برادو"
+          },
+          {
+            "id": "fortuner",
+            "label": "فورتشنر"
+          },
+          {
+            "id": "yaris",
+            "label": "يارس"
+          },
+          {
+            "id": "avalon",
+            "label": "أفالون"
+          },
+          {
+            "id": "rav4",
+            "label": "راف فور"
+          },
+          {
+            "id": "fj_cruiser",
+            "label": "إف جي"
+          },
+          {
+            "id": "innova",
+            "label": "إنوفا"
+          },
+          {
+            "id": "hiace",
+            "label": "هايس"
+          },
+          {
+            "id": "highlander",
+            "label": "هايلاندر"
+          },
+          {
+            "id": "sequoia",
+            "label": "سيكويا"
+          },
+          {
+            "id": "tundra",
+            "label": "تندرا"
+          },
+          {
+            "id": "crown",
+            "label": "كراون"
+          },
+          {
+            "id": "corolla_cross",
+            "label": "كورولا كروس"
+          },
+          {
+            "id": "raize",
+            "label": "رايز"
+          },
+          {
+            "id": "rush",
+            "label": "راش"
+          },
+          {
+            "id": "veloz",
+            "label": "فيلوز"
+          },
+          {
+            "id": "urban_cruiser",
+            "label": "أوربان كروزر"
+          },
+          {
+            "id": "supra",
+            "label": "سوبرا"
+          },
+          {
+            "id": "cressida",
+            "label": "كرسيدا"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "hyundai": [
+          {
+            "id": "elantra",
+            "label": "إلنترا"
+          },
+          {
+            "id": "accent",
+            "label": "أكسنت"
+          },
+          {
+            "id": "sonata",
+            "label": "سوناتا"
+          },
+          {
+            "id": "azera",
+            "label": "أزيرا"
+          },
+          {
+            "id": "tucson",
+            "label": "توسان"
+          },
+          {
+            "id": "santa_fe",
+            "label": "سنتافي"
+          },
+          {
+            "id": "palisade",
+            "label": "باليسيد"
+          },
+          {
+            "id": "creta",
+            "label": "كريتا"
+          },
+          {
+            "id": "kona",
+            "label": "كونا"
+          },
+          {
+            "id": "venue",
+            "label": "فينيو"
+          },
+          {
+            "id": "staria",
+            "label": "ستاريا"
+          },
+          {
+            "id": "h1",
+            "label": "إتش 1"
+          },
+          {
+            "id": "ioniq_5",
+            "label": "أيونيك 5"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "nissan": [
+          {
+            "id": "patrol",
+            "label": "باترول"
+          },
+          {
+            "id": "patrol_safari",
+            "label": "باترول سفاري"
+          },
+          {
+            "id": "sunny",
+            "label": "صني"
+          },
+          {
+            "id": "altima",
+            "label": "ألتيما"
+          },
+          {
+            "id": "maxima",
+            "label": "مكسيما"
+          },
+          {
+            "id": "datsun",
+            "label": "ددسن"
+          },
+          {
+            "id": "navara",
+            "label": "نافارا"
+          },
+          {
+            "id": "pathfinder",
+            "label": "باثفندر"
+          },
+          {
+            "id": "xterra",
+            "label": "إكستيرا"
+          },
+          {
+            "id": "x_trail",
+            "label": "إكس تريل"
+          },
+          {
+            "id": "kicks",
+            "label": "كيكس"
+          },
+          {
+            "id": "sentra",
+            "label": "سنترا"
+          },
+          {
+            "id": "armada",
+            "label": "أرمادا"
+          },
+          {
+            "id": "urvan",
+            "label": "أورفان"
+          },
+          {
+            "id": "tiida",
+            "label": "تيدا"
+          },
+          {
+            "id": "juke",
+            "label": "جوك"
+          },
+          {
+            "id": "murano",
+            "label": "مورانو"
+          },
+          {
+            "id": "gt_r",
+            "label": "جي تي آر"
+          },
+          {
+            "id": "z",
+            "label": "زد"
+          },
+          {
+            "id": "qashqai",
+            "label": "قاشقاي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "ford": [
+          {
+            "id": "taurus",
+            "label": "تورس"
+          },
+          {
+            "id": "expedition",
+            "label": "إكسبدشن"
+          },
+          {
+            "id": "explorer",
+            "label": "إكسبلورر"
+          },
+          {
+            "id": "f150",
+            "label": "إف 150"
+          },
+          {
+            "id": "ranger",
+            "label": "رينجر"
+          },
+          {
+            "id": "mustang",
+            "label": "موستانج"
+          },
+          {
+            "id": "edge",
+            "label": "إيدج"
+          },
+          {
+            "id": "everest",
+            "label": "إيفرست"
+          },
+          {
+            "id": "bronco",
+            "label": "برونكو"
+          },
+          {
+            "id": "territory",
+            "label": "تيريتوري"
+          },
+          {
+            "id": "fusion",
+            "label": "فيوجن"
+          },
+          {
+            "id": "crown_victoria",
+            "label": "كراون فكتوريا"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "kia": [
+          {
+            "id": "cerato",
+            "label": "سيراتو"
+          },
+          {
+            "id": "k3",
+            "label": "كي 3"
+          },
+          {
+            "id": "k5",
+            "label": "كي 5"
+          },
+          {
+            "id": "k8",
+            "label": "كي 8"
+          },
+          {
+            "id": "k9",
+            "label": "كي 9"
+          },
+          {
+            "id": "optima",
+            "label": "أوبتيما"
+          },
+          {
+            "id": "cadenza",
+            "label": "كادينزا"
+          },
+          {
+            "id": "rio",
+            "label": "ريو"
+          },
+          {
+            "id": "pegas",
+            "label": "بيجاس"
+          },
+          {
+            "id": "sportage",
+            "label": "سبورتاج"
+          },
+          {
+            "id": "sorento",
+            "label": "سورينتو"
+          },
+          {
+            "id": "seltos",
+            "label": "سيلتوس"
+          },
+          {
+            "id": "sonet",
+            "label": "سونيت"
+          },
+          {
+            "id": "carnival",
+            "label": "كرنفال"
+          },
+          {
+            "id": "telluride",
+            "label": "تيلورايد"
+          },
+          {
+            "id": "picanto",
+            "label": "بيكانتو"
+          },
+          {
+            "id": "stinger",
+            "label": "ستينجر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "chevrolet": [
+          {
+            "id": "tahoe",
+            "label": "تاهو"
+          },
+          {
+            "id": "suburban",
+            "label": "سوبربان"
+          },
+          {
+            "id": "silverado",
+            "label": "سيلفرادو"
+          },
+          {
+            "id": "caprice",
+            "label": "كابرس"
+          },
+          {
+            "id": "impala",
+            "label": "إمبالا"
+          },
+          {
+            "id": "malibu",
+            "label": "ماليبو"
+          },
+          {
+            "id": "cruze",
+            "label": "كروز"
+          },
+          {
+            "id": "captiva",
+            "label": "كابتيفا"
+          },
+          {
+            "id": "traverse",
+            "label": "ترافيرس"
+          },
+          {
+            "id": "trailblazer",
+            "label": "تريل بليزر"
+          },
+          {
+            "id": "blazer",
+            "label": "بليزر"
+          },
+          {
+            "id": "equinox",
+            "label": "إكوينوكس"
+          },
+          {
+            "id": "groove",
+            "label": "جروف"
+          },
+          {
+            "id": "spark",
+            "label": "سبارك"
+          },
+          {
+            "id": "camaro",
+            "label": "كمارو"
+          },
+          {
+            "id": "corvette",
+            "label": "كورفيت"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lexus": [
+          {
+            "id": "es",
+            "label": "إي إس"
+          },
+          {
+            "id": "ls",
+            "label": "إل إس"
+          },
+          {
+            "id": "is",
+            "label": "آي إس"
+          },
+          {
+            "id": "gs",
+            "label": "جي إس"
+          },
+          {
+            "id": "lx",
+            "label": "إل إكس"
+          },
+          {
+            "id": "gx",
+            "label": "جي إكس"
+          },
+          {
+            "id": "rx",
+            "label": "آر إكس"
+          },
+          {
+            "id": "nx",
+            "label": "إن إكس"
+          },
+          {
+            "id": "ux",
+            "label": "يو إكس"
+          },
+          {
+            "id": "lc",
+            "label": "إل سي"
+          },
+          {
+            "id": "rc",
+            "label": "آر سي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mercedes_benz": [
+          {
+            "id": "a_class",
+            "label": "الفئة إيه"
+          },
+          {
+            "id": "c_class",
+            "label": "الفئة سي"
+          },
+          {
+            "id": "e_class",
+            "label": "الفئة إي"
+          },
+          {
+            "id": "s_class",
+            "label": "الفئة إس"
+          },
+          {
+            "id": "g_class",
+            "label": "الفئة جي"
+          },
+          {
+            "id": "cla",
+            "label": "سي إل إيه"
+          },
+          {
+            "id": "cls",
+            "label": "سي إل إس"
+          },
+          {
+            "id": "gla",
+            "label": "جي إل إيه"
+          },
+          {
+            "id": "glb",
+            "label": "جي إل بي"
+          },
+          {
+            "id": "glc",
+            "label": "جي إل سي"
+          },
+          {
+            "id": "gle",
+            "label": "جي إل إي"
+          },
+          {
+            "id": "gls",
+            "label": "جي إل إس"
+          },
+          {
+            "id": "sl",
+            "label": "إس إل"
+          },
+          {
+            "id": "v_class",
+            "label": "الفئة في"
+          },
+          {
+            "id": "eqs",
+            "label": "إي كيو إس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "gmc": [
+          {
+            "id": "yukon",
+            "label": "يوكن"
+          },
+          {
+            "id": "sierra",
+            "label": "سييرا"
+          },
+          {
+            "id": "acadia",
+            "label": "أكاديا"
+          },
+          {
+            "id": "terrain",
+            "label": "تيرين"
+          },
+          {
+            "id": "savana",
+            "label": "سافانا"
+          },
+          {
+            "id": "canyon",
+            "label": "كانيون"
+          },
+          {
+            "id": "hummer_ev",
+            "label": "همر الكهربائي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "honda": [
+          {
+            "id": "accord",
+            "label": "أكورد"
+          },
+          {
+            "id": "civic",
+            "label": "سيفيك"
+          },
+          {
+            "id": "city",
+            "label": "سيتي"
+          },
+          {
+            "id": "cr_v",
+            "label": "سي آر في"
+          },
+          {
+            "id": "hr_v",
+            "label": "إتش آر في"
+          },
+          {
+            "id": "zr_v",
+            "label": "زد آر في"
+          },
+          {
+            "id": "pilot",
+            "label": "بايلوت"
+          },
+          {
+            "id": "odyssey",
+            "label": "أوديسي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "isuzu": [
+          {
+            "id": "d_max",
+            "label": "دي ماكس"
+          },
+          {
+            "id": "mu_x",
+            "label": "إم يو إكس"
+          },
+          {
+            "id": "trooper",
+            "label": "تروبر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "bmw": [
+          {
+            "id": "1_series",
+            "label": "الفئة الأولى"
+          },
+          {
+            "id": "2_series",
+            "label": "الفئة الثانية"
+          },
+          {
+            "id": "3_series",
+            "label": "الفئة الثالثة"
+          },
+          {
+            "id": "4_series",
+            "label": "الفئة الرابعة"
+          },
+          {
+            "id": "5_series",
+            "label": "الفئة الخامسة"
+          },
+          {
+            "id": "6_series",
+            "label": "الفئة السادسة"
+          },
+          {
+            "id": "7_series",
+            "label": "الفئة السابعة"
+          },
+          {
+            "id": "8_series",
+            "label": "الفئة الثامنة"
+          },
+          {
+            "id": "x1",
+            "label": "إكس 1"
+          },
+          {
+            "id": "x2",
+            "label": "إكس 2"
+          },
+          {
+            "id": "x3",
+            "label": "إكس 3"
+          },
+          {
+            "id": "x4",
+            "label": "إكس 4"
+          },
+          {
+            "id": "x5",
+            "label": "إكس 5"
+          },
+          {
+            "id": "x6",
+            "label": "إكس 6"
+          },
+          {
+            "id": "x7",
+            "label": "إكس 7"
+          },
+          {
+            "id": "z4",
+            "label": "زد 4"
+          },
+          {
+            "id": "ix",
+            "label": "آي إكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "dodge": [
+          {
+            "id": "charger",
+            "label": "تشارجر"
+          },
+          {
+            "id": "challenger",
+            "label": "تشالنجر"
+          },
+          {
+            "id": "durango",
+            "label": "دورانجو"
+          },
+          {
+            "id": "ram",
+            "label": "رام"
+          },
+          {
+            "id": "neon",
+            "label": "نيون"
+          },
+          {
+            "id": "journey",
+            "label": "جورني"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mazda": [
+          {
+            "id": "mazda2",
+            "label": "مازدا 2"
+          },
+          {
+            "id": "mazda3",
+            "label": "مازدا 3"
+          },
+          {
+            "id": "mazda6",
+            "label": "مازدا 6"
+          },
+          {
+            "id": "cx3",
+            "label": "سي إكس 3"
+          },
+          {
+            "id": "cx5",
+            "label": "سي إكس 5"
+          },
+          {
+            "id": "cx9",
+            "label": "سي إكس 9"
+          },
+          {
+            "id": "cx30",
+            "label": "سي إكس 30"
+          },
+          {
+            "id": "cx60",
+            "label": "سي إكس 60"
+          },
+          {
+            "id": "cx90",
+            "label": "سي إكس 90"
+          },
+          {
+            "id": "mx5",
+            "label": "إم إكس 5"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "changan": [
+          {
+            "id": "alsvin",
+            "label": "ألسفن"
+          },
+          {
+            "id": "eado",
+            "label": "إيدو"
+          },
+          {
+            "id": "cs35",
+            "label": "سي إس 35"
+          },
+          {
+            "id": "cs75",
+            "label": "سي إس 75"
+          },
+          {
+            "id": "cs85",
+            "label": "سي إس 85"
+          },
+          {
+            "id": "cs95",
+            "label": "سي إس 95"
+          },
+          {
+            "id": "uni_t",
+            "label": "يوني تي"
+          },
+          {
+            "id": "uni_k",
+            "label": "يوني كي"
+          },
+          {
+            "id": "uni_v",
+            "label": "يوني في"
+          },
+          {
+            "id": "hunter",
+            "label": "هنتر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mitsubishi": [
+          {
+            "id": "pajero",
+            "label": "باجيرو"
+          },
+          {
+            "id": "montero_sport",
+            "label": "مونتيرو سبورت"
+          },
+          {
+            "id": "l200",
+            "label": "إل 200"
+          },
+          {
+            "id": "lancer",
+            "label": "لانسر"
+          },
+          {
+            "id": "attrage",
+            "label": "أتراج"
+          },
+          {
+            "id": "outlander",
+            "label": "أوتلاندر"
+          },
+          {
+            "id": "asx",
+            "label": "إيه إس إكس"
+          },
+          {
+            "id": "eclipse_cross",
+            "label": "إكليبس كروس"
+          },
+          {
+            "id": "xpander",
+            "label": "إكسباندر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "land_rover": [
+          {
+            "id": "range_rover",
+            "label": "رنج روفر"
+          },
+          {
+            "id": "range_rover_sport",
+            "label": "رنج روفر سبورت"
+          },
+          {
+            "id": "velar",
+            "label": "فيلار"
+          },
+          {
+            "id": "evoque",
+            "label": "إيفوك"
+          },
+          {
+            "id": "defender",
+            "label": "ديفندر"
+          },
+          {
+            "id": "discovery",
+            "label": "ديسكفري"
+          },
+          {
+            "id": "discovery_sport",
+            "label": "ديسكفري سبورت"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jetour": [
+          {
+            "id": "t1",
+            "label": "تي 1"
+          },
+          {
+            "id": "t2",
+            "label": "تي 2"
+          },
+          {
+            "id": "dashing",
+            "label": "داشينج"
+          },
+          {
+            "id": "x70",
+            "label": "إكس 70"
+          },
+          {
+            "id": "x90",
+            "label": "إكس 90"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "geely": [
+          {
+            "id": "emgrand",
+            "label": "إمجراند"
+          },
+          {
+            "id": "coolray",
+            "label": "كولراي"
+          },
+          {
+            "id": "tugella",
+            "label": "توجيلا"
+          },
+          {
+            "id": "monjaro",
+            "label": "مونجارو"
+          },
+          {
+            "id": "starray",
+            "label": "ستار راي"
+          },
+          {
+            "id": "okavango",
+            "label": "أوكافانجو"
+          },
+          {
+            "id": "azkarra",
+            "label": "أزكارا"
+          },
+          {
+            "id": "preface",
+            "label": "بريفيس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jeep": [
+          {
+            "id": "wrangler",
+            "label": "رانجلر"
+          },
+          {
+            "id": "grand_cherokee",
+            "label": "جراند شيروكي"
+          },
+          {
+            "id": "cherokee",
+            "label": "شيروكي"
+          },
+          {
+            "id": "compass",
+            "label": "كومباس"
+          },
+          {
+            "id": "renegade",
+            "label": "رينيجيد"
+          },
+          {
+            "id": "gladiator",
+            "label": "جلاديتور"
+          },
+          {
+            "id": "wagoneer",
+            "label": "واجونير"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mg": [
+          {
+            "id": "mg3",
+            "label": "إم جي 3"
+          },
+          {
+            "id": "mg5",
+            "label": "إم جي 5"
+          },
+          {
+            "id": "mg6",
+            "label": "إم جي 6"
+          },
+          {
+            "id": "mg7",
+            "label": "إم جي 7"
+          },
+          {
+            "id": "zs",
+            "label": "زد إس"
+          },
+          {
+            "id": "hs",
+            "label": "إتش إس"
+          },
+          {
+            "id": "rx5",
+            "label": "آر إكس 5"
+          },
+          {
+            "id": "rx8",
+            "label": "آر إكس 8"
+          },
+          {
+            "id": "one",
+            "label": "ون"
+          },
+          {
+            "id": "whale",
+            "label": "ويل"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "suzuki": [
+          {
+            "id": "swift",
+            "label": "سويفت"
+          },
+          {
+            "id": "baleno",
+            "label": "بالينو"
+          },
+          {
+            "id": "ciaz",
+            "label": "سياز"
+          },
+          {
+            "id": "dzire",
+            "label": "ديزاير"
+          },
+          {
+            "id": "jimny",
+            "label": "جيمني"
+          },
+          {
+            "id": "vitara",
+            "label": "فيتارا"
+          },
+          {
+            "id": "grand_vitara",
+            "label": "جراند فيتارا"
+          },
+          {
+            "id": "ertiga",
+            "label": "إرتيجا"
+          },
+          {
+            "id": "fronx",
+            "label": "فرونكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "haval": [
+          {
+            "id": "h6",
+            "label": "إتش 6"
+          },
+          {
+            "id": "h9",
+            "label": "إتش 9"
+          },
+          {
+            "id": "jolion",
+            "label": "جوليان"
+          },
+          {
+            "id": "dargo",
+            "label": "دارجو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "genesis": [
+          {
+            "id": "g70",
+            "label": "جي 70"
+          },
+          {
+            "id": "g80",
+            "label": "جي 80"
+          },
+          {
+            "id": "g90",
+            "label": "جي 90"
+          },
+          {
+            "id": "gv70",
+            "label": "جي في 70"
+          },
+          {
+            "id": "gv80",
+            "label": "جي في 80"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "audi": [
+          {
+            "id": "a3",
+            "label": "إيه 3"
+          },
+          {
+            "id": "a4",
+            "label": "إيه 4"
+          },
+          {
+            "id": "a5",
+            "label": "إيه 5"
+          },
+          {
+            "id": "a6",
+            "label": "إيه 6"
+          },
+          {
+            "id": "a7",
+            "label": "إيه 7"
+          },
+          {
+            "id": "a8",
+            "label": "إيه 8"
+          },
+          {
+            "id": "q2",
+            "label": "كيو 2"
+          },
+          {
+            "id": "q3",
+            "label": "كيو 3"
+          },
+          {
+            "id": "q5",
+            "label": "كيو 5"
+          },
+          {
+            "id": "q7",
+            "label": "كيو 7"
+          },
+          {
+            "id": "q8",
+            "label": "كيو 8"
+          },
+          {
+            "id": "tt",
+            "label": "تي تي"
+          },
+          {
+            "id": "r8",
+            "label": "آر 8"
+          },
+          {
+            "id": "e_tron",
+            "label": "إي ترون"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "chery": [
+          {
+            "id": "arrizo5",
+            "label": "أريزو 5"
+          },
+          {
+            "id": "arrizo6",
+            "label": "أريزو 6"
+          },
+          {
+            "id": "arrizo8",
+            "label": "أريزو 8"
+          },
+          {
+            "id": "tiggo2",
+            "label": "تيجو 2"
+          },
+          {
+            "id": "tiggo4",
+            "label": "تيجو 4"
+          },
+          {
+            "id": "tiggo7",
+            "label": "تيجو 7"
+          },
+          {
+            "id": "tiggo8",
+            "label": "تيجو 8"
+          },
+          {
+            "id": "tiggo9",
+            "label": "تيجو 9"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "porsche": [
+          {
+            "id": "911",
+            "label": "911"
+          },
+          {
+            "id": "718",
+            "label": "718"
+          },
+          {
+            "id": "cayenne",
+            "label": "كايين"
+          },
+          {
+            "id": "macan",
+            "label": "ماكان"
+          },
+          {
+            "id": "panamera",
+            "label": "باناميرا"
+          },
+          {
+            "id": "taycan",
+            "label": "تايكان"
+          },
+          {
+            "id": "boxster",
+            "label": "بوكستر"
+          },
+          {
+            "id": "cayman",
+            "label": "كايمان"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "chrysler": [
+          {
+            "id": "300",
+            "label": "300"
+          },
+          {
+            "id": "200",
+            "label": "200"
+          },
+          {
+            "id": "pacifica",
+            "label": "باسيفيكا"
+          },
+          {
+            "id": "town_country",
+            "label": "تاون آند كانتري"
+          },
+          {
+            "id": "sebring",
+            "label": "سيبرينج"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "cadillac": [
+          {
+            "id": "escalade",
+            "label": "إسكاليد"
+          },
+          {
+            "id": "ct4",
+            "label": "سي تي 4"
+          },
+          {
+            "id": "ct5",
+            "label": "سي تي 5"
+          },
+          {
+            "id": "ct6",
+            "label": "سي تي 6"
+          },
+          {
+            "id": "xt4",
+            "label": "إكس تي 4"
+          },
+          {
+            "id": "xt5",
+            "label": "إكس تي 5"
+          },
+          {
+            "id": "xt6",
+            "label": "إكس تي 6"
+          },
+          {
+            "id": "ats",
+            "label": "إيه تي إس"
+          },
+          {
+            "id": "cts",
+            "label": "سي تي إس"
+          },
+          {
+            "id": "lyriq",
+            "label": "ليريك"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "gac": [
+          {
+            "id": "ga4",
+            "label": "جي إيه 4"
+          },
+          {
+            "id": "ga6",
+            "label": "جي إيه 6"
+          },
+          {
+            "id": "ga8",
+            "label": "جي إيه 8"
+          },
+          {
+            "id": "gs3",
+            "label": "جي إس 3"
+          },
+          {
+            "id": "gs4",
+            "label": "جي إس 4"
+          },
+          {
+            "id": "gs5",
+            "label": "جي إس 5"
+          },
+          {
+            "id": "gs8",
+            "label": "جي إس 8"
+          },
+          {
+            "id": "emkoo",
+            "label": "إمكو"
+          },
+          {
+            "id": "empow",
+            "label": "إمباو"
+          },
+          {
+            "id": "m8",
+            "label": "إم 8"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "peugeot": [
+          {
+            "id": "208",
+            "label": "208"
+          },
+          {
+            "id": "301",
+            "label": "301"
+          },
+          {
+            "id": "308",
+            "label": "308"
+          },
+          {
+            "id": "408",
+            "label": "408"
+          },
+          {
+            "id": "508",
+            "label": "508"
+          },
+          {
+            "id": "2008",
+            "label": "2008"
+          },
+          {
+            "id": "3008",
+            "label": "3008"
+          },
+          {
+            "id": "5008",
+            "label": "5008"
+          },
+          {
+            "id": "partner",
+            "label": "بارتنر"
+          },
+          {
+            "id": "landtrek",
+            "label": "لاند تريك"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "volkswagen": [
+          {
+            "id": "golf",
+            "label": "جولف"
+          },
+          {
+            "id": "polo",
+            "label": "بولو"
+          },
+          {
+            "id": "jetta",
+            "label": "جيتا"
+          },
+          {
+            "id": "passat",
+            "label": "باسات"
+          },
+          {
+            "id": "tiguan",
+            "label": "تيجوان"
+          },
+          {
+            "id": "touareg",
+            "label": "طوارق"
+          },
+          {
+            "id": "teramont",
+            "label": "تيرامونت"
+          },
+          {
+            "id": "t_roc",
+            "label": "تي روك"
+          },
+          {
+            "id": "beetle",
+            "label": "بيتل"
+          },
+          {
+            "id": "arteon",
+            "label": "أرتيون"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "faw": [
+          {
+            "id": "b70",
+            "label": "بي 70"
+          },
+          {
+            "id": "b50",
+            "label": "بي 50"
+          },
+          {
+            "id": "t77",
+            "label": "تي 77"
+          },
+          {
+            "id": "t99",
+            "label": "تي 99"
+          },
+          {
+            "id": "x40",
+            "label": "إكس 40"
+          },
+          {
+            "id": "x80",
+            "label": "إكس 80"
+          },
+          {
+            "id": "t33",
+            "label": "تي 33"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lincoln": [
+          {
+            "id": "navigator",
+            "label": "نافيجيتور"
+          },
+          {
+            "id": "aviator",
+            "label": "أفياتور"
+          },
+          {
+            "id": "nautilus",
+            "label": "نوتيلوس"
+          },
+          {
+            "id": "corsair",
+            "label": "كورسير"
+          },
+          {
+            "id": "continental",
+            "label": "كونتيننتال"
+          },
+          {
+            "id": "town_car",
+            "label": "تاون كار"
+          },
+          {
+            "id": "mkz",
+            "label": "إم كي زد"
+          },
+          {
+            "id": "mkx",
+            "label": "إم كي إكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "daihatsu": [
+          {
+            "id": "terios",
+            "label": "تيريوس"
+          },
+          {
+            "id": "sirion",
+            "label": "سيريون"
+          },
+          {
+            "id": "materia",
+            "label": "ماتيريا"
+          },
+          {
+            "id": "charade",
+            "label": "شاريد"
+          },
+          {
+            "id": "gran_max",
+            "label": "جران ماكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "infiniti": [
+          {
+            "id": "q50",
+            "label": "كيو 50"
+          },
+          {
+            "id": "q60",
+            "label": "كيو 60"
+          },
+          {
+            "id": "q70",
+            "label": "كيو 70"
+          },
+          {
+            "id": "qx50",
+            "label": "كيو إكس 50"
+          },
+          {
+            "id": "qx55",
+            "label": "كيو إكس 55"
+          },
+          {
+            "id": "qx60",
+            "label": "كيو إكس 60"
+          },
+          {
+            "id": "qx70",
+            "label": "كيو إكس 70"
+          },
+          {
+            "id": "qx80",
+            "label": "كيو إكس 80"
+          },
+          {
+            "id": "g",
+            "label": "الفئة جي"
+          },
+          {
+            "id": "fx",
+            "label": "إف إكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "great_wall": [
+          {
+            "id": "wingle5",
+            "label": "وينجل 5"
+          },
+          {
+            "id": "wingle7",
+            "label": "وينجل 7"
+          },
+          {
+            "id": "poer",
+            "label": "باور"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "byd": [
+          {
+            "id": "atto3",
+            "label": "أتو 3"
+          },
+          {
+            "id": "seal",
+            "label": "سيل"
+          },
+          {
+            "id": "han",
+            "label": "هان"
+          },
+          {
+            "id": "song_plus",
+            "label": "سونج بلس"
+          },
+          {
+            "id": "qin_plus",
+            "label": "تشين بلس"
+          },
+          {
+            "id": "tang",
+            "label": "تانج"
+          },
+          {
+            "id": "dolphin",
+            "label": "دولفين"
+          },
+          {
+            "id": "shark",
+            "label": "شارك"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jac": [
+          {
+            "id": "j7",
+            "label": "جي 7"
+          },
+          {
+            "id": "js3",
+            "label": "جي إس 3"
+          },
+          {
+            "id": "js4",
+            "label": "جي إس 4"
+          },
+          {
+            "id": "js6",
+            "label": "جي إس 6"
+          },
+          {
+            "id": "s3",
+            "label": "إس 3"
+          },
+          {
+            "id": "s4",
+            "label": "إس 4"
+          },
+          {
+            "id": "t6",
+            "label": "تي 6"
+          },
+          {
+            "id": "t8",
+            "label": "تي 8"
+          },
+          {
+            "id": "t9",
+            "label": "تي 9"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "fiat": [
+          {
+            "id": "500",
+            "label": "500"
+          },
+          {
+            "id": "tipo",
+            "label": "تيبو"
+          },
+          {
+            "id": "punto",
+            "label": "بونتو"
+          },
+          {
+            "id": "panda",
+            "label": "باندا"
+          },
+          {
+            "id": "doblo",
+            "label": "دوبلو"
+          },
+          {
+            "id": "ducato",
+            "label": "دوكاتو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "dongfeng": [
+          {
+            "id": "shine",
+            "label": "شاين"
+          },
+          {
+            "id": "a30",
+            "label": "إيه 30"
+          },
+          {
+            "id": "ax7",
+            "label": "إيه إكس 7"
+          },
+          {
+            "id": "aeolus_yixuan",
+            "label": "إيولوس ييشوان"
+          },
+          {
+            "id": "rich6",
+            "label": "ريتش 6"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "bentley": [
+          {
+            "id": "continental",
+            "label": "كونتيننتال"
+          },
+          {
+            "id": "flying_spur",
+            "label": "فلاينج سبير"
+          },
+          {
+            "id": "bentayga",
+            "label": "بنتايجا"
+          },
+          {
+            "id": "mulsanne",
+            "label": "مولسان"
+          },
+          {
+            "id": "arnage",
+            "label": "أرناج"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "tank": [
+          {
+            "id": "300",
+            "label": "300"
+          },
+          {
+            "id": "500",
+            "label": "500"
+          },
+          {
+            "id": "700",
+            "label": "700"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "foton": [
+          {
+            "id": "tunland",
+            "label": "تونلاند"
+          },
+          {
+            "id": "toano",
+            "label": "توانو"
+          },
+          {
+            "id": "view",
+            "label": "فيو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "rolls_royce": [
+          {
+            "id": "phantom",
+            "label": "فانتوم"
+          },
+          {
+            "id": "ghost",
+            "label": "جوست"
+          },
+          {
+            "id": "cullinan",
+            "label": "كولينان"
+          },
+          {
+            "id": "wraith",
+            "label": "ريث"
+          },
+          {
+            "id": "dawn",
+            "label": "داون"
+          },
+          {
+            "id": "spectre",
+            "label": "سبيكتر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jaguar": [
+          {
+            "id": "xe",
+            "label": "إكس إي"
+          },
+          {
+            "id": "xf",
+            "label": "إكس إف"
+          },
+          {
+            "id": "xj",
+            "label": "إكس جي"
+          },
+          {
+            "id": "f_pace",
+            "label": "إف بيس"
+          },
+          {
+            "id": "e_pace",
+            "label": "إي بيس"
+          },
+          {
+            "id": "i_pace",
+            "label": "آي بيس"
+          },
+          {
+            "id": "f_type",
+            "label": "إف تايب"
+          },
+          {
+            "id": "xk",
+            "label": "إكس كي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "baic": [
+          {
+            "id": "bj40",
+            "label": "بي جي 40"
+          },
+          {
+            "id": "bj60",
+            "label": "بي جي 60"
+          },
+          {
+            "id": "bj80",
+            "label": "بي جي 80"
+          },
+          {
+            "id": "x35",
+            "label": "إكس 35"
+          },
+          {
+            "id": "x55",
+            "label": "إكس 55"
+          },
+          {
+            "id": "x7",
+            "label": "إكس 7"
+          },
+          {
+            "id": "u5",
+            "label": "يو 5"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "maserati": [
+          {
+            "id": "ghibli",
+            "label": "جيبلي"
+          },
+          {
+            "id": "quattroporte",
+            "label": "كواتروبورتي"
+          },
+          {
+            "id": "levante",
+            "label": "ليفانتي"
+          },
+          {
+            "id": "grecale",
+            "label": "جريكالي"
+          },
+          {
+            "id": "granturismo",
+            "label": "جران توريزمو"
+          },
+          {
+            "id": "mc20",
+            "label": "إم سي 20"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "hummer": [
+          {
+            "id": "h1",
+            "label": "إتش 1"
+          },
+          {
+            "id": "h2",
+            "label": "إتش 2"
+          },
+          {
+            "id": "h3",
+            "label": "إتش 3"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jmc": [
+          {
+            "id": "vigus",
+            "label": "فيجاس"
+          },
+          {
+            "id": "grand_avenue",
+            "label": "جراند أفينيو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "volvo": [
+          {
+            "id": "s60",
+            "label": "إس 60"
+          },
+          {
+            "id": "s80",
+            "label": "إس 80"
+          },
+          {
+            "id": "s90",
+            "label": "إس 90"
+          },
+          {
+            "id": "xc40",
+            "label": "إكس سي 40"
+          },
+          {
+            "id": "xc60",
+            "label": "إكس سي 60"
+          },
+          {
+            "id": "xc90",
+            "label": "إكس سي 90"
+          },
+          {
+            "id": "v60",
+            "label": "في 60"
+          },
+          {
+            "id": "ex30",
+            "label": "إي إكس 30"
+          },
+          {
+            "id": "ex90",
+            "label": "إي إكس 90"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "maxus": [
+          {
+            "id": "d60",
+            "label": "دي 60"
+          },
+          {
+            "id": "d90",
+            "label": "دي 90"
+          },
+          {
+            "id": "g10",
+            "label": "جي 10"
+          },
+          {
+            "id": "g50",
+            "label": "جي 50"
+          },
+          {
+            "id": "t60",
+            "label": "تي 60"
+          },
+          {
+            "id": "t90",
+            "label": "تي 90"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "saab": [
+          {
+            "id": "9_3",
+            "label": "9-3"
+          },
+          {
+            "id": "9_5",
+            "label": "9-5"
+          },
+          {
+            "id": "900",
+            "label": "900"
+          },
+          {
+            "id": "9000",
+            "label": "9000"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "tata": [
+          {
+            "id": "xenon",
+            "label": "زينون"
+          },
+          {
+            "id": "safari",
+            "label": "سفاري"
+          },
+          {
+            "id": "telcoline",
+            "label": "تيلكولاين"
+          },
+          {
+            "id": "indica",
+            "label": "إنديكا"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "subaru": [
+          {
+            "id": "impreza",
+            "label": "إمبريزا"
+          },
+          {
+            "id": "legacy",
+            "label": "ليجاسي"
+          },
+          {
+            "id": "forester",
+            "label": "فورستر"
+          },
+          {
+            "id": "outback",
+            "label": "أوتباك"
+          },
+          {
+            "id": "wrx",
+            "label": "دبليو آر إكس"
+          },
+          {
+            "id": "brz",
+            "label": "بي آر زد"
+          },
+          {
+            "id": "xv",
+            "label": "إكس في"
+          },
+          {
+            "id": "crosstrek",
+            "label": "كروس تريك"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lamborghini": [
+          {
+            "id": "urus",
+            "label": "أوروس"
+          },
+          {
+            "id": "huracan",
+            "label": "هوراكان"
+          },
+          {
+            "id": "aventador",
+            "label": "أفينتادور"
+          },
+          {
+            "id": "gallardo",
+            "label": "جالاردو"
+          },
+          {
+            "id": "revuelto",
+            "label": "ريفويلتو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lucid": [
+          {
+            "id": "air",
+            "label": "إير"
+          },
+          {
+            "id": "gravity",
+            "label": "جرافيتي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "buick": [
+          {
+            "id": "enclave",
+            "label": "إنكليف"
+          },
+          {
+            "id": "encore",
+            "label": "إنكور"
+          },
+          {
+            "id": "envision",
+            "label": "إنفيجن"
+          },
+          {
+            "id": "lacrosse",
+            "label": "لاكروس"
+          },
+          {
+            "id": "regal",
+            "label": "ريجال"
+          },
+          {
+            "id": "park_avenue",
+            "label": "بارك أفينيو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "hongqi": [
+          {
+            "id": "h5",
+            "label": "إتش 5"
+          },
+          {
+            "id": "h9",
+            "label": "إتش 9"
+          },
+          {
+            "id": "hs3",
+            "label": "إتش إس 3"
+          },
+          {
+            "id": "hs5",
+            "label": "إتش إس 5"
+          },
+          {
+            "id": "hs7",
+            "label": "إتش إس 7"
+          },
+          {
+            "id": "e_hs9",
+            "label": "إي إتش إس 9"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "jaecoo": [
+          {
+            "id": "j5",
+            "label": "جي 5"
+          },
+          {
+            "id": "j7",
+            "label": "جي 7"
+          },
+          {
+            "id": "j8",
+            "label": "جي 8"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "smart": [
+          {
+            "id": "fortwo",
+            "label": "فورتو"
+          },
+          {
+            "id": "forfour",
+            "label": "فورفور"
+          },
+          {
+            "id": "1",
+            "label": "رقم 1"
+          },
+          {
+            "id": "3",
+            "label": "رقم 3"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "kg_mobility": [
+          {
+            "id": "rexton",
+            "label": "ريكستون"
+          },
+          {
+            "id": "korando",
+            "label": "كوراندو"
+          },
+          {
+            "id": "tivoli",
+            "label": "تيفولي"
+          },
+          {
+            "id": "torres",
+            "label": "توريس"
+          },
+          {
+            "id": "musso",
+            "label": "موسو"
+          },
+          {
+            "id": "actyon",
+            "label": "أكتيون"
+          },
+          {
+            "id": "kyron",
+            "label": "كايرون"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "skoda": [
+          {
+            "id": "octavia",
+            "label": "أوكتافيا"
+          },
+          {
+            "id": "superb",
+            "label": "سوبيرب"
+          },
+          {
+            "id": "kodiaq",
+            "label": "كودياك"
+          },
+          {
+            "id": "karoq",
+            "label": "كاروك"
+          },
+          {
+            "id": "kamiq",
+            "label": "كاميك"
+          },
+          {
+            "id": "scala",
+            "label": "سكالا"
+          },
+          {
+            "id": "fabia",
+            "label": "فابيا"
+          },
+          {
+            "id": "rapid",
+            "label": "رابيد"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lynk_co": [
+          {
+            "id": "01",
+            "label": "01"
+          },
+          {
+            "id": "02",
+            "label": "02"
+          },
+          {
+            "id": "03",
+            "label": "03"
+          },
+          {
+            "id": "05",
+            "label": "05"
+          },
+          {
+            "id": "06",
+            "label": "06"
+          },
+          {
+            "id": "09",
+            "label": "09"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "ferrari": [
+          {
+            "id": "458",
+            "label": "458"
+          },
+          {
+            "id": "488",
+            "label": "488"
+          },
+          {
+            "id": "f8",
+            "label": "إف 8"
+          },
+          {
+            "id": "sf90",
+            "label": "إس إف 90"
+          },
+          {
+            "id": "296",
+            "label": "296"
+          },
+          {
+            "id": "812",
+            "label": "812"
+          },
+          {
+            "id": "roma",
+            "label": "روما"
+          },
+          {
+            "id": "portofino",
+            "label": "بورتوفينو"
+          },
+          {
+            "id": "purosangue",
+            "label": "بوروسانجوي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "rox": [
+          {
+            "id": "01",
+            "label": "01"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "aston_martin": [
+          {
+            "id": "vantage",
+            "label": "فانتاج"
+          },
+          {
+            "id": "db9",
+            "label": "دي بي 9"
+          },
+          {
+            "id": "db11",
+            "label": "دي بي 11"
+          },
+          {
+            "id": "db12",
+            "label": "دي بي 12"
+          },
+          {
+            "id": "dbx",
+            "label": "دي بي إكس"
+          },
+          {
+            "id": "dbs",
+            "label": "دي بي إس"
+          },
+          {
+            "id": "rapide",
+            "label": "رابيد"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "seat": [
+          {
+            "id": "ibiza",
+            "label": "إيبيزا"
+          },
+          {
+            "id": "leon",
+            "label": "ليون"
+          },
+          {
+            "id": "ateca",
+            "label": "أتيكا"
+          },
+          {
+            "id": "arona",
+            "label": "أرونا"
+          },
+          {
+            "id": "tarraco",
+            "label": "تاراكو"
+          },
+          {
+            "id": "toledo",
+            "label": "توليدو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lifan": [
+          {
+            "id": "520",
+            "label": "520"
+          },
+          {
+            "id": "620",
+            "label": "620"
+          },
+          {
+            "id": "x50",
+            "label": "إكس 50"
+          },
+          {
+            "id": "x60",
+            "label": "إكس 60"
+          },
+          {
+            "id": "x70",
+            "label": "إكس 70"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "zxauto": [
+          {
+            "id": "grand_tiger",
+            "label": "جراند تايجر"
+          },
+          {
+            "id": "terralord",
+            "label": "تيرالورد"
+          },
+          {
+            "id": "grandlion",
+            "label": "جراند ليون"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "citroen": [
+          {
+            "id": "c3",
+            "label": "سي 3"
+          },
+          {
+            "id": "c4",
+            "label": "سي 4"
+          },
+          {
+            "id": "c5",
+            "label": "سي 5"
+          },
+          {
+            "id": "c3_aircross",
+            "label": "سي 3 إيركروس"
+          },
+          {
+            "id": "c5_aircross",
+            "label": "سي 5 إيركروس"
+          },
+          {
+            "id": "berlingo",
+            "label": "بيرلينجو"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mercury": [
+          {
+            "id": "grand_marquis",
+            "label": "جراند ماركيز"
+          },
+          {
+            "id": "mountaineer",
+            "label": "ماونتنير"
+          },
+          {
+            "id": "milan",
+            "label": "ميلان"
+          },
+          {
+            "id": "mariner",
+            "label": "مارينر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "exeed": [
+          {
+            "id": "lx",
+            "label": "إل إكس"
+          },
+          {
+            "id": "txl",
+            "label": "تي إكس إل"
+          },
+          {
+            "id": "vx",
+            "label": "في إكس"
+          },
+          {
+            "id": "rx",
+            "label": "آر إكس"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "alfa_romeo": [
+          {
+            "id": "giulia",
+            "label": "جوليا"
+          },
+          {
+            "id": "stelvio",
+            "label": "ستلفيو"
+          },
+          {
+            "id": "giulietta",
+            "label": "جولييتا"
+          },
+          {
+            "id": "tonale",
+            "label": "تونالي"
+          },
+          {
+            "id": "4c",
+            "label": "4 سي"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "tesla": [
+          {
+            "id": "model3",
+            "label": "موديل 3"
+          },
+          {
+            "id": "modely",
+            "label": "موديل واي"
+          },
+          {
+            "id": "models",
+            "label": "موديل إس"
+          },
+          {
+            "id": "modelx",
+            "label": "موديل إكس"
+          },
+          {
+            "id": "cybertruck",
+            "label": "سايبر تراك"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "soueast": [
+          {
+            "id": "s06",
+            "label": "إس 06"
+          },
+          {
+            "id": "s07",
+            "label": "إس 07"
+          },
+          {
+            "id": "s09",
+            "label": "إس 09"
+          },
+          {
+            "id": "dx3",
+            "label": "دي إكس 3"
+          },
+          {
+            "id": "dx7",
+            "label": "دي إكس 7"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mahindra": [
+          {
+            "id": "scorpio",
+            "label": "سكوربيو"
+          },
+          {
+            "id": "pik_up",
+            "label": "بيك أب"
+          },
+          {
+            "id": "xuv500",
+            "label": "إكس يو في 500"
+          },
+          {
+            "id": "xuv700",
+            "label": "إكس يو في 700"
+          },
+          {
+            "id": "thar",
+            "label": "ثار"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "renault": [
+          {
+            "id": "duster",
+            "label": "داستر"
+          },
+          {
+            "id": "koleos",
+            "label": "كوليوس"
+          },
+          {
+            "id": "megane",
+            "label": "ميجان"
+          },
+          {
+            "id": "talisman",
+            "label": "تاليسمان"
+          },
+          {
+            "id": "symbol",
+            "label": "سيمبول"
+          },
+          {
+            "id": "fluence",
+            "label": "فلوانس"
+          },
+          {
+            "id": "captur",
+            "label": "كابتشر"
+          },
+          {
+            "id": "clio",
+            "label": "كليو"
+          },
+          {
+            "id": "dokker",
+            "label": "دوكر"
+          },
+          {
+            "id": "master",
+            "label": "ماستر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "mclaren": [
+          {
+            "id": "570s",
+            "label": "570 إس"
+          },
+          {
+            "id": "600lt",
+            "label": "600 إل تي"
+          },
+          {
+            "id": "650s",
+            "label": "650 إس"
+          },
+          {
+            "id": "720s",
+            "label": "720 إس"
+          },
+          {
+            "id": "750s",
+            "label": "750 إس"
+          },
+          {
+            "id": "artura",
+            "label": "أرتورا"
+          },
+          {
+            "id": "gt",
+            "label": "جي تي"
+          },
+          {
+            "id": "p1",
+            "label": "بي 1"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "omoda": [
+          {
+            "id": "c5",
+            "label": "سي 5"
+          },
+          {
+            "id": "c7",
+            "label": "سي 7"
+          },
+          {
+            "id": "e5",
+            "label": "إي 5"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "opel": [
+          {
+            "id": "astra",
+            "label": "أسترا"
+          },
+          {
+            "id": "corsa",
+            "label": "كورسا"
+          },
+          {
+            "id": "insignia",
+            "label": "إنسيجنيا"
+          },
+          {
+            "id": "mokka",
+            "label": "موكا"
+          },
+          {
+            "id": "crossland",
+            "label": "كروس لاند"
+          },
+          {
+            "id": "grandland",
+            "label": "جراند لاند"
+          },
+          {
+            "id": "vectra",
+            "label": "فيكترا"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "lotus": [
+          {
+            "id": "elise",
+            "label": "إليز"
+          },
+          {
+            "id": "exige",
+            "label": "إكسيج"
+          },
+          {
+            "id": "evora",
+            "label": "إيفورا"
+          },
+          {
+            "id": "emira",
+            "label": "إميرا"
+          },
+          {
+            "id": "eletre",
+            "label": "إليترا"
+          },
+          {
+            "id": "emeya",
+            "label": "إميا"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "ineos": [
+          {
+            "id": "grenadier",
+            "label": "جرينادير"
+          },
+          {
+            "id": "quartermaster",
+            "label": "كوارتر ماستر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "daewoo": [
+          {
+            "id": "lanos",
+            "label": "لانوس"
+          },
+          {
+            "id": "nubira",
+            "label": "نوبيرا"
+          },
+          {
+            "id": "leganza",
+            "label": "ليجانزا"
+          },
+          {
+            "id": "matiz",
+            "label": "ماتيز"
+          },
+          {
+            "id": "cielo",
+            "label": "سييلو"
+          },
+          {
+            "id": "racer",
+            "label": "ريسر"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "kaiyi": [
+          {
+            "id": "e5",
+            "label": "إي 5"
+          },
+          {
+            "id": "x3",
+            "label": "إكس 3"
+          },
+          {
+            "id": "x7",
+            "label": "إكس 7"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "proton": [
+          {
+            "id": "saga",
+            "label": "ساجا"
+          },
+          {
+            "id": "persona",
+            "label": "بيرسونا"
+          },
+          {
+            "id": "gen2",
+            "label": "جين 2"
+          },
+          {
+            "id": "preve",
+            "label": "بريفيه"
+          },
+          {
+            "id": "x50",
+            "label": "إكس 50"
+          },
+          {
+            "id": "x70",
+            "label": "إكس 70"
+          },
+          {
+            "id": "x90",
+            "label": "إكس 90"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "ram": [
+          {
+            "id": "1500",
+            "label": "1500"
+          },
+          {
+            "id": "2500",
+            "label": "2500"
+          },
+          {
+            "id": "3500",
+            "label": "3500"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ],
+        "changan_deepal": [
+          {
+            "id": "s05",
+            "label": "إس 05"
+          },
+          {
+            "id": "s07",
+            "label": "إس 07"
+          },
+          {
+            "id": "l07",
+            "label": "إل 07"
+          },
+          {
+            "id": "g318",
+            "label": "جي 318"
+          },
+          {
+            "id": "other",
+            "label": "سيارة أخرى"
+          }
+        ]
+      }
+    },
+    {
+      "id": "auto_parts",
+      "label": "قطع الغيار",
+      "group": "سيارات ومركبات",
+      "options": [
+        {
+          "id": "engines",
+          "label": "محركات وقير"
+        },
+        {
+          "id": "body",
+          "label": "هيكل وبودي"
+        },
+        {
+          "id": "electrical",
+          "label": "كهرباء وإنارة"
+        },
+        {
+          "id": "tires",
+          "label": "إطارات وجنوط"
+        },
+        {
+          "id": "interior",
+          "label": "داخلية وإكسسوارات"
+        },
+        {
+          "id": "maintenance",
+          "label": "زيوت وفلاتر وصيانة"
+        },
+        {
+          "id": "scrap",
+          "label": "قطع تشليح"
+        },
+        {
+          "id": "other",
+          "label": "قطع وملحقات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "motorcycles",
+      "label": "الدراجات النارية",
+      "group": "سيارات ومركبات",
+      "options": [
+        {
+          "id": "honda",
+          "label": "هوندا"
+        },
+        {
+          "id": "yamaha",
+          "label": "ياماها"
+        },
+        {
+          "id": "suzuki",
+          "label": "سوزوكي"
+        },
+        {
+          "id": "kawasaki",
+          "label": "كاواساكي"
+        },
+        {
+          "id": "bmw",
+          "label": "بي إم دبليو"
+        },
+        {
+          "id": "harley_davidson",
+          "label": "هارلي ديفيدسون"
+        },
+        {
+          "id": "ducati",
+          "label": "دوكاتي"
+        },
+        {
+          "id": "ktm",
+          "label": "كي تي إم"
+        },
+        {
+          "id": "triumph",
+          "label": "ترايمف"
+        },
+        {
+          "id": "can_am",
+          "label": "كان آم"
+        },
+        {
+          "id": "polaris",
+          "label": "بولاريس"
+        },
+        {
+          "id": "cfmoto",
+          "label": "سي إف موتو"
+        },
+        {
+          "id": "bajaj",
+          "label": "باجاج"
+        },
+        {
+          "id": "royal_enfield",
+          "label": "رويال إنفيلد"
+        },
+        {
+          "id": "other",
+          "label": "ماركات دراجات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "heavy_equipment",
+      "label": "الشاحنات والمعدات الثقيلة",
+      "group": "سيارات ومركبات",
+      "options": [
+        {
+          "id": "trucks",
+          "label": "شاحنات"
+        },
+        {
+          "id": "trailers",
+          "label": "تريلات ومقطورات"
+        },
+        {
+          "id": "buses",
+          "label": "حافلات"
+        },
+        {
+          "id": "tankers",
+          "label": "وايتات وصهاريج"
+        },
+        {
+          "id": "tow_trucks",
+          "label": "سطحات"
+        },
+        {
+          "id": "loaders",
+          "label": "شيولات وحفارات"
+        },
+        {
+          "id": "cranes",
+          "label": "رافعات وكرينات"
+        },
+        {
+          "id": "forklifts",
+          "label": "رافعات شوكية"
+        },
+        {
+          "id": "road_equipment",
+          "label": "معدات طرق"
+        },
+        {
+          "id": "other",
+          "label": "معدات ثقيلة أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "mobile_phones",
+      "label": "الجوالات",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "apple",
+          "label": "آبل"
+        },
+        {
+          "id": "samsung",
+          "label": "سامسونج"
+        },
+        {
+          "id": "huawei",
+          "label": "هواوي"
+        },
+        {
+          "id": "xiaomi",
+          "label": "شاومي"
+        },
+        {
+          "id": "honor",
+          "label": "هونر"
+        },
+        {
+          "id": "oppo",
+          "label": "أوبو"
+        },
+        {
+          "id": "vivo",
+          "label": "فيفو"
+        },
+        {
+          "id": "realme",
+          "label": "ريلمي"
+        },
+        {
+          "id": "nokia",
+          "label": "نوكيا"
+        },
+        {
+          "id": "motorola",
+          "label": "موتورولا"
+        },
+        {
+          "id": "google",
+          "label": "جوجل"
+        },
+        {
+          "id": "oneplus",
+          "label": "ون بلس"
+        },
+        {
+          "id": "sony",
+          "label": "سوني"
+        },
+        {
+          "id": "asus",
+          "label": "أسوس"
+        },
+        {
+          "id": "nothing",
+          "label": "ناثينج"
+        },
+        {
+          "id": "tecno",
+          "label": "تكنو"
+        },
+        {
+          "id": "infinix",
+          "label": "إنفينيكس"
+        },
+        {
+          "id": "zte",
+          "label": "زد تي إي"
+        },
+        {
+          "id": "lenovo",
+          "label": "لينوفو"
+        },
+        {
+          "id": "tcl",
+          "label": "تي سي إل"
+        },
+        {
+          "id": "other",
+          "label": "ماركات جوالات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "computers",
+      "label": "الحواسيب وملحقاتها",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "apple",
+          "label": "آبل"
+        },
+        {
+          "id": "hp",
+          "label": "إتش بي"
+        },
+        {
+          "id": "dell",
+          "label": "ديل"
+        },
+        {
+          "id": "lenovo",
+          "label": "لينوفو"
+        },
+        {
+          "id": "asus",
+          "label": "أسوس"
+        },
+        {
+          "id": "acer",
+          "label": "إيسر"
+        },
+        {
+          "id": "msi",
+          "label": "إم إس آي"
+        },
+        {
+          "id": "microsoft",
+          "label": "مايكروسوفت"
+        },
+        {
+          "id": "huawei",
+          "label": "هواوي"
+        },
+        {
+          "id": "samsung",
+          "label": "سامسونج"
+        },
+        {
+          "id": "gigabyte",
+          "label": "جيجابايت"
+        },
+        {
+          "id": "lg",
+          "label": "إل جي"
+        },
+        {
+          "id": "toshiba",
+          "label": "توشيبا"
+        },
+        {
+          "id": "epson",
+          "label": "إبسون"
+        },
+        {
+          "id": "canon",
+          "label": "كانون"
+        },
+        {
+          "id": "brother",
+          "label": "براذر"
+        },
+        {
+          "id": "custom",
+          "label": "أجهزة تجميع"
+        },
+        {
+          "id": "other",
+          "label": "ماركات حواسيب وملحقات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "tablets",
+      "label": "الأجهزة اللوحية",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "apple",
+          "label": "آبل"
+        },
+        {
+          "id": "samsung",
+          "label": "سامسونج"
+        },
+        {
+          "id": "huawei",
+          "label": "هواوي"
+        },
+        {
+          "id": "lenovo",
+          "label": "لينوفو"
+        },
+        {
+          "id": "xiaomi",
+          "label": "شاومي"
+        },
+        {
+          "id": "honor",
+          "label": "هونر"
+        },
+        {
+          "id": "microsoft",
+          "label": "مايكروسوفت"
+        },
+        {
+          "id": "amazon",
+          "label": "أمازون"
+        },
+        {
+          "id": "nokia",
+          "label": "نوكيا"
+        },
+        {
+          "id": "realme",
+          "label": "ريلمي"
+        },
+        {
+          "id": "other",
+          "label": "ماركات أجهزة لوحية أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "cameras",
+      "label": "الكاميرات والتصوير",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "canon",
+          "label": "كانون"
+        },
+        {
+          "id": "nikon",
+          "label": "نيكون"
+        },
+        {
+          "id": "sony",
+          "label": "سوني"
+        },
+        {
+          "id": "fujifilm",
+          "label": "فوجي فيلم"
+        },
+        {
+          "id": "panasonic",
+          "label": "باناسونيك"
+        },
+        {
+          "id": "olympus",
+          "label": "أوليمبوس"
+        },
+        {
+          "id": "leica",
+          "label": "لايكا"
+        },
+        {
+          "id": "gopro",
+          "label": "جو برو"
+        },
+        {
+          "id": "dji",
+          "label": "دي جي آي"
+        },
+        {
+          "id": "insta360",
+          "label": "إنستا 360"
+        },
+        {
+          "id": "blackmagic",
+          "label": "بلاك ماجيك"
+        },
+        {
+          "id": "sigma",
+          "label": "سيجما"
+        },
+        {
+          "id": "other",
+          "label": "ماركات تصوير أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "tv_audio",
+      "label": "التلفزيونات والصوتيات",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "samsung",
+          "label": "سامسونج"
+        },
+        {
+          "id": "lg",
+          "label": "إل جي"
+        },
+        {
+          "id": "sony",
+          "label": "سوني"
+        },
+        {
+          "id": "tcl",
+          "label": "تي سي إل"
+        },
+        {
+          "id": "hisense",
+          "label": "هايسنس"
+        },
+        {
+          "id": "panasonic",
+          "label": "باناسونيك"
+        },
+        {
+          "id": "toshiba",
+          "label": "توشيبا"
+        },
+        {
+          "id": "philips",
+          "label": "فيليبس"
+        },
+        {
+          "id": "sharp",
+          "label": "شارب"
+        },
+        {
+          "id": "xiaomi",
+          "label": "شاومي"
+        },
+        {
+          "id": "jbl",
+          "label": "جي بي إل"
+        },
+        {
+          "id": "bose",
+          "label": "بوز"
+        },
+        {
+          "id": "yamaha",
+          "label": "ياماها"
+        },
+        {
+          "id": "harman_kardon",
+          "label": "هارمان كاردون"
+        },
+        {
+          "id": "other",
+          "label": "ماركات تلفزيونات وصوتيات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "networking",
+      "label": "الشبكات والاتصالات",
+      "group": "الأجهزة والإلكترونيات",
+      "options": [
+        {
+          "id": "huawei",
+          "label": "هواوي"
+        },
+        {
+          "id": "zte",
+          "label": "زد تي إي"
+        },
+        {
+          "id": "tp_link",
+          "label": "تي بي لينك"
+        },
+        {
+          "id": "d_link",
+          "label": "دي لينك"
+        },
+        {
+          "id": "cisco",
+          "label": "سيسكو"
+        },
+        {
+          "id": "ubiquiti",
+          "label": "يوبيكويتي"
+        },
+        {
+          "id": "mikrotik",
+          "label": "مايكروتك"
+        },
+        {
+          "id": "netgear",
+          "label": "نت جير"
+        },
+        {
+          "id": "asus",
+          "label": "أسوس"
+        },
+        {
+          "id": "tenda",
+          "label": "تندا"
+        },
+        {
+          "id": "other",
+          "label": "ماركات شبكات أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "home_appliances",
+      "label": "الأجهزة المنزلية والمطبخ",
+      "group": "الأجهزة المنزلية",
+      "options": [
+        {
+          "id": "lg",
+          "label": "إل جي"
+        },
+        {
+          "id": "samsung",
+          "label": "سامسونج"
+        },
+        {
+          "id": "haier",
+          "label": "هاير"
+        },
+        {
+          "id": "midea",
+          "label": "ميديا"
+        },
+        {
+          "id": "gree",
+          "label": "جري"
+        },
+        {
+          "id": "aux",
+          "label": "أوكس"
+        },
+        {
+          "id": "carrier",
+          "label": "كاريير"
+        },
+        {
+          "id": "york",
+          "label": "يورك"
+        },
+        {
+          "id": "general",
+          "label": "جنرال"
+        },
+        {
+          "id": "zamil",
+          "label": "الزامل"
+        },
+        {
+          "id": "bosch",
+          "label": "بوش"
+        },
+        {
+          "id": "beko",
+          "label": "بيكو"
+        },
+        {
+          "id": "whirlpool",
+          "label": "ويرلبول"
+        },
+        {
+          "id": "electrolux",
+          "label": "إلكترولوكس"
+        },
+        {
+          "id": "hitachi",
+          "label": "هيتاشي"
+        },
+        {
+          "id": "panasonic",
+          "label": "باناسونيك"
+        },
+        {
+          "id": "toshiba",
+          "label": "توشيبا"
+        },
+        {
+          "id": "sharp",
+          "label": "شارب"
+        },
+        {
+          "id": "philips",
+          "label": "فيليبس"
+        },
+        {
+          "id": "braun",
+          "label": "براون"
+        },
+        {
+          "id": "kenwood",
+          "label": "كينوود"
+        },
+        {
+          "id": "tefal",
+          "label": "تيفال"
+        },
+        {
+          "id": "delonghi",
+          "label": "ديلونجي"
+        },
+        {
+          "id": "dyson",
+          "label": "دايسون"
+        },
+        {
+          "id": "nikai",
+          "label": "نيكاي"
+        },
+        {
+          "id": "geepas",
+          "label": "جيباس"
+        },
+        {
+          "id": "other",
+          "label": "ماركات أجهزة منزلية أخرى"
+        }
+      ],
+      "optionKind": "brand",
+      "optionLabel": "البراند"
+    },
+    {
+      "id": "real_estate",
+      "label": "العقارات",
+      "group": "العقار",
+      "options": [
+        {
+          "id": "apartments_sale",
+          "label": "شقق للبيع"
+        },
+        {
+          "id": "apartments_rent",
+          "label": "شقق للإيجار"
+        },
+        {
+          "id": "villas_sale",
+          "label": "فلل للبيع"
+        },
+        {
+          "id": "villas_rent",
+          "label": "فلل للإيجار"
+        },
+        {
+          "id": "houses_sale",
+          "label": "بيوت للبيع"
+        },
+        {
+          "id": "houses_rent",
+          "label": "بيوت للإيجار"
+        },
+        {
+          "id": "floors",
+          "label": "أدوار"
+        },
+        {
+          "id": "residential_land",
+          "label": "أراضٍ سكنية"
+        },
+        {
+          "id": "commercial_land",
+          "label": "أراضٍ تجارية"
+        },
+        {
+          "id": "agricultural_land",
+          "label": "أراضٍ زراعية"
+        },
+        {
+          "id": "buildings",
+          "label": "عمائر"
+        },
+        {
+          "id": "shops_sale",
+          "label": "محلات للبيع"
+        },
+        {
+          "id": "shops_rent",
+          "label": "محلات للإيجار"
+        },
+        {
+          "id": "shops_transfer",
+          "label": "محلات للتنازل"
+        },
+        {
+          "id": "offices",
+          "label": "مكاتب"
+        },
+        {
+          "id": "warehouses",
+          "label": "مستودعات"
+        },
+        {
+          "id": "farms",
+          "label": "مزارع"
+        },
+        {
+          "id": "rest_houses",
+          "label": "استراحات وشاليهات"
+        },
+        {
+          "id": "rooms",
+          "label": "غرف وسكن مشترك"
+        },
+        {
+          "id": "other",
+          "label": "عقارات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "furniture",
+      "label": "الأثاث",
+      "group": "البيت والأثاث",
+      "options": [
+        {
+          "id": "bedrooms",
+          "label": "غرف نوم"
+        },
+        {
+          "id": "sofas",
+          "label": "كنب ومجالس"
+        },
+        {
+          "id": "dining",
+          "label": "طاولات طعام"
+        },
+        {
+          "id": "tables",
+          "label": "طاولات"
+        },
+        {
+          "id": "chairs",
+          "label": "كراسي"
+        },
+        {
+          "id": "storage",
+          "label": "خزائن ودواليب"
+        },
+        {
+          "id": "kitchens",
+          "label": "مطابخ"
+        },
+        {
+          "id": "office",
+          "label": "أثاث مكتبي"
+        },
+        {
+          "id": "carpets",
+          "label": "سجاد وستائر"
+        },
+        {
+          "id": "outdoor",
+          "label": "أثاث خارجي"
+        },
+        {
+          "id": "other",
+          "label": "أثاث آخر"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "home_garden",
+      "label": "المنزل والحديقة",
+      "group": "البيت والأثاث",
+      "options": [
+        {
+          "id": "decor",
+          "label": "ديكور"
+        },
+        {
+          "id": "lighting",
+          "label": "إنارة"
+        },
+        {
+          "id": "kitchenware",
+          "label": "أوانٍ وأدوات مطبخ"
+        },
+        {
+          "id": "bedding",
+          "label": "مفروشات"
+        },
+        {
+          "id": "cleaning",
+          "label": "أدوات تنظيف"
+        },
+        {
+          "id": "garden",
+          "label": "مستلزمات حدائق"
+        },
+        {
+          "id": "storage",
+          "label": "تنظيم وتخزين"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات منزل أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "fashion",
+      "label": "الموضة",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "women_clothing",
+          "label": "ملابس نسائية"
+        },
+        {
+          "id": "men_clothing",
+          "label": "ملابس رجالية"
+        },
+        {
+          "id": "children_clothing",
+          "label": "ملابس أطفال"
+        },
+        {
+          "id": "shoes",
+          "label": "أحذية"
+        },
+        {
+          "id": "bags",
+          "label": "حقائب"
+        },
+        {
+          "id": "traditional",
+          "label": "أزياء شعبية"
+        },
+        {
+          "id": "other",
+          "label": "أزياء أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "women_supplies",
+      "label": "مستلزمات نسائية",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "clothing",
+          "label": "ملابس"
+        },
+        {
+          "id": "abayas",
+          "label": "عبايات وطرح"
+        },
+        {
+          "id": "dresses",
+          "label": "فساتين"
+        },
+        {
+          "id": "shoes",
+          "label": "أحذية"
+        },
+        {
+          "id": "bags",
+          "label": "حقائب"
+        },
+        {
+          "id": "accessories",
+          "label": "إكسسوارات"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات نسائية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "men_supplies",
+      "label": "مستلزمات رجالية",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "clothing",
+          "label": "ملابس"
+        },
+        {
+          "id": "thobes",
+          "label": "ثياب"
+        },
+        {
+          "id": "headwear",
+          "label": "شمغ وغتر"
+        },
+        {
+          "id": "shoes",
+          "label": "أحذية"
+        },
+        {
+          "id": "bags",
+          "label": "حقائب ومحافظ"
+        },
+        {
+          "id": "accessories",
+          "label": "إكسسوارات"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات رجالية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "kids",
+      "label": "مستلزمات الأطفال",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "clothing",
+          "label": "ملابس وأحذية"
+        },
+        {
+          "id": "strollers",
+          "label": "عربات أطفال"
+        },
+        {
+          "id": "car_seats",
+          "label": "مقاعد سيارات"
+        },
+        {
+          "id": "furniture",
+          "label": "أثاث أطفال"
+        },
+        {
+          "id": "toys",
+          "label": "ألعاب أطفال"
+        },
+        {
+          "id": "feeding",
+          "label": "مستلزمات تغذية"
+        },
+        {
+          "id": "care",
+          "label": "مستلزمات عناية"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات أطفال أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "watches_accessories",
+      "label": "ساعات وإكسسوارات",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "watches",
+          "label": "ساعات"
+        },
+        {
+          "id": "smartwatches",
+          "label": "ساعات ذكية"
+        },
+        {
+          "id": "jewelry",
+          "label": "حلي ومجوهرات"
+        },
+        {
+          "id": "eyewear",
+          "label": "نظارات"
+        },
+        {
+          "id": "accessories",
+          "label": "إكسسوارات"
+        },
+        {
+          "id": "other",
+          "label": "ساعات وإكسسوارات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "beauty",
+      "label": "العناية والتجميل",
+      "group": "أزياء ومستلزمات",
+      "options": [
+        {
+          "id": "perfumes",
+          "label": "عطور وبخور"
+        },
+        {
+          "id": "skin",
+          "label": "العناية بالبشرة"
+        },
+        {
+          "id": "hair",
+          "label": "العناية بالشعر"
+        },
+        {
+          "id": "makeup",
+          "label": "مستحضرات تجميل"
+        },
+        {
+          "id": "devices",
+          "label": "أجهزة عناية"
+        },
+        {
+          "id": "salon",
+          "label": "مستلزمات صالونات"
+        },
+        {
+          "id": "other",
+          "label": "منتجات عناية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "sports",
+      "label": "الرياضة",
+      "group": "رياضة وهوايات وتعليم",
+      "options": [
+        {
+          "id": "fitness",
+          "label": "أجهزة لياقة"
+        },
+        {
+          "id": "weights",
+          "label": "أوزان ومقاومة"
+        },
+        {
+          "id": "bicycles",
+          "label": "دراجات هوائية"
+        },
+        {
+          "id": "team_sports",
+          "label": "رياضات جماعية"
+        },
+        {
+          "id": "racket_sports",
+          "label": "رياضات المضرب"
+        },
+        {
+          "id": "water_sports",
+          "label": "رياضات مائية"
+        },
+        {
+          "id": "clothing",
+          "label": "ملابس ومستلزمات رياضية"
+        },
+        {
+          "id": "other",
+          "label": "معدات رياضية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "gaming_hobbies",
+      "label": "الألعاب والهوايات",
+      "group": "رياضة وهوايات وتعليم",
+      "options": [
+        {
+          "id": "playstation",
+          "label": "بلايستيشن"
+        },
+        {
+          "id": "xbox",
+          "label": "إكس بوكس"
+        },
+        {
+          "id": "nintendo",
+          "label": "نينتندو"
+        },
+        {
+          "id": "pc_gaming",
+          "label": "ألعاب الحاسب"
+        },
+        {
+          "id": "accessories",
+          "label": "ملحقات ألعاب"
+        },
+        {
+          "id": "board_games",
+          "label": "ألعاب جماعية وطاولة"
+        },
+        {
+          "id": "hobbies",
+          "label": "هوايات ومجسمات"
+        },
+        {
+          "id": "other",
+          "label": "ألعاب وهوايات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "books_education",
+      "label": "الكتب والتعليم",
+      "group": "رياضة وهوايات وتعليم",
+      "options": [
+        {
+          "id": "books",
+          "label": "كتب عامة"
+        },
+        {
+          "id": "textbooks",
+          "label": "كتب دراسية"
+        },
+        {
+          "id": "children",
+          "label": "كتب أطفال"
+        },
+        {
+          "id": "stationery",
+          "label": "قرطاسية"
+        },
+        {
+          "id": "learning",
+          "label": "وسائل تعليمية"
+        },
+        {
+          "id": "other",
+          "label": "كتب ومستلزمات تعليم أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "arts",
+      "label": "الفنون ومستلزماتها",
+      "group": "رياضة وهوايات وتعليم",
+      "options": [
+        {
+          "id": "paintings",
+          "label": "لوحات فنية"
+        },
+        {
+          "id": "drawing",
+          "label": "أدوات رسم"
+        },
+        {
+          "id": "crafts",
+          "label": "أشغال يدوية"
+        },
+        {
+          "id": "sculpture",
+          "label": "مجسمات ومنحوتات"
+        },
+        {
+          "id": "calligraphy",
+          "label": "خط وزخرفة"
+        },
+        {
+          "id": "other",
+          "label": "فنون ومستلزمات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "tools_equipment",
+      "label": "معدات وأدوات",
+      "group": "معدات وأدوات",
+      "options": [
+        {
+          "id": "hand_tools",
+          "label": "أدوات يدوية"
+        },
+        {
+          "id": "power_tools",
+          "label": "عدد كهربائية"
+        },
+        {
+          "id": "workshops",
+          "label": "معدات ورش"
+        },
+        {
+          "id": "generators",
+          "label": "مولدات"
+        },
+        {
+          "id": "pumps",
+          "label": "مضخات"
+        },
+        {
+          "id": "welding",
+          "label": "معدات لحام"
+        },
+        {
+          "id": "safety",
+          "label": "معدات سلامة"
+        },
+        {
+          "id": "industrial",
+          "label": "معدات صناعية"
+        },
+        {
+          "id": "solar",
+          "label": "معدات طاقة شمسية"
+        },
+        {
+          "id": "other",
+          "label": "معدات وأدوات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "agriculture",
+      "label": "الزراعة والنباتات",
+      "group": "الزراعة والحيوانات",
+      "options": [
+        {
+          "id": "plants",
+          "label": "نباتات وشتلات"
+        },
+        {
+          "id": "seeds",
+          "label": "بذور"
+        },
+        {
+          "id": "irrigation",
+          "label": "أنظمة ري"
+        },
+        {
+          "id": "soil",
+          "label": "تربة وأسمدة"
+        },
+        {
+          "id": "equipment",
+          "label": "معدات زراعية"
+        },
+        {
+          "id": "greenhouses",
+          "label": "بيوت محمية"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات زراعية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "animals",
+      "label": "الحيوانات ومستلزماتها",
+      "group": "الزراعة والحيوانات",
+      "options": [
+        {
+          "id": "sheep",
+          "label": "أغنام"
+        },
+        {
+          "id": "goats",
+          "label": "ماعز"
+        },
+        {
+          "id": "camels",
+          "label": "إبل"
+        },
+        {
+          "id": "cattle",
+          "label": "أبقار"
+        },
+        {
+          "id": "horses",
+          "label": "خيل"
+        },
+        {
+          "id": "birds",
+          "label": "طيور"
+        },
+        {
+          "id": "poultry",
+          "label": "دواجن"
+        },
+        {
+          "id": "cats",
+          "label": "قطط"
+        },
+        {
+          "id": "dogs",
+          "label": "كلاب"
+        },
+        {
+          "id": "fish",
+          "label": "أسماك زينة"
+        },
+        {
+          "id": "rabbits",
+          "label": "أرانب"
+        },
+        {
+          "id": "feed",
+          "label": "أعلاف وأغذية"
+        },
+        {
+          "id": "supplies",
+          "label": "مستلزمات حيوانات"
+        },
+        {
+          "id": "other",
+          "label": "حيوانات ومستلزمات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "camping",
+      "label": "الرحلات والتخييم",
+      "group": "الرحلات والتخييم",
+      "options": [
+        {
+          "id": "tents",
+          "label": "خيام ومظلات"
+        },
+        {
+          "id": "sleeping",
+          "label": "مستلزمات نوم"
+        },
+        {
+          "id": "cooking",
+          "label": "أدوات طبخ رحلات"
+        },
+        {
+          "id": "lighting",
+          "label": "إنارة رحلات"
+        },
+        {
+          "id": "coolers",
+          "label": "حافظات وثلاجات متنقلة"
+        },
+        {
+          "id": "fishing",
+          "label": "مستلزمات صيد مسموحة"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات رحلات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "food",
+      "label": "الأطعمة والمشروبات",
+      "group": "الأطعمة والمشروبات",
+      "options": [
+        {
+          "id": "dates",
+          "label": "تمور"
+        },
+        {
+          "id": "honey",
+          "label": "عسل"
+        },
+        {
+          "id": "coffee",
+          "label": "قهوة وشاي"
+        },
+        {
+          "id": "sweets",
+          "label": "حلويات ومخبوزات"
+        },
+        {
+          "id": "homemade",
+          "label": "أطعمة منزلية"
+        },
+        {
+          "id": "produce",
+          "label": "خضار وفواكه"
+        },
+        {
+          "id": "local",
+          "label": "منتجات محلية"
+        },
+        {
+          "id": "other",
+          "label": "أطعمة ومشروبات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "antiques",
+      "label": "النوادر والتراثيات",
+      "group": "النوادر والتراثيات",
+      "options": [
+        {
+          "id": "heritage",
+          "label": "تراثيات"
+        },
+        {
+          "id": "coins",
+          "label": "عملات وميداليات"
+        },
+        {
+          "id": "stamps",
+          "label": "طوابع"
+        },
+        {
+          "id": "collectibles",
+          "label": "مقتنيات نادرة"
+        },
+        {
+          "id": "decor",
+          "label": "تحف وديكور قديم"
+        },
+        {
+          "id": "other",
+          "label": "نوادر أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "boats",
+      "label": "القوارب والمستلزمات البحرية",
+      "group": "سيارات ومركبات",
+      "options": [
+        {
+          "id": "boats",
+          "label": "قوارب"
+        },
+        {
+          "id": "yachts",
+          "label": "يخوت"
+        },
+        {
+          "id": "jet_skis",
+          "label": "دبابات بحرية"
+        },
+        {
+          "id": "engines",
+          "label": "محركات بحرية"
+        },
+        {
+          "id": "trailers",
+          "label": "مقطورات قوارب"
+        },
+        {
+          "id": "supplies",
+          "label": "مستلزمات بحرية"
+        },
+        {
+          "id": "other",
+          "label": "قوارب ومستلزمات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "services",
+      "label": "الخدمات ومقدمو الخدمات",
+      "group": "الخدمات والأعمال",
+      "options": [
+        {
+          "id": "ac",
+          "label": "تكييف وتبريد"
+        },
+        {
+          "id": "electrical",
+          "label": "كهرباء"
+        },
+        {
+          "id": "plumbing",
+          "label": "سباكة"
+        },
+        {
+          "id": "construction",
+          "label": "مقاولات وبناء"
+        },
+        {
+          "id": "finishing",
+          "label": "تشطيب ودهان"
+        },
+        {
+          "id": "carpentry",
+          "label": "نجارة وحدادة"
+        },
+        {
+          "id": "cleaning",
+          "label": "تنظيف"
+        },
+        {
+          "id": "pest_control",
+          "label": "مكافحة حشرات"
+        },
+        {
+          "id": "moving",
+          "label": "نقل عفش"
+        },
+        {
+          "id": "delivery",
+          "label": "نقل وتوصيل"
+        },
+        {
+          "id": "car_maintenance",
+          "label": "صيانة سيارات"
+        },
+        {
+          "id": "device_repair",
+          "label": "صيانة أجهزة"
+        },
+        {
+          "id": "computing",
+          "label": "خدمات حاسب وشبكات"
+        },
+        {
+          "id": "programming",
+          "label": "برمجة وتطوير"
+        },
+        {
+          "id": "design",
+          "label": "تصميم"
+        },
+        {
+          "id": "photography",
+          "label": "تصوير"
+        },
+        {
+          "id": "printing",
+          "label": "طباعة ودعاية"
+        },
+        {
+          "id": "translation",
+          "label": "ترجمة وكتابة"
+        },
+        {
+          "id": "gardening",
+          "label": "تنسيق حدائق"
+        },
+        {
+          "id": "events",
+          "label": "تنظيم مناسبات"
+        },
+        {
+          "id": "catering",
+          "label": "ضيافة وتموين"
+        },
+        {
+          "id": "rental",
+          "label": "تأجير معدات"
+        },
+        {
+          "id": "other",
+          "label": "خدمات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "business_equipment",
+      "label": "التجهيزات التجارية والمكتبية",
+      "group": "الخدمات والأعمال",
+      "options": [
+        {
+          "id": "restaurants",
+          "label": "تجهيزات مطاعم"
+        },
+        {
+          "id": "cafes",
+          "label": "تجهيزات مقاهٍ"
+        },
+        {
+          "id": "shops",
+          "label": "تجهيزات محلات"
+        },
+        {
+          "id": "offices",
+          "label": "تجهيزات مكاتب"
+        },
+        {
+          "id": "storage",
+          "label": "أرفف وتخزين"
+        },
+        {
+          "id": "pos",
+          "label": "أجهزة كاشير ونقاط بيع"
+        },
+        {
+          "id": "salons",
+          "label": "تجهيزات صالونات"
+        },
+        {
+          "id": "other",
+          "label": "تجهيزات تجارية أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "businesses",
+      "label": "المشاريع والمحلات للتنازل",
+      "group": "الخدمات والأعمال",
+      "options": [
+        {
+          "id": "shops",
+          "label": "محلات للتنازل"
+        },
+        {
+          "id": "restaurants",
+          "label": "مطاعم للتنازل"
+        },
+        {
+          "id": "cafes",
+          "label": "مقاهٍ للتنازل"
+        },
+        {
+          "id": "workshops",
+          "label": "ورش للتنازل"
+        },
+        {
+          "id": "projects",
+          "label": "مشاريع قائمة للتنازل"
+        },
+        {
+          "id": "other",
+          "label": "أنشطة تجارية أخرى للتنازل"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "jobs",
+      "label": "الوظائف",
+      "group": "الوظائف والتدريب",
+      "options": [
+        {
+          "id": "administration",
+          "label": "إدارة ومحاسبة"
+        },
+        {
+          "id": "sales",
+          "label": "مبيعات وتسويق"
+        },
+        {
+          "id": "technical",
+          "label": "وظائف تقنية"
+        },
+        {
+          "id": "engineering",
+          "label": "هندسة وفنيون"
+        },
+        {
+          "id": "hospitality",
+          "label": "ضيافة ومطاعم"
+        },
+        {
+          "id": "transport",
+          "label": "نقل وتوصيل"
+        },
+        {
+          "id": "education",
+          "label": "تعليم وتدريب"
+        },
+        {
+          "id": "other",
+          "label": "وظائف أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "training",
+      "label": "التدريب والدورات",
+      "group": "الوظائف والتدريب",
+      "options": [
+        {
+          "id": "technology",
+          "label": "تقنية وبرمجة"
+        },
+        {
+          "id": "languages",
+          "label": "لغات"
+        },
+        {
+          "id": "business",
+          "label": "إدارة وأعمال"
+        },
+        {
+          "id": "vocational",
+          "label": "تدريب مهني"
+        },
+        {
+          "id": "arts",
+          "label": "فنون وتصميم"
+        },
+        {
+          "id": "academic",
+          "label": "تعليم ودروس"
+        },
+        {
+          "id": "other",
+          "label": "تدريب ودورات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "events",
+      "label": "المناسبات وتجهيزاتها",
+      "group": "المناسبات والسفر",
+      "options": [
+        {
+          "id": "equipment",
+          "label": "تجهيزات مناسبات"
+        },
+        {
+          "id": "decor",
+          "label": "ديكور وتنسيق"
+        },
+        {
+          "id": "hospitality",
+          "label": "مستلزمات ضيافة"
+        },
+        {
+          "id": "gifts",
+          "label": "هدايا وتوزيعات"
+        },
+        {
+          "id": "other",
+          "label": "مستلزمات مناسبات أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "travel",
+      "label": "السياحة والسفر",
+      "group": "المناسبات والسفر",
+      "options": [
+        {
+          "id": "trips",
+          "label": "رحلات سياحية"
+        },
+        {
+          "id": "accommodation",
+          "label": "عروض إقامة"
+        },
+        {
+          "id": "activities",
+          "label": "أنشطة سياحية"
+        },
+        {
+          "id": "supplies",
+          "label": "مستلزمات سفر"
+        },
+        {
+          "id": "other",
+          "label": "عروض سياحة وسفر أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "building_materials",
+      "label": "مواد البناء والتشطيب",
+      "group": "معدات وأدوات",
+      "options": [
+        {
+          "id": "structural",
+          "label": "حديد وأسمنت وبلوك"
+        },
+        {
+          "id": "flooring",
+          "label": "بلاط وأرضيات"
+        },
+        {
+          "id": "doors",
+          "label": "أبواب ونوافذ"
+        },
+        {
+          "id": "plumbing",
+          "label": "مواد سباكة"
+        },
+        {
+          "id": "electrical",
+          "label": "مواد كهربائية"
+        },
+        {
+          "id": "paint",
+          "label": "دهانات وعزل"
+        },
+        {
+          "id": "wood",
+          "label": "خشب وألواح"
+        },
+        {
+          "id": "stone",
+          "label": "رخام وحجر"
+        },
+        {
+          "id": "other",
+          "label": "مواد بناء أخرى"
+        }
+      ],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    },
+    {
+      "id": "other",
+      "label": "أخرى",
+      "group": "أخرى",
+      "options": [],
+      "optionKind": "type",
+      "optionLabel": "النوع"
+    }
+  ],
+  "cities": [
+    "الرياض",
+    "الدرعية",
+    "الخرج",
+    "الدوادمي",
+    "المجمعة",
+    "القويعية",
+    "الأفلاج",
+    "وادي الدواسر",
+    "الزلفي",
+    "شقراء",
+    "حوطة بني تميم",
+    "عفيف",
+    "السليل",
+    "ضرما",
+    "المزاحمية",
+    "رماح",
+    "ثادق",
+    "حريملاء",
+    "الحريق",
+    "الغاط",
+    "مكة المكرمة",
+    "جدة",
+    "الطائف",
+    "القنفذة",
+    "الليث",
+    "رابغ",
+    "الجموم",
+    "خليص",
+    "الكامل",
+    "الخرمة",
+    "رنية",
+    "تربة",
+    "المويه",
+    "ميسان",
+    "أضم",
+    "العرضيات",
+    "بحرة",
+    "المدينة المنورة",
+    "ينبع",
+    "العلا",
+    "المهد",
+    "الحناكية",
+    "بدر",
+    "خيبر",
+    "العيص",
+    "وادي الفرع",
+    "الدمام",
+    "الخبر",
+    "الظهران",
+    "الأحساء",
+    "القطيف",
+    "الجبيل",
+    "حفر الباطن",
+    "الخفجي",
+    "رأس تنورة",
+    "بقيق",
+    "النعيرية",
+    "قرية العليا",
+    "العديد",
+    "بريدة",
+    "عنيزة",
+    "الرس",
+    "المذنب",
+    "البكيرية",
+    "البدائع",
+    "الأسياح",
+    "النبهانية",
+    "عيون الجواء",
+    "رياض الخبراء",
+    "الشماسية",
+    "عقلة الصقور",
+    "ضرية",
+    "أبها",
+    "خميس مشيط",
+    "بيشة",
+    "النماص",
+    "محايل عسير",
+    "ظهران الجنوب",
+    "تثليث",
+    "سراة عبيدة",
+    "رجال ألمع",
+    "بلقرن",
+    "أحد رفيدة",
+    "المجاردة",
+    "البرك",
+    "بارق",
+    "تنومة",
+    "طريب",
+    "حائل",
+    "بقعاء",
+    "الغزالة",
+    "الشنان",
+    "الحائط",
+    "السليمي",
+    "الشملي",
+    "موقق",
+    "سميراء",
+    "تبوك",
+    "الوجه",
+    "ضباء",
+    "تيماء",
+    "أملج",
+    "حقل",
+    "البدع",
+    "جازان",
+    "صبيا",
+    "أبو عريش",
+    "صامطة",
+    "بيش",
+    "الدرب",
+    "الحرث",
+    "ضمد",
+    "الريث",
+    "فرسان",
+    "الدائر",
+    "العارضة",
+    "أحد المسارحة",
+    "العيدابي",
+    "فيفاء",
+    "الطوال",
+    "هروب",
+    "نجران",
+    "شرورة",
+    "حبونا",
+    "بدر الجنوب",
+    "يدمة",
+    "ثار",
+    "خباش",
+    "الباحة",
+    "بلجرشي",
+    "المندق",
+    "المخواة",
+    "قلوة",
+    "العقيق",
+    "القرى",
+    "غامد الزناد",
+    "الحجرة",
+    "بني حسن",
+    "سكاكا",
+    "القريات",
+    "دومة الجندل",
+    "طبرجل",
+    "عرعر",
+    "رفحاء",
+    "طريف",
+    "العويقيلة"
+  ],
+  "policies": {
+    "terms": {
+      "path": "/terms",
+      "title": "شروط الاستخدام",
+      "updatedAt": "16 سبتمبر 2026",
+      "sections": [
+        {
+          "title": "قبول الشروط",
+          "body": "باستخدام سوق حمد أو إنشاء حساب أو نشر إعلان أو التواصل مع مستخدم آخر، فإنك توافق على شروط الاستخدام وسياسة الخصوصية وسياسة الإعلانات وسياسة رسوم المنصة وأي سياسات مرتبطة تظهر داخل المنصة. إذا كنت لا توافق على هذه الشروط، فيجب عدم استخدام خدمات الحساب أو النشر أو التواصل داخل المنصة."
+        },
+        {
+          "title": "طبيعة المنصة",
+          "items": [
+            "سوق حمد سوق ذكي يساعد المستخدمين على البحث، المقارنة، إنشاء الإعلانات، إدارة الصور، وفتح محادثات داخلية بين المعلن والطرف المهتم بالإعلان.",
+            "المنصة وسيط تقني لعرض الإعلانات وتسهيل التواصل، ولا تملك المنتجات المعروضة ولا تبيعها باسمها ولا تكون طرفًا في عقد البيع بين أطراف الاتفاق.",
+            "لا تضمن المنصة إتمام البيع، أو جودة المنتج، أو سلامته، أو صحة كل معلومة يضيفها المستخدم، ويبقى كل مستخدم مسؤولًا عن التحقق والفحص قبل إتمام أي اتفاق.",
+            "الذكاء الاصطناعي يساعد في الفهم والتنظيم والمراجعة والاقتراح، لكنه لا يستبدل مسؤولية المستخدم عن صحة الإعلان والالتزام بالأنظمة والسياسات."
+          ]
+        },
+        {
+          "title": "الحساب وتسجيل الدخول",
+          "items": [
+            "يمكن تصفح السوق وطرح الأسئلة العامة دون تسجيل دخول متى كانت الميزة متاحة.",
+            "يتطلب إنشاء الإعلانات، تعديلها، رفع الصور، حفظ المفضلة، فتح محادثة مع معلن، أو إدارة رسوم المنصة تسجيل الدخول عبر أحد مزودي الدخول المتاحين في المنصة.",
+            "يجب أن تكون بيانات الحساب صحيحة ومحدثة، ويمنع انتحال شخصية الغير أو استخدام الحساب بطريقة تضلل المستخدمين أو تسيء للمنصة.",
+            "يتحمل المستخدم مسؤولية أي نشاط يتم من حسابه، وعليه إبلاغ الإدارة عند الاشتباه في استخدام غير مصرح به.",
+            "يمكن للمستخدم حذف حسابه من صفحة الحساب، وقد يؤدي ذلك إلى حذف أو إخفاء الإعلانات والمحادثات والبيانات المرتبطة بالحساب بحسب طبيعة البيانات والالتزامات النظامية."
+          ]
+        },
+        {
+          "title": "مسؤولية المعلن والطرف المهتم",
+          "items": [
+            "المعلن مسؤول عن ملكية المنتج، صحة بيانات الإعلان، مطابقة الصور للمنتج، توضيح العيوب أو القيود المهمة، والالتزام بالأنظمة السعودية والسياسات المنشورة.",
+            "الطرف المهتم بالإعلان مسؤول عن فحص المنتج والتحقق من التفاصيل واتخاذ قرار الشراء بعناية قبل إتمام أي اتفاق أو تحويل مالي.",
+            "يمنع استخدام المنصة للاحتيال، التضليل، نشر منتجات ممنوعة، انتهاك حقوق الغير، أو محاولة تجاوز سياسات المنصة.",
+            "يجب أن تكون جميع المحادثات محترمة ومقتصرة على المنتج أو الصفقة أو الدعم المرتبط بالسوق."
+          ]
+        },
+        {
+          "title": "المحادثات والتواصل",
+          "items": [
+            "التواصل بين المعلن والطرف المهتم يتم داخل سوق حمد عندما تكون الميزة متاحة.",
+            "قد تمنع المنصة الرسائل التي تتضمن معلومات تواصل خارجية أو محاولات نقل الصفقة خارج النظام إذا كان ذلك يخالف سياسة التشغيل أو يرفع مخاطر الاحتيال.",
+            "يمكن للمعلن مشاركة رقم التواصل الرسمي المحفوظ من زر مخصص داخل المحادثة عند توفر الميزة، ويمكن لأي طرف الإبلاغ أو الحظر عند وجود إساءة.",
+            "تحويل الأموال بين أطراف الاتفاق لا يتم بواسطة سوق حمد ولا تضمنه المنصة، وأي تحويل مباشر بين الطرفين يبقى على مسؤوليتهما وقد يحمل خطر احتيال."
+          ]
+        },
+        {
+          "title": "رسوم المنصة",
+          "items": [
+            "عند إتمام بيع منتج عبر المنصة أو نتيجة مباشرة لاستخدام أدواتها، تستحق سوق حمد رسوم منصة وفق سياسة رسوم المنصة المنشورة.",
+            "يقر المعلن قبل تسجيل الدخول بأن البيع المكتمل عبر المنصة يخضع لرسوم منصة 1% من قيمة المنتج، ما لم توضح المنصة خلاف ذلك صراحة في سياسة محدثة.",
+            "إدارة رسوم المنصة لا تعني أن المنصة أصبحت طرفًا في البيع أو ضامنة للدفع بين أطراف الاتفاق."
+          ]
+        },
+        {
+          "title": "المحتوى والملكية الفكرية",
+          "items": [
+            "يجب ألا ينتهك أي إعلان أو صورة أو وصف حقوق الملكية الفكرية أو العلامات التجارية أو حقوق الصور الخاصة بالغير.",
+            "يمنح المستخدم المنصة حق استخدام المحتوى الذي يرفعه بالقدر اللازم لعرض الإعلان، تشغيل الخدمة، الفحص، الأرشفة، والتحسينات المرتبطة بالسوق.",
+            "يحق للمنصة رفض أو تعليق أو حذف أي محتوى يشتبه في مخالفته للأنظمة أو السياسات أو حقوق الغير."
+          ]
+        },
+        {
+          "title": "التقييد والإيقاف",
+          "items": [
+            "يحق للمنصة رفض أو تعليق أو حذف أي إعلان أو صورة أو رسالة تخالف الشروط أو سياسة الإعلانات.",
+            "يحق للمنصة تقييد الحساب أو إيقاف بعض الميزات عند الاشتباه في إساءة استخدام أو احتيال أو ضغط غير طبيعي على الخدمة.",
+            "قد توجد حدود تشغيلية لعدد الإعلانات، الصور، الرسائل، أو الطلبات لحماية جودة الخدمة والتكلفة والأمان."
+          ]
+        },
+        {
+          "title": "القانون المعمول به",
+          "body": "تخضع هذه الشروط للأنظمة المعمول بها في المملكة العربية السعودية. وفي حال وجود نزاع، يتم التعامل معه وفق القنوات النظامية المختصة داخل المملكة ما لم تنص الأنظمة على خلاف ذلك."
+        },
+        {
+          "title": "التغييرات على الخدمة",
+          "body": "قد يتم تطوير مزايا سوق حمد أو تعديل الحدود والسياسات وطريقة عمل الذكاء الاصطناعي مع الوقت. استمرارك في استخدام المنصة بعد نشر التحديثات أو قبولك لإقرار محدث يعني قبولك للنسخة المحدثة من الشروط والسياسات."
+        }
+      ]
+    },
+    "privacy": {
+      "path": "/privacy",
+      "title": "سياسة الخصوصية",
+      "updatedAt": "16 سبتمبر 2026",
+      "sections": [
+        {
+          "title": "من نحن ونطاق السياسة",
+          "body": "توضح هذه السياسة كيف تتعامل سوق حمد مع البيانات الشخصية والبيانات التشغيلية التي تقدمها أو تنتج عن استخدامك للمنصة. تنطبق هذه السياسة على استخدام السوق، الحساب، الإعلانات، الصور، المحادثات، المفضلة، البلاغات، رسوم المنصة، ومساعد الذكاء الاصطناعي داخل المنصة."
+        },
+        {
+          "title": "البيانات التي نعالجها",
+          "items": [
+            "بيانات الحساب الأساسية عند تسجيل الدخول مثل الاسم والبريد الإلكتروني والصورة إذا كانت متاحة من مزود الدخول.",
+            "رقم التواصل الرسمي الذي يضيفه المستخدم اختياريًا من صفحة الحساب لاستخدامه في مشاركة التواصل الرسمي داخل محادثة البيع عند توفر الميزة.",
+            "بيانات الإعلانات التي تضيفها مثل العنوان، الوصف، السعر، المدينة، التصنيف، الحالة، السمات، والصور.",
+            "المحادثات والطلبات التي ترسلها لحمد لتقديم البحث أو المقارنة أو إنشاء الإعلان أو فحص الصور أو إدارة السوق.",
+            "بيانات المحادثات الداخلية بين المعلن والطرف المهتم بالإعلان، بما في ذلك البلاغات والحظر وحالة الرسائل عند الحاجة لحماية المنصة.",
+            "بيانات تشغيلية مثل وقت الطلب، حالة الإعلان، المفضلة، المشاهدات، سجلات رسوم المنصة، الاشتراكات في الإشعارات، وسجلات الأمان الضرورية."
+          ]
+        },
+        {
+          "title": "أغراض المعالجة",
+          "items": [
+            "تشغيل ميزات السوق مثل البحث، عرض الإعلانات، إدارة الحساب، المحادثات الداخلية، المفضلة، الإشعارات، ورسوم المنصة.",
+            "مساعدة الذكاء الاصطناعي على فهم طلبك، إنشاء مسودة إعلان، مقارنة المنتجات، فحص الصور، وتحسين جودة الردود داخل حدود المنصة.",
+            "حماية المنصة والمستخدمين من المنتجات المخالفة، الصور المضللة، محاولات الاحتيال، إساءة الاستخدام، أو الوصول غير المصرح به.",
+            "إدارة البلاغات والمراجعة الإدارية والتحقق من الالتزام بسياسات المنصة.",
+            "تحسين أداء الخدمة واستقرارها وقياس الاستخدام بالقدر اللازم للتشغيل والأمان."
+          ]
+        },
+        {
+          "title": "أساس المعالجة والموافقة",
+          "items": [
+            "تعالج المنصة البيانات بالقدر اللازم لتقديم الخدمة التي يطلبها المستخدم وتشغيل الحساب والإعلانات والمحادثات.",
+            "عند قبولك لإقرار التسجيل، فإنك تقر بالاطلاع والموافقة على شروط الاستخدام وسياسة الخصوصية وسياسة الإعلانات وسياسة رسوم المنصة.",
+            "عند تقديم بيانات اختيارية مثل رقم التواصل الرسمي أو الصور أو تفاصيل الإعلان، فإنك توافق على استخدامها للغرض الذي قدمت من أجله.",
+            "يمكنك طلب مراجعة أو حذف بيانات مرتبطة بحسابك وفق ما تسمح به الأنظمة وطبيعة البيانات والالتزامات التشغيلية."
+          ]
+        },
+        {
+          "title": "الذكاء الاصطناعي ومزودو الخدمة",
+          "items": [
+            "قد تمر بعض الرسائل أو الصور عبر مزودي خدمة موثوقين لتشغيل الاستضافة، التخزين، تسجيل الدخول، معالجة الصور، أدوات الذكاء الاصطناعي، الحماية، الإشعارات، أو التحليلات التشغيلية.",
+            "تتم الاستعانة بمزودي الخدمة بالقدر اللازم لتقديم الخدمة وحماية المنصة وتحسينها، مع عدم بيع بياناتك الشخصية كمصدر مستقل.",
+            "قد تتم معالجة بعض البيانات داخل المملكة أو خارجها بحسب البنية التقنية ومزودي الخدمة، وذلك وفق الضمانات النظامية والتشغيلية المناسبة وبالقدر اللازم لتقديم الخدمة.",
+            "لا تستخدم المنصة بياناتك الشخصية الحساسة غير اللازمة للبيع أو الشراء، وتوصي بعدم إرسال معلومات حساسة غير مطلوبة داخل المحادثات أو الإعلانات."
+          ]
+        },
+        {
+          "title": "المشاركة والإفصاح",
+          "items": [
+            "تظهر بيانات الإعلان العامة للمستخدمين لأنها جزء من نشر المنتج في السوق.",
+            "قد يطلع المشرفون على الإعلانات والبلاغات والمحادثات عند الحاجة للمراجعة أو حماية المنصة أو التعامل مع إساءة استخدام.",
+            "قد يتم الإفصاح عن بيانات محددة إذا تطلب ذلك نظام نافذ أو طلب رسمي من جهة مختصة أو كان ضروريًا لحماية الحقوق أو منع الاحتيال.",
+            "لا يتم بيع بياناتك الشخصية كمصدر مستقل، ولا يتم استخدامها لإرسال تسويق خارجي غير مرتبط بالخدمة دون أساس مناسب."
+          ]
+        },
+        {
+          "title": "الاحتفاظ والحذف",
+          "items": [
+            "تحتفظ المنصة بالبيانات ما دامت لازمة لتشغيل الحساب والخدمة أو الوفاء بالتزامات نظامية أو حماية حقوق المنصة والمستخدمين.",
+            "قد تبقى بعض السجلات لفترة معقولة بعد حذف الحساب إذا كانت لازمة للأمان، البلاغات، النزاعات، رسوم المنصة، أو الامتثال النظامي.",
+            "عند حذف الحساب، يتم حذف أو تعطيل البيانات المرتبطة بالحساب بحسب علاقات قاعدة البيانات الحالية وطبيعة كل سجل.",
+            "قد تحتفظ المنصة بنسخ احتياطية أو سجلات تقنية لفترة محدودة إلى حين تدويرها أو حذفها ضمن دورة التشغيل المعتادة."
+          ]
+        },
+        {
+          "title": "حقوقك",
+          "items": [
+            "يحق لك طلب العلم بالبيانات الشخصية التي تعالجها المنصة عنك والغرض من معالجتها.",
+            "يحق لك طلب الوصول إلى بياناتك الشخصية المتاحة لدى المنصة متى كان ذلك ممكنًا نظاميًا وتشغيليًا.",
+            "يحق لك طلب تصحيح بياناتك إذا كانت غير دقيقة أو غير مكتملة.",
+            "يحق لك طلب حذف بياناتك أو إتلافها عندما لا تعود لازمة، مع مراعاة الاستثناءات النظامية أو التشغيلية.",
+            "يحق لك سحب الموافقة على معالجة اختيارية متى كان الاعتماد عليها قائمًا على الموافقة، مع العلم أن ذلك قد يؤثر على بعض الميزات.",
+            "يمكنك التواصل مع إدارة المنصة بخصوص طلبات الخصوصية أو الشكاوى عبر البريد الموضح في صفحات السياسات."
+          ]
+        },
+        {
+          "title": "الأمان",
+          "items": [
+            "تستخدم المنصة ضوابط تقنية وتنظيمية مناسبة لحماية الحسابات والطلبات والبيانات من الوصول غير المصرح به أو إساءة الاستخدام.",
+            "لا توجد خدمة رقمية خالية تمامًا من المخاطر، لذلك يجب على المستخدم عدم مشاركة معلومات حساسة أو بيانات دفع مباشرة داخل المحادثات إلا بقدر الضرورة وعلى مسؤوليته.",
+            "عند حدوث حادث أمني مؤثر على البيانات الشخصية، تتخذ المنصة الإجراءات المناسبة بحسب طبيعة الحادث والمتطلبات النظامية."
+          ]
+        },
+        {
+          "title": "ملفات تعريف الارتباط والتخزين المحلي",
+          "items": [
+            "قد تستخدم المنصة ملفات تعريف ارتباط أو تخزينًا محليًا لتسجيل الدخول، حفظ تفضيلات الواجهة، حماية الجلسة، تشغيل الإقرار، وتحسين التجربة.",
+            "تعطيل بعض ملفات تعريف الارتباط أو التخزين المحلي قد يؤثر على تسجيل الدخول أو استمرار الجلسة أو بعض ميزات المنصة."
+          ]
+        },
+        {
+          "title": "تحديث السياسة",
+          "body": "قد يتم تحديث هذه السياسة عند تطوير الخدمة أو تغير المتطلبات النظامية أو التشغيلية. سيتم نشر تاريخ آخر تحديث، وقد تطلب المنصة إقرارًا محدثًا عند وجود تغييرات جوهرية."
+        }
+      ]
+    },
+    "listings": {
+      "path": "/listing-policy",
+      "title": "سياسة الإعلانات",
+      "updatedAt": "16 سبتمبر 2026",
+      "sections": [
+        {
+          "title": "هدف السياسة",
+          "body": "تهدف سياسة الإعلانات إلى إبقاء السوق واضحًا وآمنًا وموثوقًا. يجب أن يصف الإعلان المنتج الحقيقي المعروض للبيع، وأن تكون الصور والبيانات مطابقة للواقع قدر الإمكان، وأن يلتزم الإعلان بالأنظمة المعمول بها في المملكة العربية السعودية وسياسات المنصة."
+        },
+        {
+          "title": "قواعد الإعلان الصحيح",
+          "items": [
+            "اكتب عنوانًا ووصفًا يوضحان المنتج، حالته، المدينة، السعر أو طريقة البيع، وأي عيوب أو ملاحظات مهمة.",
+            "استخدم صورًا حقيقية للمنتج نفسه، ولا تستخدم صورة لمنتج آخر أو صورة مضللة أو معدلة بطريقة تغيّر الحقيقة.",
+            "لا تضع وعودًا أو مواصفات غير مؤكدة أو معلومات قد تضلل الطرف المهتم بالإعلان.",
+            "إذا تغيّرت حالة المنتج أو السعر أو توفره، يجب تحديث الإعلان أو إيقافه.",
+            "لا يجوز تكرار الإعلان أو نشر إعلان مشابه بطريقة تهدف إلى إغراق نتائج البحث أو إرباك المستخدمين."
+          ]
+        },
+        {
+          "title": "المنتجات والمحتويات الممنوعة",
+          "items": [
+            "المسكرات أو المخدرات أو أي مواد محظورة نظاميًا.",
+            "الأسلحة والذخيرة والمتفجرات والألعاب النارية أو ما يشابهها، إلا إذا وجدت سياسة مرخصة ومعلنة مستقبلًا.",
+            "أجهزة التجسس أو التنصت أو الكاميرات المخفية أو كواشف الرادار أو الأدوات التي تساعد على مخالفة الأنظمة.",
+            "المحتوى الفاضح أو المقامر أو المخالف للقيم الإسلامية أو الأنظمة المحلية.",
+            "المنتجات المقلدة أو المزورة أو المسروقة أو التي لا يملك المعلن حق بيعها.",
+            "المنتجات الطبية أو الجنسية أو الحساسة غير المرخصة أو غير الواضحة.",
+            "أي سلعة أو خدمة تتطلب ترخيصًا خاصًا ولا يملك المعلن ما يثبت نظامية عرضها عند طلب المنصة ذلك.",
+            "أي إعلان ينتهك حقوق الملكية الفكرية أو العلامات التجارية أو حقوق الصور الخاصة بالغير."
+          ]
+        },
+        {
+          "title": "السلع عالية المخاطر أو المنظمة",
+          "items": [
+            "قد تخضع بعض الإعلانات للمراجعة اليدوية أو الرفض إذا كانت تتعلق بمنتجات منظمة أو عالية المخاطر أو غير واضحة.",
+            "قد تطلب المنصة تعديل الإعلان أو توضيح البيانات أو إزالة صور معينة قبل النشر.",
+            "قبول الإعلان آليًا أو نشره لا يعني ضمان نظامية المنتج أو سلامته أو صحة بياناته، ويبقى المعلن مسؤولًا عن ذلك."
+          ]
+        },
+        {
+          "title": "سياسة الصور",
+          "items": [
+            "قد تفحص سوق حمد الصور آليًا قبل قبولها أو استخدامها في الإعلان.",
+            "إذا بدت الصورة غير مطابقة لوصف الإعلان، قد يتم رفضها أو تحويل الإعلان للمراجعة.",
+            "إذا احتوت الصورة على معلومات حساسة، قد تطلب المنصة صورة بديلة أو توصي بإخفاء المعلومات الحساسة دون تغيير حقيقة المنتج.",
+            "قد يتم تقييد عدد الصور أو حجمها أو جودتها لكل إعلان حسب إعدادات المنصة."
+          ]
+        },
+        {
+          "title": "التعديل بعد النشر",
+          "items": [
+            "عند تعديل العنوان أو الوصف أو التصنيف أو الصور، قد يعيد النظام فحص الإعلان.",
+            "إذا أصبح الإعلان بعد التعديل مخالفًا أو حساسًا، قد ينتقل إلى المراجعة أو يتم رفضه أو إيقافه.",
+            "لا يجوز استخدام تعديل الإعلان لتغيير المنتج المعروض إلى منتج مختلف تمامًا بطريقة تربك المهتمين بالإعلان أو تخالف السياسة."
+          ]
+        },
+        {
+          "title": "المراجعة والبلاغات",
+          "items": [
+            "يمكن للمستخدمين الإبلاغ عن الإعلانات المشبوهة أو المضللة أو المخالفة.",
+            "قد يراجع المشرفون الإعلانات والبلاغات ويتخذون قرار النشر أو الإيقاف أو الحذف.",
+            "الذكاء الاصطناعي يساعد في المراجعة، لكن القرار الإداري النهائي قد يتطلب مراجعة بشرية في الحالات الحساسة.",
+            "قد يؤدي تكرار المخالفات إلى تقييد الحساب أو إيقاف بعض الميزات أو حذف المحتوى المخالف."
+          ]
+        }
+      ]
+    },
+    "commissions": {
+      "path": "/commission-policy",
+      "title": "سياسة رسوم المنصة",
+      "updatedAt": "16 سبتمبر 2026",
+      "sections": [
+        {
+          "title": "نسبة رسوم المنصة",
+          "body": "تستحق سوق حمد رسوم منصة قدرها 1% من قيمة المنتج عندما تتم عملية البيع من خلال المنصة أو نتيجة مباشرة لاستخدام أدواتها أو محادثاتها الداخلية، ما لم توضح المنصة خلاف ذلك في سياسة محدثة."
+        },
+        {
+          "title": "متى تستحق رسوم المنصة",
+          "items": [
+            "تستحق رسوم المنصة عند اتفاق المعلن والطرف المهتم وإتمام البيع المرتبط بإعلان منشور أو تواصل تم عبر المنصة.",
+            "عند قيام المعلن بتعيين الإعلان كمباع، ينشئ النظام سجل رسوم بنسبة 1% من قيمة البيع.",
+            "إذا كان الإعلان بسعر غير محدد أو على السوم، يطلب النظام من المعلن إدخال قيمة البيع النهائية لحساب الرسوم.",
+            "إذا لم تتم الصفقة فعليًا، أو حدث نزاع واضح حول إتمام البيع، يمكن للإدارة مراجعة الحالة وتحديث سجل الرسوم حسب المعطيات المتاحة."
+          ]
+        },
+        {
+          "title": "مسؤولية المعلن",
+          "items": [
+            "يقر المعلن قبل تسجيل الدخول بأن البيع المكتمل عبر سوق حمد يخضع لرسوم منصة 1%.",
+            "يجب على المعلن إدخال قيمة البيع النهائية بشكل صحيح إذا لم تكن محددة في الإعلان.",
+            "يجب عدم استخدام المنصة لجلب طرف مهتم ثم نقل الصفقة خارج النظام بهدف تجنب رسوم المنصة أو التحايل على سياسات المنصة.",
+            "يتحمل المعلن مسؤولية صحة بيانات البيع وحالة المنتج وأي اتفاق يبرمه مع الطرف الآخر."
+          ]
+        },
+        {
+          "title": "دور المنصة وحدود المسؤولية",
+          "items": [
+            "تعرض المنصة سجلات الرسوم للمعلن في صفحة رسوم المنصة عند توفرها.",
+            "يمكن للمشرفين مراجعة حالة الرسوم وتحديثها عند الدفع أو النزاع أو الإعفاء.",
+            "لا تصبح سوق حمد طرفًا مالكًا للمنتج أو ضامنًا للدفع بين أطراف الاتفاق.",
+            "تحويل الأموال بين أطراف الاتفاق ليس مسؤولية المنصة ولا يتم بواسطتها، وأي تحويل مباشر بين الطرفين يبقى على مسؤوليتهما وقد يحمل خطر احتيال."
+          ]
+        },
+        {
+          "title": "حالات الرسوم",
+          "items": [
+            "مستحقة: عندما تكون قيمة البيع واضحة وتم حساب الرسوم.",
+            "بانتظار قيمة البيع: عندما يتم وضع الإعلان كمباع دون سعر رقمي واضح.",
+            "مدفوعة: عندما يتم تسجيل سداد الرسوم من الإدارة.",
+            "متنازع عليها أو معفاة: عندما تقرر الإدارة ذلك بعد مراجعة الحالة."
+          ]
+        },
+        {
+          "title": "طرق دفع رسوم المنصة",
+          "items": [
+            "يمكن للمعلن سداد رسوم المنصة عبر وسائل الدفع المعتمدة التي تظهر داخل صفحة رسوم المنصة عند توفرها.",
+            "يجب الاعتماد فقط على بيانات الدفع الظاهرة داخل صفحة رسوم المنصة في حساب المعلن، وعدم التحويل إلى أي بيانات تُرسل خارج المنصة.",
+            "بعد السداد، يحتفظ المعلن بصورة الإيصال حتى تتمكن الإدارة من مراجعة حالة الرسوم وتحديثها."
+          ]
+        },
+        {
+          "title": "التحديثات المستقبلية",
+          "body": "قد تتطور طريقة تحصيل رسوم المنصة أو وسائل الدفع أو إدارة الفواتير لاحقًا. سيتم توضيح أي تغييرات مهمة في هذه السياسة أو داخل واجهة المنصة، وقد تطلب المنصة إقرارًا محدثًا عند وجود تغيير جوهري."
+        }
+      ]
+    },
+    "deletion": {
+      "path": "/delete-account",
+      "title": "حذف الحساب",
+      "updatedAt": "12 أكتوبر 2026",
+      "sections": [
+        {
+          "title": "طريقة حذف الحساب من داخل التطبيق",
+          "items": [
+            "افتح تطبيق سوق حمد وسجل الدخول إلى الحساب المطلوب حذفه.",
+            "انتقل إلى حسابي ثم إعدادات الحساب أو إدارة الحساب.",
+            "اختر حذف الحساب إذا كان الخيار متاحًا، ثم أكد الطلب من النافذة التي تظهر لك.",
+            "بعد تأكيد الطلب يتم تعطيل الحساب وبدء معالجة حذف البيانات المرتبطة به حسب طبيعة البيانات والالتزامات التشغيلية أو النظامية."
+          ]
+        },
+        {
+          "title": "طلب الحذف عبر الدعم",
+          "body": "إذا لم يظهر خيار حذف الحساب داخل التطبيق أو تعذر عليك تسجيل الدخول، يمكنك طلب حذف الحساب بإرسال رسالة إلى support@souqhamad.com من البريد المرتبط بحسابك، مع كتابة عبارة \"طلب حذف حساب\" وذكر البريد أو طريقة تسجيل الدخول المستخدمة في الحساب."
+        },
+        {
+          "title": "البيانات التي يتم حذفها",
+          "items": [
+            "بيانات الحساب الأساسية المرتبطة بالمستخدم، مثل الاسم والبريد والصورة عند توفرها.",
+            "الإعلانات والصور والبيانات المرتبطة بالحساب، أو إخفاؤها إذا كانت هناك حاجة تشغيلية أو نظامية للاحتفاظ بسجل محدود.",
+            "المفضلة واشتراكات الإشعارات ورموز الأجهزة المرتبطة بالحساب.",
+            "المحادثات والطلبات المرتبطة بالحساب وفق ما تسمح به بنية الخدمة ومتطلبات حماية المستخدمين ومنع إساءة الاستخدام."
+          ]
+        },
+        {
+          "title": "بيانات قد يتم الاحتفاظ بها مؤقتًا",
+          "items": [
+            "سجلات الأمان ومنع الاحتيال وإساءة الاستخدام لفترة محدودة عند الحاجة.",
+            "البلاغات أو النزاعات أو السجلات المطلوبة لحماية حقوق المنصة أو المستخدمين أو للامتثال للأنظمة.",
+            "النسخ الاحتياطية التقنية إلى حين تدويرها أو حذفها ضمن دورة التشغيل المعتادة.",
+            "أي بيانات يلزم الاحتفاظ بها بموجب التزام نظامي أو تشغيلي مشروع."
+          ]
+        },
+        {
+          "title": "مدة المعالجة",
+          "body": "نعمل على مراجعة طلبات حذف الحساب ومعالجتها خلال مدة معقولة بعد التحقق من ملكية الحساب. قد تستغرق إزالة بعض البيانات من النسخ الاحتياطية أو السجلات التقنية وقتًا إضافيًا ضمن دورة التشغيل المعتادة."
+        },
+        {
+          "title": "ملاحظات مهمة",
+          "items": [
+            "حذف الحساب قد يؤدي إلى فقدان الوصول إلى الإعلانات والمحادثات والمفضلة والإشعارات المرتبطة به.",
+            "لا تطلب إدارة سوق حمد كلمة المرور أو رموز الدخول السرية لإتمام حذف الحساب.",
+            "يمكنك مراجعة سياسة الخصوصية لمعرفة تفاصيل أوسع عن معالجة البيانات والاحتفاظ بها."
+          ]
+        }
+      ]
+    }
+  },
+  "attributes": {
+    "categoryOption": "marketplaceCategoryOption",
+    "carModel": "marketplaceCarModel"
+  }
+}

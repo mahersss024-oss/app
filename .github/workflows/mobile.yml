@@ -1,0 +1,33 @@
+name: Native Mobile
+on:
+  pull_request:
+    paths: ['src/**', 'assets/**', 'plugins/**', 'scripts/**', 'tests/**', '*.json', '*.ts', '*.js', 'pnpm-lock.yaml', '.npmrc', 'codemagic.yaml', '.github/workflows/mobile.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  mobile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10.32.1
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm typecheck
+      - run: pnpm lint
+      - run: node --experimental-strip-types --test tests/native-transport.test.mjs
+      - run: node --test tests/native-upload.test.cjs
+      - run: node --test tests/native-configuration.test.cjs
+      - run: pnpm export
+      - uses: actions/upload-artifact@v4
+        with:
+          name: mobile-javascript-bundles
+          path: dist/
+          retention-days: 7
