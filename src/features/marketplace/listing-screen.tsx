@@ -9,9 +9,11 @@ import {
   Share,
   StyleSheet,
   View,
+  type ScrollViewInstance,
 } from "react-native";
 import { useLocalSearchParams, router } from "expo-router";
 import { Image } from "expo-image";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import * as Crypto from "expo-crypto";
 import { api, assetUrl, getApiBaseUrl } from "../../core/api";
@@ -36,6 +38,7 @@ import {
   fonts,
   formatPrice,
 } from "../../ui";
+import { ZoomableGalleryImage } from "../../ui/zoomable-gallery-image";
 type SimilarFollowState = {
   status: "ok" | "followed" | "unfollowed";
   isFollowing: boolean;
@@ -48,6 +51,8 @@ export default function ListingScreen() {
   const qc = useQueryClient();
   const [index, setIndex] = useState(0);
   const [gallery, setGallery] = useState(false);
+  const galleryPager = useRef<ScrollViewInstance | null>(null);
+  const galleryWidth = Dimensions.get("window").width;
   const [report, setReport] = useState(false);
   const [reason, setReason] = useState("");
   const [error, setError] = useState("");
@@ -535,34 +540,51 @@ export default function ListingScreen() {
         transparent
         animationType="fade"
         onRequestClose={() => setGallery(false)}
+        onShow={() =>
+          galleryPager.current?.scrollTo({
+            x: galleryWidth * index,
+            animated: false,
+          })
+        }
       >
-        <View style={s.gallery}>
-          <Pressable
-            accessibilityLabel="إغلاق الصور"
-            style={s.close}
-            onPress={() => setGallery(false)}
-          >
-            <Icon name="close" color="white" size={28} />
-          </Pressable>
-          <ScrollView
-            horizontal
-            pagingEnabled
-            showsHorizontalScrollIndicator={false}
-            contentOffset={{ x: Dimensions.get("window").width * index, y: 0 }}
-          >
-            {images.map((photo) => (
-              <Image
-                key={photo.id}
-                source={assetUrl(photo.displayUrl || photo.originalUrl)}
-                contentFit="contain"
-                style={{
-                  width: Dimensions.get("window").width,
-                  height: "100%",
-                }}
-              />
-            ))}
-          </ScrollView>
-        </View>
+        <GestureHandlerRootView style={{ flex: 1 }}>
+          <View style={s.gallery}>
+            <Pressable
+              accessibilityLabel="إغلاق الصور"
+              style={s.close}
+              onPress={() => setGallery(false)}
+            >
+              <Icon name="close" color="white" size={28} />
+            </Pressable>
+            <ScrollView
+              ref={galleryPager}
+              horizontal
+              pagingEnabled
+              showsHorizontalScrollIndicator={false}
+              onMomentumScrollEnd={({ nativeEvent }) =>
+                setIndex(
+                  Math.round(nativeEvent.contentOffset.x / galleryWidth),
+                )
+              }
+            >
+              {images.map((photo, i) => (
+                <ZoomableGalleryImage
+                  key={`${photo.id}-${gallery ? "open" : "closed"}-${index}`}
+                  source={assetUrl(photo.displayUrl || photo.originalUrl)}
+                  accessibilityLabel={`صورة الإعلان ${i + 1} من ${images.length}`}
+                />
+              ))}
+            </ScrollView>
+            <View style={s.galleryFooter} pointerEvents="none">
+              <AppText style={s.galleryCounter}>
+                {images.length ? `${index + 1} / ${images.length}` : "0 / 0"}
+              </AppText>
+              <AppText style={s.galleryHint}>
+                قرّب إصبعين للتكبير · انقر مرتين للتكبير
+              </AppText>
+            </View>
+          </View>
+        </GestureHandlerRootView>
       </Modal>
       <Modal
         visible={report}
@@ -675,4 +697,21 @@ const s = StyleSheet.create({
     backgroundColor: "#FFFFFF18",
     borderRadius: 22,
   },
+  galleryFooter: {
+    position: "absolute",
+    bottom: 36,
+    left: 20,
+    right: 20,
+    alignItems: "center",
+    gap: 8,
+  },
+  galleryCounter: {
+    color: "white",
+    backgroundColor: "#14243A99",
+    paddingHorizontal: 12,
+    paddingVertical: 5,
+    borderRadius: 14,
+    fontSize: 13,
+  },
+  galleryHint: { color: "#FFFFFFCC", fontSize: 12 },
 });

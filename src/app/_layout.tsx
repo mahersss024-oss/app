@@ -15,6 +15,7 @@ import {
   IBMPlexSansArabic_600SemiBold,
 } from "@expo-google-fonts/ibm-plex-sans-arabic";
 import * as SplashScreen from "expo-splash-screen";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { AuthProvider, useAuth } from "../core/auth";
 import { useNativePushLifecycle } from "../core/push";
 import { useRealtime } from "../core/realtime";
@@ -51,27 +52,29 @@ export default function RootLayout() {
   if (!loaded && !error)
     return <View style={{ flex: 1, backgroundColor: colors.background }} />;
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <AuthProvider>
-          <AppLifecycle />
-          <StatusBar style="dark" />
-          <Stack
-            screenOptions={{
-              headerShown: false,
-              contentStyle: { backgroundColor: colors.background },
-              animation:
-                Platform.OS === "android"
-                  ? "fade_from_bottom"
-                  : "slide_from_right",
-              headerTitleStyle: { fontFamily: fonts.bold },
-            }}
-          >
-            <Stack.Screen name="(tabs)" />
-            <Stack.Screen name="auth" options={{ presentation: "modal" }} />
-          </Stack>
-        </AuthProvider>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <AuthProvider>
+            <AppLifecycle />
+            <StatusBar style="dark" />
+            <Stack
+              screenOptions={{
+                headerShown: false,
+                contentStyle: { backgroundColor: colors.background },
+                animation:
+                  Platform.OS === "android"
+                    ? "fade_from_bottom"
+                    : "slide_from_right",
+                headerTitleStyle: { fontFamily: fonts.bold },
+              }}
+            >
+              <Stack.Screen name="(tabs)" />
+              <Stack.Screen name="auth" options={{ presentation: "modal" }} />
+            </Stack>
+          </AuthProvider>
+        </QueryClientProvider>
+      </SafeAreaProvider>
+    </GestureHandlerRootView>
   );
 }
