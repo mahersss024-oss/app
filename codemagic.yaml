@@ -18,6 +18,7 @@ workflows:
       java: 17
       vars:
         APP_VARIANT: production
+        EXPO_PUBLIC_API_URL: https://souqhamad.com
     scripts:
       - name: Install pinned pnpm locally
         script: |
@@ -85,6 +86,7 @@ workflows:
         bundle_identifier: com.souqhamad.app
       vars:
         APP_VARIANT: production
+        EXPO_PUBLIC_API_URL: https://souqhamad.com
     scripts:
       - name: Install pinned pnpm locally
         script: |

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import {
@@ -20,6 +20,7 @@ import { AuthProvider, useAuth } from "../core/auth";
 import { useNativePushLifecycle } from "../core/push";
 import { useRealtime } from "../core/realtime";
 import { colors, fonts } from "../ui/theme";
+import { BrandWelcomeSplash } from "../features/welcome/brand-welcome";
 void SplashScreen.preventAutoHideAsync().catch(() => {});
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -41,6 +42,8 @@ function AppLifecycle() {
   return null;
 }
 export default function RootLayout() {
+  const [welcomeVisible, setWelcomeVisible] = useState(true);
+  const finishWelcome = useCallback(() => setWelcomeVisible(false), []);
   const [loaded, error] = useFonts({
     ArabicRegular: IBMPlexSansArabic_400Regular,
     ArabicMedium: IBMPlexSansArabic_500Medium,
@@ -57,7 +60,7 @@ export default function RootLayout() {
         <QueryClientProvider client={queryClient}>
           <AuthProvider>
             <AppLifecycle />
-            <StatusBar style="dark" />
+            <StatusBar style={welcomeVisible ? "light" : "dark"} />
             <Stack
               screenOptions={{
                 headerShown: false,
@@ -72,6 +75,7 @@ export default function RootLayout() {
               <Stack.Screen name="(tabs)" />
               <Stack.Screen name="auth" options={{ presentation: "modal" }} />
             </Stack>
+            {welcomeVisible && <BrandWelcomeSplash onFinish={finishWelcome} />}
           </AuthProvider>
         </QueryClientProvider>
       </SafeAreaProvider>

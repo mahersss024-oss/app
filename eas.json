@@ -13,7 +13,10 @@
     },
     "production": {
       "autoIncrement": true,
-      "env": { "APP_VARIANT": "production" }
+      "env": {
+        "APP_VARIANT": "production",
+        "EXPO_PUBLIC_API_URL": "https://souqhamad.com"
+      }
     }
   },
   "submit": { "production": {} }

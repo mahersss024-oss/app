@@ -84,9 +84,9 @@ export default function config({ config }: ConfigContext): ExpoConfig {
       [
         "expo-splash-screen",
         {
-          image: "./assets/brand.png",
-          imageWidth: 120,
-          backgroundColor: "#F5F7FB",
+          image: "./assets/hamad-market-wordmark.png",
+          imageWidth: 260,
+          backgroundColor: "#0D2B28",
         },
       ],
       ...(googleIosScheme
